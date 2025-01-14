@@ -27,7 +27,6 @@ Partial Class liveoutput
         Me.lbl_target = New System.Windows.Forms.Label()
         Me.lbl_output = New System.Windows.Forms.Label()
         Me.lbl_actual = New System.Windows.Forms.Label()
-        Me.cmb_line = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Guna2Panel3 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -35,21 +34,21 @@ Partial Class liveoutput
         Me.lbl_model = New System.Windows.Forms.Label()
         Me.lbl_partcode = New System.Windows.Forms.Label()
         Me.lbl_plan = New System.Windows.Forms.Label()
+        Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.lbl_cycle = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.radial = New Guna.UI2.WinForms.Guna2RadialGauge()
         Me.lbl_percent = New System.Windows.Forms.Label()
-        Me.lbl_cycle = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.radial = New Guna.UI2.WinForms.Guna2RadialGauge()
         Me.panel_output.SuspendLayout()
         Me.Guna2Panel3.SuspendLayout()
+        Me.Guna2Panel2.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.Guna2Panel4.SuspendLayout()
-        Me.Guna2Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'panel_output
@@ -104,29 +103,11 @@ Partial Class liveoutput
         Me.lbl_actual.TabIndex = 17
         Me.lbl_actual.Text = "0000"
         '
-        'cmb_line
-        '
-        Me.cmb_line.BackColor = System.Drawing.Color.Transparent
-        Me.cmb_line.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.cmb_line.DropDownHeight = 300
-        Me.cmb_line.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmb_line.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cmb_line.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cmb_line.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.cmb_line.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.cmb_line.IntegralHeight = False
-        Me.cmb_line.ItemHeight = 30
-        Me.cmb_line.Location = New System.Drawing.Point(114, 9)
-        Me.cmb_line.Name = "cmb_line"
-        Me.cmb_line.Size = New System.Drawing.Size(97, 36)
-        Me.cmb_line.TabIndex = 10
-        '
         'Guna2Panel3
         '
         Me.Guna2Panel3.BorderColor = System.Drawing.Color.Gray
         Me.Guna2Panel3.BorderThickness = 2
         Me.Guna2Panel3.Controls.Add(Me.Label4)
-        Me.Guna2Panel3.Controls.Add(Me.cmb_line)
         Me.Guna2Panel3.Controls.Add(Me.Label5)
         Me.Guna2Panel3.Controls.Add(Me.cmb_partcode)
         Me.Guna2Panel3.Controls.Add(Me.lbl_model)
@@ -144,14 +125,14 @@ Partial Class liveoutput
         '
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Label4.Location = New System.Drawing.Point(13, 9)
+        Me.Label4.Location = New System.Drawing.Point(4, 10)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(94, 17)
+        Me.Label4.Size = New System.Drawing.Size(107, 32)
         Me.Label4.TabIndex = 11
-        Me.Label4.Text = "Line , Partcode"
+        Me.Label4.Text = "Partcode"
         '
         'Label5
         '
@@ -174,12 +155,12 @@ Partial Class liveoutput
         Me.cmb_partcode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmb_partcode.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.cmb_partcode.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cmb_partcode.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmb_partcode.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmb_partcode.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.cmb_partcode.ItemHeight = 30
-        Me.cmb_partcode.Location = New System.Drawing.Point(217, 9)
+        Me.cmb_partcode.Location = New System.Drawing.Point(128, 9)
         Me.cmb_partcode.Name = "cmb_partcode"
-        Me.cmb_partcode.Size = New System.Drawing.Size(206, 36)
+        Me.cmb_partcode.Size = New System.Drawing.Size(247, 36)
         Me.cmb_partcode.TabIndex = 25
         '
         'lbl_model
@@ -224,6 +205,66 @@ Partial Class liveoutput
         Me.lbl_plan.Text = "000"
         Me.lbl_plan.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         '
+        'Guna2Panel2
+        '
+        Me.Guna2Panel2.BorderColor = System.Drawing.Color.Gray
+        Me.Guna2Panel2.BorderRadius = 10
+        Me.Guna2Panel2.BorderThickness = 7
+        Me.Guna2Panel2.Controls.Add(Me.Label6)
+        Me.Guna2Panel2.Controls.Add(Me.lbl_cycle)
+        Me.Guna2Panel2.Controls.Add(Me.Label7)
+        Me.Guna2Panel2.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Guna2Panel2.FillColor = System.Drawing.Color.White
+        Me.Guna2Panel2.Location = New System.Drawing.Point(626, 0)
+        Me.Guna2Panel2.Name = "Guna2Panel2"
+        Me.Guna2Panel2.Size = New System.Drawing.Size(241, 224)
+        Me.Guna2Panel2.TabIndex = 31
+        '
+        'Label6
+        '
+        Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label6.Location = New System.Drawing.Point(19, 10)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(202, 47)
+        Me.Label6.TabIndex = 29
+        Me.Label6.Text = "CYCLE TIME"
+        '
+        'lbl_cycle
+        '
+        Me.lbl_cycle.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lbl_cycle.AutoSize = True
+        Me.lbl_cycle.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_cycle.Font = New System.Drawing.Font("Segoe UI", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_cycle.ForeColor = System.Drawing.Color.DimGray
+        Me.lbl_cycle.Location = New System.Drawing.Point(4, 9)
+        Me.lbl_cycle.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbl_cycle.Name = "lbl_cycle"
+        Me.lbl_cycle.Padding = New System.Windows.Forms.Padding(0, 30, 0, 0)
+        Me.lbl_cycle.Size = New System.Drawing.Size(246, 158)
+        Me.lbl_cycle.TabIndex = 28
+        Me.lbl_cycle.Text = "00.0"
+        Me.lbl_cycle.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.Color.Transparent
+        Me.Label7.Font = New System.Drawing.Font("Segoe UI Semibold", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.DimGray
+        Me.Label7.Location = New System.Drawing.Point(37, 125)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Padding = New System.Windows.Forms.Padding(0, 30, 0, 0)
+        Me.Label7.Size = New System.Drawing.Size(166, 80)
+        Me.Label7.TabIndex = 30
+        Me.Label7.Text = "sec/item"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        '
         'Timer1
         '
         Me.Timer1.Interval = 5000
@@ -265,6 +306,20 @@ Partial Class liveoutput
         Me.Guna2Panel4.Size = New System.Drawing.Size(867, 435)
         Me.Guna2Panel4.TabIndex = 38
         '
+        'lbl_percent
+        '
+        Me.lbl_percent.AutoSize = True
+        Me.lbl_percent.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_percent.Dock = System.Windows.Forms.DockStyle.Right
+        Me.lbl_percent.Font = New System.Drawing.Font("Segoe UI", 99.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_percent.ForeColor = System.Drawing.Color.Black
+        Me.lbl_percent.Location = New System.Drawing.Point(601, 0)
+        Me.lbl_percent.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbl_percent.Name = "lbl_percent"
+        Me.lbl_percent.Size = New System.Drawing.Size(266, 175)
+        Me.lbl_percent.TabIndex = 24
+        Me.lbl_percent.Text = "0%"
+        '
         'radial
         '
         Me.radial.ArrowColor = System.Drawing.SystemColors.ControlDarkDark
@@ -283,87 +338,13 @@ Partial Class liveoutput
         Me.radial.TabIndex = 25
         Me.radial.UseTransparentBackground = True
         '
-        'lbl_percent
-        '
-        Me.lbl_percent.AutoSize = True
-        Me.lbl_percent.BackColor = System.Drawing.Color.Transparent
-        Me.lbl_percent.Dock = System.Windows.Forms.DockStyle.Right
-        Me.lbl_percent.Font = New System.Drawing.Font("Segoe UI", 99.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_percent.ForeColor = System.Drawing.Color.Black
-        Me.lbl_percent.Location = New System.Drawing.Point(601, 0)
-        Me.lbl_percent.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbl_percent.Name = "lbl_percent"
-        Me.lbl_percent.Size = New System.Drawing.Size(266, 175)
-        Me.lbl_percent.TabIndex = 24
-        Me.lbl_percent.Text = "0%"
-        '
-        'lbl_cycle
-        '
-        Me.lbl_cycle.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lbl_cycle.AutoSize = True
-        Me.lbl_cycle.BackColor = System.Drawing.Color.Transparent
-        Me.lbl_cycle.Font = New System.Drawing.Font("Segoe UI", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_cycle.ForeColor = System.Drawing.Color.DimGray
-        Me.lbl_cycle.Location = New System.Drawing.Point(4, 9)
-        Me.lbl_cycle.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbl_cycle.Name = "lbl_cycle"
-        Me.lbl_cycle.Padding = New System.Windows.Forms.Padding(0, 30, 0, 0)
-        Me.lbl_cycle.Size = New System.Drawing.Size(246, 158)
-        Me.lbl_cycle.TabIndex = 28
-        Me.lbl_cycle.Text = "00.0"
-        Me.lbl_cycle.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'Label6
-        '
-        Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label6.AutoSize = True
-        Me.Label6.BackColor = System.Drawing.Color.Transparent
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Label6.Location = New System.Drawing.Point(19, 10)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(202, 47)
-        Me.Label6.TabIndex = 29
-        Me.Label6.Text = "CYCLE TIME"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.BackColor = System.Drawing.Color.Transparent
-        Me.Label7.Font = New System.Drawing.Font("Segoe UI Semibold", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.DimGray
-        Me.Label7.Location = New System.Drawing.Point(37, 125)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Padding = New System.Windows.Forms.Padding(0, 30, 0, 0)
-        Me.Label7.Size = New System.Drawing.Size(166, 80)
-        Me.Label7.TabIndex = 30
-        Me.Label7.Text = "sec/item"
-        Me.Label7.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'Guna2Panel2
-        '
-        Me.Guna2Panel2.BorderColor = System.Drawing.Color.Gray
-        Me.Guna2Panel2.BorderRadius = 10
-        Me.Guna2Panel2.BorderThickness = 7
-        Me.Guna2Panel2.Controls.Add(Me.Label6)
-        Me.Guna2Panel2.Controls.Add(Me.lbl_cycle)
-        Me.Guna2Panel2.Controls.Add(Me.Label7)
-        Me.Guna2Panel2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Guna2Panel2.FillColor = System.Drawing.Color.White
-        Me.Guna2Panel2.Location = New System.Drawing.Point(626, 0)
-        Me.Guna2Panel2.Name = "Guna2Panel2"
-        Me.Guna2Panel2.Size = New System.Drawing.Size(241, 224)
-        Me.Guna2Panel2.TabIndex = 31
-        '
         'liveoutput
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.AutoScrollMargin = New System.Drawing.Size(0, 50)
-        Me.ClientSize = New System.Drawing.Size(884, 1561)
+        Me.ClientSize = New System.Drawing.Size(884, 1061)
         Me.Controls.Add(Me.Guna2Panel4)
         Me.Controls.Add(Me.panel_output)
         Me.Controls.Add(Me.Guna2Panel1)
@@ -375,12 +356,12 @@ Partial Class liveoutput
         Me.panel_output.PerformLayout()
         Me.Guna2Panel3.ResumeLayout(False)
         Me.Guna2Panel3.PerformLayout()
+        Me.Guna2Panel2.ResumeLayout(False)
+        Me.Guna2Panel2.PerformLayout()
         Me.Guna2Panel1.ResumeLayout(False)
         Me.Guna2Panel1.PerformLayout()
         Me.Guna2Panel4.ResumeLayout(False)
         Me.Guna2Panel4.PerformLayout()
-        Me.Guna2Panel2.ResumeLayout(False)
-        Me.Guna2Panel2.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -389,7 +370,6 @@ Partial Class liveoutput
     Friend WithEvents lbl_actual As Label
     Friend WithEvents lbl_target As Label
     Friend WithEvents lbl_output As Label
-    Friend WithEvents cmb_line As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Guna2Panel3 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents lbl_partcode As Label
     Friend WithEvents cmb_partcode As Guna.UI2.WinForms.Guna2ComboBox

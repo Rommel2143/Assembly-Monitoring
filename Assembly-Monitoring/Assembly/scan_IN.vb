@@ -6,12 +6,13 @@ Public Class scan_IN
     Dim planid As Integer
 
     Private Sub scan_IN_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cmb_line.Text = PCline
 
     End Sub
 
-    Private Sub cmb_line_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_line.SelectedIndexChanged
+    Private Sub cmb_line_SelectedIndexChanged(sender As Object, e As EventArgs)
 
-        cmb_display("SELECT DISTINCT(partcode) FROM assy_lineplan  WHERE line='" & cmb_line.Text & "' and datein='" & datedb & "' and shift='" & selected_shift & "' ", "partcode", cmb_partcode)
+
 
     End Sub
 
@@ -65,13 +66,13 @@ Public Class scan_IN
 
                 If txt_barcode.Text.Length >= 3 AndAlso txt_barcode.Text.Substring(0, 3) = lbl_modelcode.Text Then
 
-                    Dim query As String = "INSERT INTO `assy_barcodes`(`barcode`, `partcode`, `datein`, `timein`, `clock`, `line`,shift) VALUES ('" & txt_barcode.Text & "','" & cmb_partcode.Text & "','" & datedb & "','" & Date.Now.ToString("HH:mm:ss") & "','" & lbl_clock.Text & "','" & cmb_line.Text & "','" & selected_shift & "')"
+                    Dim query As String = "INSERT INTO `assy_barcodes`(`barcode`, `partcode`, `datein`, `timein`, `clock`, `line`,shift) VALUES ('" & txt_barcode.Text & "','" & cmb_partcode.Text & "','" & datedb & "','" & Date.Now.ToString("HH:mm:ss") & "','" & lbl_clock.Text & "','" & PCline & "','" & selected_shift & "')"
                     con.Close()
                     con.Open()
                     Dim insertdata As New MySqlCommand(query, con)
                     insertdata.ExecuteNonQuery()
 
-                    reload("SELECT barcode,clock FROM assy_barcodes  WHERE partcode='" & cmb_partcode.Text & "'  and shift='" & selected_shift & "'  and line='" & cmb_line.Text & "' and datein='" & datedb & "' ORDER BY id DESC", datagrid1)
+                    reload("SELECT barcode,clock,timein FROM assy_barcodes  WHERE partcode='" & cmb_partcode.Text & "'  and shift='" & selected_shift & "'  and line='" & PCline & "' and datein='" & datedb & "' ORDER BY id DESC", datagrid1)
                     lbl_cycle.Text = getcycletime()
                     lbl_actual.Text = getactual()
                     cycle = 0
@@ -191,6 +192,10 @@ Public Class scan_IN
                 lbl_output.Text = dr.GetInt32("target_output").ToString
                 panel_scan.Enabled = True
                 lbl_actual.Text = getactual()
+                Timer1.Stop()
+                lbl_clock.Text = "0"
+                lbl_cycle.Text = "0"
+                lbl_targettime.Text = "0"
             End If
 
         Catch ex As Exception
@@ -199,15 +204,7 @@ Public Class scan_IN
         End Try
     End Sub
 
-    Private Sub cmb_line_MouseClick(sender As Object, e As MouseEventArgs) Handles cmb_line.MouseClick
-        cmb_display("SELECT DISTINCT(line) from assy_lineplan WHERE datein='" & datedb & "' and shift='" & selected_shift & "'", "line", cmb_line)
-    End Sub
-
-    Private Sub lbl_targettime_Click(sender As Object, e As EventArgs) Handles lbl_targettime.Click
-
-    End Sub
-
-    Private Sub panel_scan_Paint(sender As Object, e As PaintEventArgs) Handles panel_scan.Paint
-
+    Private Sub cmb_partcode_MouseClick(sender As Object, e As MouseEventArgs) Handles cmb_partcode.MouseClick
+        cmb_display("SELECT DISTINCT(partcode) FROM assy_lineplan  WHERE line='" & PCline & "' and datein='" & datedb & "' and shift='" & selected_shift & "' ", "partcode", cmb_partcode)
     End Sub
 End Class

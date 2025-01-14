@@ -23,33 +23,50 @@ Partial Class overview
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(overview))
         Me.flow_item = New System.Windows.Forms.FlowLayoutPanel()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         Me.txt_search = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Guna2Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'flow_item
         '
         Me.flow_item.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.flow_item.Location = New System.Drawing.Point(0, 112)
+        Me.flow_item.Location = New System.Drawing.Point(0, 81)
         Me.flow_item.Name = "flow_item"
-        Me.flow_item.Size = New System.Drawing.Size(1088, 610)
+        Me.flow_item.Size = New System.Drawing.Size(1088, 641)
         Me.flow_item.TabIndex = 7
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.Guna2Button1)
         Me.Guna2Panel1.Controls.Add(Me.txt_search)
         Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(1088, 112)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(1088, 81)
         Me.Guna2Panel1.TabIndex = 6
         '
-        'Timer1
+        'Guna2Button1
         '
-        Me.Timer1.Interval = 5000
+        Me.Guna2Button1.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.Guna2Button1.BorderRadius = 3
+        Me.Guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.Guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.Guna2Button1.FillColor = System.Drawing.Color.MidnightBlue
+        Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2Button1.ForeColor = System.Drawing.Color.White
+        Me.Guna2Button1.Image = CType(resources.GetObject("Guna2Button1.Image"), System.Drawing.Image)
+        Me.Guna2Button1.Location = New System.Drawing.Point(960, 12)
+        Me.Guna2Button1.Name = "Guna2Button1"
+        Me.Guna2Button1.Size = New System.Drawing.Size(102, 52)
+        Me.Guna2Button1.TabIndex = 1
+        Me.Guna2Button1.Text = "Reporting"
         '
         'txt_search
         '
@@ -69,6 +86,10 @@ Partial Class overview
         Me.txt_search.SelectedText = ""
         Me.txt_search.Size = New System.Drawing.Size(314, 36)
         Me.txt_search.TabIndex = 0
+        '
+        'Timer1
+        '
+        Me.Timer1.Interval = 5000
         '
         'overview
         '
@@ -90,4 +111,5 @@ Partial Class overview
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Timer1 As Timer
     Friend WithEvents txt_search As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
 End Class

@@ -4,9 +4,7 @@ Public Class liveoutput
     Dim targetcycle As Integer = 0
     Dim targettime As Integer = 0
     Dim planid As Integer
-    Private Sub cmb_line_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_line.SelectedIndexChanged
-
-        cmb_display("SELECT DISTINCT(partcode) FROM assy_lineplan  WHERE line='" & cmb_line.Text & "' and datein='" & datedb & "' and shift='" & selected_shift & "' ", "partcode", cmb_partcode)
+    Private Sub cmb_line_SelectedIndexChanged(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -15,7 +13,7 @@ Public Class liveoutput
 
             Dim query As String = "SELECT ap.id,am.partname,am.model, ap.partcode, plan,ap.cycle,am.modelcode,ap.target_output FROM assy_lineplan ap
                     JOIN assy_masterlist am ON am.partcode=ap.partcode
-                    WHERE line='" & cmb_line.Text & "' and datein='" & datedb & "' and shift='" & selected_shift & "' and ap.partcode='" & cmb_partcode.Text & "'"
+                    WHERE SUBSTRING_INDEX(`line`, '-', 1)='" & PClinetotal & "' and datein='" & datedb & "' and shift='" & selected_shift & "' and ap.partcode='" & cmb_partcode.Text & "'"
 
             con.Close()
             con.Open()
@@ -76,17 +74,14 @@ Public Class liveoutput
 
     End Sub
 
-    Private Sub cmb_line_MouseClick(sender As Object, e As MouseEventArgs) Handles cmb_line.MouseClick
-        cmb_display("SELECT DISTINCT(line) from assy_lineplan WHERE datein='" & datedb & "' and shift='" & selected_shift & "'", "line", cmb_line)
 
-    End Sub
 
     Private Function getactual() As String
         Try
 
 
             Dim query As String = "SELECT COUNT(id) as total FROM assy_barcodes 
-                  WHERE partcode='" & cmb_partcode.Text & "' and line='" & cmb_line.Text & "' and datein='" & datedb & "' and shift='" & selected_shift & "'"
+                  WHERE partcode='" & cmb_partcode.Text & "' and SUBSTRING_INDEX(`line`, '-', 1)='" & PClinetotal & "' and datein='" & datedb & "' and shift='" & selected_shift & "'"
 
             con.Close()
             con.Open()
@@ -110,7 +105,7 @@ Public Class liveoutput
 
 
             Dim query As String = "SELECT SUM(clock)/COUNT(clock) as clockcycle FROM assy_barcodes 
-                  WHERE partcode='" & cmb_partcode.Text & "' and line='" & cmb_line.Text & "' and datein='" & datedb & "' and shift='" & selected_shift & "'"
+                  WHERE partcode='" & cmb_partcode.Text & "' and SUBSTRING_INDEX(`line`, '-', 1)='" & PClinetotal & "' and datein='" & datedb & "' and shift='" & selected_shift & "'"
 
             con.Close()
             con.Open()
@@ -132,15 +127,13 @@ Public Class liveoutput
     Private Sub updatetarget()
         Try
             ' SQL query to update the target output
-            Dim query As String = "SELECT target_output FROM assy_lineplan WHERE id = @planid"
+            Dim query As String = "SELECT SUM(target_output) AS target_output FROM assy_lineplan  WHERE partcode='" & cmb_partcode.Text & "' and SUBSTRING_INDEX(`line`, '-', 1)='" & PClinetotal & "' and datein='" & datedb & "' and shift='" & selected_shift & "'"
 
             con.Close()
             con.Open()
 
             ' Create and parameterize the SQL command
             Dim updatedata As New MySqlCommand(query, con)
-            updatedata.Parameters.AddWithValue("@planid", planid)
-
             ' Execute the query
             dr = updatedata.ExecuteReader
             If dr.Read = True Then
@@ -156,6 +149,8 @@ Public Class liveoutput
     End Sub
 
     Private Sub monitoring_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        cmb_display("SELECT DISTINCT(partcode) FROM assy_lineplan  WHERE  SUBSTRING_INDEX(`line`, '-', 1)='" & PClinetotal & "' and datein='" & datedb & "' and shift='" & selected_shift & "' ", "partcode", cmb_partcode)
 
     End Sub
 

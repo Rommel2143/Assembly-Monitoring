@@ -14,9 +14,7 @@ Public Class sub_mainframe
 
     End Sub
 
-    Private Sub sub_mainframe_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        select_shift.ShowDialog()
-    End Sub
+
 
     Private Sub ScanBarcodeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ScanBarcodeToolStripMenuItem.Click
         display_formsub(scan_IN)
@@ -30,8 +28,8 @@ Public Class sub_mainframe
 
     End Sub
 
-    Private Sub AddItemToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddItemToolStripMenuItem.Click
-        display_formsub(New manage_item)
+    Private Sub AddItemToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
     End Sub
 
     Private Sub LiveOutputToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LiveOutputToolStripMenuItem.Click
@@ -41,5 +39,13 @@ Public Class sub_mainframe
 
     Private Sub OverviewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OverviewToolStripMenuItem.Click
         display_formsub(New overview)
+    End Sub
+
+    Private Sub AddItemToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AddItemToolStripMenuItem1.Click
+        display_formsub(New manage_item)
+    End Sub
+
+    Private Sub ChangeLineToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChangeLineToolStripMenuItem.Click
+        display_formsub(New change_line)
     End Sub
 End Class

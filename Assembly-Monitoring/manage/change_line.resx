@@ -118,17 +118,41 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="Guna2Button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Guna2TextBox1.IconLeft" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGASURBVFhH7de/
-        S5ZRFMBxNQkRyiCCBIWWhpwDIYeGlsQhEMo2E4L+hvwLxFFEWsJJh+YgcGwrcBD7RS2CmIODOJT28yMX
-        T/BweV9T87kt7xfucs7h3i/3Xs5znzZ8wo22/4UD7ubxYrQEWgJ1CaALd9Lc2RjFQLWwLoFBfIv5G/Ec
-        52oTaAYu4F2sO1tUABfxCpt4io1iAriMFazhKu6lhYsI4Eq0/Pfoj1gZAVzDOpZxqRI/uQB6MZkuER6g
-        M69J4Dq28BI9We5kAriF7TjLJXzBa/RldTexgxforuYif3wBDGMXi6nRRCxdqDf4jBGcxwS+4hnO5vMk
-        MISPRxaIrraHeZzJcmnRhZgr8RNTeV1DjiIQ2/UdT9CR5/8Qu3E7P45D+ZsA7uMH5tCe5/+ZwwTwEL8w
-        nedOjWYCeBSLT+W5U6WRQNzi33hcjddCE4H0zZ6oxmqjkUBRWgItgejbY3m8GHiLmTxejHhQpF2Yib6f
-        v+PrHAd/5RjHaoiU5MM+BjJc5In2CVcAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAHHSURBVEhL7VSx
+        bhNBFHRFZCjDdyQNcUmKkEgOFAR0xc68c5PIiDJSUMoICkp+Bn4hQk4KqDFSoIroKZLIktFYu9b6XWLu
+        7DYjnXZ3bndmd99722rdow76/f5DAB/M7CfJEcnxgt8oarwviqI9FSf5leRnkhtFUTzwG6gLrZUGyS8k
+        Tycm2rnE/eRlIRMAJy0dqSzLJ37CsgDQITmU0yhdC8mPZrauvpm9NLODOPkYwFP1QwibZvbO6VXQ7XZX
+        pC3RcSLN7DXJSwmqDSGsiZcoyT8AjtRqPKN2BybauYFgZp9iRiDno/hYbc7PQ8Wg7gnSdUWRFyTPSP5V
+        a2bPvcGdMQCwr74M07WoTaeI4r9IbpVl+QjAM42TCQAulUUAziWec2a2TXIwJVR1i9YByWtfmBoDuMqJ
+        tqouFkbHL5gHnyAJFV4mqjqSP/7zFg0zkb3I+flpvDdj0gQAXpG8UFD9ieMVKdgXC5uQ/O6D6xGD/c3z
+        tUDyJt95COExgMNer7eauPiy3kwXNYEPIoC34szsTc77ebXh0/O2E+ixm0nXJlCBKZCez1EpuCZIT4RE
+        bssikjskfwPYzf81gt4b7VDX5epA40ES/wf7KUVK0Qo4CgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="txt_line.IconLeft" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        7AAAAOwBeShxvQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAPBSURBVFhH7ZVd
+        aFtlGMffExG3C6sTp2JF0AsV/Frais5zhrvQzYs5UShT2C7EC6VbvQlsa7o1h5NsXZeTDZeglLRZv8Q6
+        sElLQVxy0TFN87WU1C9wqVJozmlhzI9itWvO+5f3dD10bxOccgpe7Ad/kvfJ8/z/zzlwcgixCRwkLyBI
+        SlQln0MmG/jf1w00kzvKrY6I4RYoQgQ4Rf4qu4Vfyi1kF9+7LpTdjjNltwCjTYC5wBmyVD4soOwWlhaP
+        kqf5fluBTGpYkLmAlxjmAiGC6wug3Oro4WdsBe1EMXxkiQkqoThNlnCaGLSdULN+nPyKIHmQn7MNhEgL
+        Dd//J8IPLFZU5yYdIfIkP2crNOO/RtN+VJKR9n/E99sOzaoFmlVRScgG3uP7bQdZ9RWaVSkfTrPqD0ie
+        2sj3rwu42HGIpv1XrfDkyW+QO/Ew32c77+96avvIu/ddiDRtHaLRNgMjbVdo7Oj8wrnW+b59tV+f3Vd7
+        tr7+5bv4OVtwStLhxh1Oyp73Y3seL9ERD1aUCX7wY7rpbhQO1MApSqVnRdHeJ6FOFLc5RYk27nCafzgH
+        33gC+/fu/mpm4NDVdLD58ovbXyquWoDpW0KIg/epCnKuNuRcUxV1ydXnFMUwM3575xaUWwQcefOxlSBL
+        E001+L75TutcL0nP8zlVQdYVQc6FKko5RemLd15/BtPHN+JaQMCVk7dj5sSGG7QQuA0LqgNjLfegQRKx
+        RZIa+Zyq/NMCdeK2L3v2PwQECQyfAHy4/A5YLaNDgNG+/IJ6bWcD6kRxD59TlZtZoPdA7ZrQNQouf+5+
+        9V8soOv6c79NxS/NXx5BJf0+dX6m75NPfxof6sD8hSM3pZ5ICOcTiXOapjXweTcwNze3d3x8nHZ2diIU
+        Ctkq5plKpYzZ2dm3+FyLYrFYUhQFsVgM+XzeHJJl2dTY2JhZU1XVPHu9XmQyGVPsO6sFAgGzh/WuzIXD
+        YUxMTCAajYJ5F4vFn/lcEwCOQqGwyIaYKVtieHjYMpqcnEQikUB3d7d5ZoukUimz1+/3m7VIJIJ4PI5C
+        oWDNjY6Oml6s97rPH3y2haZpUXbVzHxwcNC6MiZ2G/v7+60zU1dXl6nVtYGBAbN35ezz+UwvtiTz1nX9
+        Mz7XQtf1zaVSKZbP541kMgk7xTw1TRvSNO1ePncNiqJ83Nvbu3V6enqTHWJezJPPqYosyyFFUWx7gTAv
+        5snXq3JrAVmW4x6P5ztZlnN2iHl5PJ44n1OV/8MduLXAMa/X+whf/6/IsvyoLMs+vs74G4MjYMEguX32
+        AAAAAElFTkSuQmCC
 </value>
   </data>
   <metadata name="Timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

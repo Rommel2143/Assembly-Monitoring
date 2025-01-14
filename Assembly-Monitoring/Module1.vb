@@ -4,7 +4,7 @@ Module Module1
 
     Public Function connection() As MySqlConnection
         Return New MySqlConnection("server=TRCF2D-060;user id=Inventory;password=inventory123@;database=trcsystem")
-        'Return New MySqlConnection("server=localhost;user id=momel;password=Magnaye2143@#;database=trcsystem")
+        ' Return New MySqlConnection("server=localhost;user id=momel;password=Magnaye2143@#;database=trcsystem")
     End Function
     Public con As MySqlConnection = connection()
     Public result As String
@@ -18,9 +18,11 @@ Module Module1
     Public idno As String
     Public user_level As Integer
     Public designation As String
+
+
     Public PCname As String = Environment.MachineName
-    Public PCmac As String = GetMacAddress()
-    Public PClocation As String
+    Public PCline As String
+    Public PClinetotal As String
 
     Public date1 As String
     Public datedb As String
@@ -31,26 +33,21 @@ Module Module1
     Public report_cmlqr As String
 
 
-    Function GetMacAddress() As String
-        Dim macAddress As String = ""
+    Function getPCline() As String
+        Dim query As String = "SELECT line,SUBSTRING_INDEX(`line`, '-', 1) AS merged_line FROM assy_devices WHERE pcname='" & Environment.MachineName & "'"
+        con.Close()
+        con.Open()
+        Dim selectpc As New MySqlCommand(query, con)
+        dr = selectpc.ExecuteReader
+        If dr.Read = True Then
+            PCline = dr.GetString("line")
+            PClinetotal = dr.GetString("merged_line")
 
-        ' Get all network interfaces
-        Dim networkInterfaces() As NetworkInterface = NetworkInterface.GetAllNetworkInterfaces()
+            Return dr.GetString("line")
+        Else
+            Return "0"
+        End If
 
-        ' Loop through each network interface to find the MAC address
-        For Each networkInterface As NetworkInterface In networkInterfaces
-            ' Check if the network interface is operational and not a loopback or tunnel interface
-            If networkInterface.OperationalStatus = OperationalStatus.Up AndAlso
-               networkInterface.NetworkInterfaceType <> NetworkInterfaceType.Loopback AndAlso
-               networkInterface.NetworkInterfaceType <> NetworkInterfaceType.Tunnel Then
-                ' Get the physical address (MAC address) of the network interface
-                Dim physicalAddress As PhysicalAddress = networkInterface.GetPhysicalAddress()
-                macAddress = physicalAddress.ToString()
-                Exit For ' Exit the loop once the MAC address is found
-            End If
-        Next
-
-        Return macAddress
     End Function
 
     Public Function thisshift() As String
