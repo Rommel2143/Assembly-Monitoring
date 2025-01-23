@@ -34,6 +34,7 @@ Partial Class edit_plan
         Me.txt_plan = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
         Me.Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.btn_delete = New Guna.UI2.WinForms.Guna2Button()
         Me.SuspendLayout()
         '
         'txt_model
@@ -195,12 +196,29 @@ Partial Class edit_plan
         Me.Guna2TextBox1.Size = New System.Drawing.Size(181, 36)
         Me.Guna2TextBox1.TabIndex = 30
         '
+        'btn_delete
+        '
+        Me.btn_delete.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btn_delete.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btn_delete.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btn_delete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btn_delete.Enabled = False
+        Me.btn_delete.FillColor = System.Drawing.Color.Crimson
+        Me.btn_delete.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.btn_delete.ForeColor = System.Drawing.Color.White
+        Me.btn_delete.Location = New System.Drawing.Point(338, 344)
+        Me.btn_delete.Name = "btn_delete"
+        Me.btn_delete.Size = New System.Drawing.Size(100, 36)
+        Me.btn_delete.TabIndex = 31
+        Me.btn_delete.Text = "Delete"
+        '
         'edit_plan
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(649, 410)
+        Me.Controls.Add(Me.btn_delete)
         Me.Controls.Add(Me.Guna2TextBox1)
         Me.Controls.Add(Me.Guna2ControlBox1)
         Me.Controls.Add(Me.txt_model)
@@ -232,4 +250,5 @@ Partial Class edit_plan
     Friend WithEvents txt_plan As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2ControlBox1 As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents btn_delete As Guna.UI2.WinForms.Guna2Button
 End Class

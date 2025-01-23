@@ -48,9 +48,29 @@ Public Class edit_plan
     Private Sub Guna2TextBox1_TextChanged(sender As Object, e As EventArgs) Handles Guna2TextBox1.TextChanged
         If Guna2TextBox1.Text = "redhorsE" Then
             btn_save.Enabled = True
+            btn_delete.Enabled = True
         Else
             btn_save.Enabled = False
-
+            btn_delete.Enabled = False
         End If
+    End Sub
+
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles btn_delete.Click
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete this record?",
+                                                 "Confirmation",
+                                                 MessageBoxButtons.YesNo,
+                                                 MessageBoxIcon.Question)
+        If result = DialogResult.Yes Then
+
+            Dim query As String = "DELETE FROM assy_lineplan WHERE id='" & idno & "'"
+            con.Close()
+            con.Open()
+            Dim deleteplan As New MySqlCommand(query, con)
+            deleteplan.ExecuteNonQuery()
+            display_error("Succesfully Deleted!", 0)
+            Me.Close()
+            planning.reloadgrid_plan()
+        End If
+
     End Sub
 End Class
