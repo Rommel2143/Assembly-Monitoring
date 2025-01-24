@@ -48,4 +48,8 @@ Public Class sub_mainframe
     Private Sub ChangeLineToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChangeLineToolStripMenuItem.Click
         display_formsub(New change_line)
     End Sub
+
+    Private Sub TraceItemToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TraceItemToolStripMenuItem.Click
+        display_formsub(New trace)
+    End Sub
 End Class

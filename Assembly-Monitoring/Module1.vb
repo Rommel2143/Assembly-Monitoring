@@ -1,10 +1,11 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.Net.NetworkInformation
+Imports ClosedXML.Excel
 Module Module1
 
     Public Function connection() As MySqlConnection
         Return New MySqlConnection("server=TRCF2D-060;user id=Inventory;password=inventory123@;database=trcsystem")
-        'Return New MySqlConnection("server=localhost;user id=momel;password=Magnaye2143@#;database=trcsystem")
+        ' Return New MySqlConnection("server=localhost;user id=momel;password=Magnaye2143@#;database=trcsystem")
     End Function
     Public con As MySqlConnection = connection()
     Public result As String
@@ -32,6 +33,47 @@ Module Module1
 
     Public report_cmlqr As String
 
+    Public Sub exportexcel(datagrid As Guna.UI2.WinForms.Guna2DataGridView)
+        Try
+            If datagrid.Rows.Count > 0 Then
+                Dim dt As New DataTable()
+
+                ' Adding the Columns
+                For Each column As DataGridViewColumn In datagrid.Columns
+                    Dim colType As Type = If(column.ValueType IsNot Nothing, column.ValueType, GetType(String))
+                    dt.Columns.Add(column.HeaderText, colType)
+                Next
+
+                ' Adding the Rows
+                For Each row As DataGridViewRow In datagrid.Rows
+                    If Not row.IsNewRow Then
+                        Dim newRow As DataRow = dt.NewRow()
+                        For Each cell As DataGridViewCell In row.Cells
+                            newRow(cell.ColumnIndex) = If(cell.Value IsNot Nothing, cell.Value.ToString(), "")
+                        Next
+                        dt.Rows.Add(newRow)
+                    End If
+                Next
+
+                ' Save the data to an Excel file
+                Using sfd As New SaveFileDialog()
+                    sfd.Filter = "Excel Workbook|*.xlsx"
+                    sfd.Title = "Save an Excel File"
+                    If sfd.ShowDialog() = DialogResult.OK AndAlso sfd.FileName <> "" Then
+                        Using wb As New XLWorkbook()
+                            wb.Worksheets.Add(dt, "Sheet1")
+                            wb.SaveAs(sfd.FileName)
+                        End Using
+                        MessageBox.Show("Data successfully exported to Excel.", "Export Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    End If
+                End Using
+            Else
+                MessageBox.Show("No data available to export.", "Export Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        Catch ex As Exception
+            MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
 
     Function getPCline() As String
         Dim query As String = "SELECT line,SUBSTRING_INDEX(`line`, '-', 1) AS merged_line FROM assy_devices WHERE pcname='" & Environment.MachineName & "'"

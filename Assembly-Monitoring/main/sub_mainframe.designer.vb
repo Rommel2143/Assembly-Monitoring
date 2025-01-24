@@ -38,6 +38,7 @@ Partial Class sub_mainframe
         Me.MonitoringToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.OverviewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LiveOutputToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TraceItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -71,7 +72,7 @@ Partial Class sub_mainframe
         Me.PlanningToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.PlanningToolStripMenuItem.Image = CType(resources.GetObject("PlanningToolStripMenuItem.Image"), System.Drawing.Image)
         Me.PlanningToolStripMenuItem.Name = "PlanningToolStripMenuItem"
-        Me.PlanningToolStripMenuItem.Size = New System.Drawing.Size(180, 24)
+        Me.PlanningToolStripMenuItem.Size = New System.Drawing.Size(168, 24)
         Me.PlanningToolStripMenuItem.Text = "Planning"
         '
         'ScanBarcodeToolStripMenuItem
@@ -79,7 +80,7 @@ Partial Class sub_mainframe
         Me.ScanBarcodeToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.ScanBarcodeToolStripMenuItem.Image = CType(resources.GetObject("ScanBarcodeToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ScanBarcodeToolStripMenuItem.Name = "ScanBarcodeToolStripMenuItem"
-        Me.ScanBarcodeToolStripMenuItem.Size = New System.Drawing.Size(180, 24)
+        Me.ScanBarcodeToolStripMenuItem.Size = New System.Drawing.Size(168, 24)
         Me.ScanBarcodeToolStripMenuItem.Text = "Scan Barcode"
         '
         'userstrip
@@ -133,14 +134,14 @@ Partial Class sub_mainframe
         '
         Me.AddItemToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.AddItemToolStripMenuItem1.Name = "AddItemToolStripMenuItem1"
-        Me.AddItemToolStripMenuItem1.Size = New System.Drawing.Size(180, 26)
+        Me.AddItemToolStripMenuItem1.Size = New System.Drawing.Size(166, 26)
         Me.AddItemToolStripMenuItem1.Text = "Add Item"
         '
         'ChangeLineToolStripMenuItem
         '
         Me.ChangeLineToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.ChangeLineToolStripMenuItem.Name = "ChangeLineToolStripMenuItem"
-        Me.ChangeLineToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
+        Me.ChangeLineToolStripMenuItem.Size = New System.Drawing.Size(166, 26)
         Me.ChangeLineToolStripMenuItem.Text = "Change Line"
         '
         'ToolStripMenuItem3
@@ -168,7 +169,7 @@ Partial Class sub_mainframe
         '
         'MonitoringToolStripMenuItem1
         '
-        Me.MonitoringToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OverviewToolStripMenuItem, Me.LiveOutputToolStripMenuItem})
+        Me.MonitoringToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OverviewToolStripMenuItem, Me.LiveOutputToolStripMenuItem, Me.TraceItemToolStripMenuItem})
         Me.MonitoringToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.MonitoringToolStripMenuItem1.Image = CType(resources.GetObject("MonitoringToolStripMenuItem1.Image"), System.Drawing.Image)
         Me.MonitoringToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -191,6 +192,14 @@ Partial Class sub_mainframe
         Me.LiveOutputToolStripMenuItem.Name = "LiveOutputToolStripMenuItem"
         Me.LiveOutputToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
         Me.LiveOutputToolStripMenuItem.Text = "Live Output"
+        '
+        'TraceItemToolStripMenuItem
+        '
+        Me.TraceItemToolStripMenuItem.ForeColor = System.Drawing.Color.DimGray
+        Me.TraceItemToolStripMenuItem.Image = CType(resources.GetObject("TraceItemToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.TraceItemToolStripMenuItem.Name = "TraceItemToolStripMenuItem"
+        Me.TraceItemToolStripMenuItem.Size = New System.Drawing.Size(180, 26)
+        Me.TraceItemToolStripMenuItem.Text = "Trace Item"
         '
         'sub_mainframe
         '
@@ -225,4 +234,5 @@ Partial Class sub_mainframe
     Friend WithEvents ManageToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AddItemToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ChangeLineToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TraceItemToolStripMenuItem As ToolStripMenuItem
 End Class
