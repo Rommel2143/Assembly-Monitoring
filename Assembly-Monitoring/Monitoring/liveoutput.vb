@@ -20,10 +20,15 @@ Public Class liveoutput
             Dim selectdata As New MySqlCommand(query, con)
             dr = selectdata.ExecuteReader
             If dr.Read = True Then
-                lbl_partcode.Text = dr.GetString("partcode")
+                ' lbl_partcode.Text = dr.GetString("partcode")
                 lbl_model.Text = dr.GetString("model")
                 lbl_plan.Text = dr.GetInt32("plan").ToString
+
+                radial.Maximum = dr.GetInt32("plan")
                 targetcycle = dr.GetInt32("cycle")
+
+
+                lbl_CTtarget.Text = targetcycle.ToString
 
                 planid = dr.GetInt32("id")
                 lbl_output.Text = dr.GetInt32("target_output").ToString
@@ -46,15 +51,17 @@ Public Class liveoutput
         lbl_actual.Text = getactual()
         lbl_cycle.Text = getcycletime()
 
+
         If Convert.ToInt32(lbl_output.Text) > Convert.ToInt32(lbl_actual.Text) Then
             panel_output.FillColor = Color.Crimson
-            lbl_target.ForeColor = Color.White
-            lbl_output.ForeColor = Color.White
+            Label2.ForeColor = Color.White
+            lbl_actual.ForeColor = Color.White
+            lbl_cycle.ForeColor = Color.White
         Else
             panel_output.FillColor = Color.White
-            lbl_target.ForeColor = SystemColors.ControlDarkDark
-            lbl_output.ForeColor = Color.Black
-
+            Label2.ForeColor = SystemColors.ControlDarkDark
+            lbl_actual.ForeColor = Color.Black
+            lbl_cycle.ForeColor = SystemColors.ControlDarkDark
         End If
         Try
             Dim plan As Integer = Convert.ToInt32(lbl_plan.Text)
@@ -64,8 +71,8 @@ Public Class liveoutput
                 lbl_percent.Text = "0%" ' Avoid division by zero
             Else
                 Dim percentage As Integer = (actual / plan) * 100
-                radial.Value = percentage
-                lbl_percent.Text = percentage.ToString() & "%"
+                radial.Value = actual
+                lbl_percent.Text = percentage.ToString() & "% of " & lbl_plan.Text
             End If
         Catch ex As Exception
             MessageBox.Show("Error calculating percentage: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

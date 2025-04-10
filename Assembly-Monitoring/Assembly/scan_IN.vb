@@ -169,6 +169,7 @@ Public Class scan_IN
     Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
         Timer1.Start()
         txt_barcode.Enabled = True
+        txt_barcode.Focus()
     End Sub
 
     Private Sub cmb_partcode_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_partcode.SelectedIndexChanged
@@ -196,6 +197,7 @@ Public Class scan_IN
                 lbl_clock.Text = "0"
                 lbl_cycle.Text = "0"
                 lbl_targettime.Text = "0"
+                lbl_target.Text = targetcycle
             End If
 
         Catch ex As Exception
@@ -206,5 +208,9 @@ Public Class scan_IN
 
     Private Sub cmb_partcode_MouseClick(sender As Object, e As MouseEventArgs) Handles cmb_partcode.MouseClick
         cmb_display("SELECT DISTINCT(partcode) FROM assy_lineplan  WHERE line='" & PCline & "' and datein='" & datedb & "' and shift='" & selected_shift & "' ", "partcode", cmb_partcode)
+    End Sub
+
+    Private Sub Guna2Panel6_Paint(sender As Object, e As PaintEventArgs) Handles Guna2Panel6.Paint
+
     End Sub
 End Class
