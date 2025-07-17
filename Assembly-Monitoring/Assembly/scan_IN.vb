@@ -158,7 +158,7 @@ Public Class scan_IN
 
     End Sub
 
-    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs)
 
         Timer1.Stop()
 
@@ -167,9 +167,22 @@ Public Class scan_IN
     End Sub
 
     Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
-        Timer1.Start()
-        txt_barcode.Enabled = True
-        txt_barcode.Focus()
+        If Timer1.Enabled Then
+            ' Currently running, so stop
+            Timer1.Stop()
+            txt_barcode.Enabled = False
+            Guna2Button2.Text = "Start"
+            Guna2Button2.FillColor = Color.MidnightBlue
+            Guna2Button2.Image = My.Resources.play
+        Else
+            ' Currently stopped, so start
+            Timer1.Start()
+            txt_barcode.Enabled = True
+            txt_barcode.Focus()
+            Guna2Button2.Text = "Stop"
+            Guna2Button2.FillColor = Color.Crimson
+            Guna2Button2.Image = My.Resources.pause
+        End If
     End Sub
 
     Private Sub cmb_partcode_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_partcode.SelectedIndexChanged
@@ -210,7 +223,11 @@ Public Class scan_IN
         cmb_display("SELECT DISTINCT(partcode) FROM assy_lineplan  WHERE line='" & PCline & "' and datein='" & datedb & "' and shift='" & selected_shift & "' ", "partcode", cmb_partcode)
     End Sub
 
-    Private Sub Guna2Panel6_Paint(sender As Object, e As PaintEventArgs) Handles Guna2Panel6.Paint
+    Private Sub Guna2Panel6_Paint(sender As Object, e As PaintEventArgs)
+
+    End Sub
+
+    Private Sub lbl_targettime_Click(sender As Object, e As EventArgs) Handles lbl_targettime.Click
 
     End Sub
 End Class

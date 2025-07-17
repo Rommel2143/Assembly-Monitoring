@@ -25,37 +25,37 @@ Partial Class liveoutput
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(liveoutput))
         Me.panel_output = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Guna2PictureBox3 = New Guna.UI2.WinForms.Guna2PictureBox()
+        Me.lbl_cycle = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lbl_actual = New System.Windows.Forms.Label()
         Me.lbl_target = New System.Windows.Forms.Label()
         Me.lbl_output = New System.Windows.Forms.Label()
-        Me.lbl_actual = New System.Windows.Forms.Label()
         Me.Guna2Panel3 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Guna2VSeparator1 = New Guna.UI2.WinForms.Guna2VSeparator()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.cmb_partcode = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.lbl_model = New System.Windows.Forms.Label()
         Me.lbl_plan = New System.Windows.Forms.Label()
-        Me.lbl_cycle = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.lbl_percent = New System.Windows.Forms.Label()
-        Me.Guna2VSeparator1 = New Guna.UI2.WinForms.Guna2VSeparator()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.lbl_CTtarget = New System.Windows.Forms.Label()
-        Me.Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.panel_CTtarget = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Guna2PictureBox3 = New Guna.UI2.WinForms.Guna2PictureBox()
+        Me.Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
+        Me.lbl_CTtarget = New System.Windows.Forms.Label()
+        Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
         Me.radial = New Guna.UI2.WinForms.Guna2ProgressBar()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lbl_percent = New System.Windows.Forms.Label()
         Me.panel_output.SuspendLayout()
-        Me.Guna2Panel3.SuspendLayout()
-        Me.Guna2Panel1.SuspendLayout()
-        Me.Guna2Panel4.SuspendLayout()
-        CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.panel_CTtarget.SuspendLayout()
         Me.Guna2Panel2.SuspendLayout()
         CType(Me.Guna2PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Guna2Panel3.SuspendLayout()
+        Me.Guna2Panel1.SuspendLayout()
+        Me.panel_CTtarget.SuspendLayout()
+        CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Guna2Panel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'panel_output
@@ -71,6 +71,71 @@ Partial Class liveoutput
         Me.panel_output.Name = "panel_output"
         Me.panel_output.Size = New System.Drawing.Size(867, 490)
         Me.panel_output.TabIndex = 35
+        '
+        'Guna2Panel2
+        '
+        Me.Guna2Panel2.Controls.Add(Me.Guna2PictureBox3)
+        Me.Guna2Panel2.Controls.Add(Me.lbl_cycle)
+        Me.Guna2Panel2.FillColor = System.Drawing.Color.MistyRose
+        Me.Guna2Panel2.Location = New System.Drawing.Point(545, 6)
+        Me.Guna2Panel2.Name = "Guna2Panel2"
+        Me.Guna2Panel2.Size = New System.Drawing.Size(310, 100)
+        Me.Guna2Panel2.TabIndex = 32
+        '
+        'Guna2PictureBox3
+        '
+        Me.Guna2PictureBox3.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2PictureBox3.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Guna2PictureBox3.Image = CType(resources.GetObject("Guna2PictureBox3.Image"), System.Drawing.Image)
+        Me.Guna2PictureBox3.ImageRotate = 0!
+        Me.Guna2PictureBox3.Location = New System.Drawing.Point(0, 0)
+        Me.Guna2PictureBox3.Name = "Guna2PictureBox3"
+        Me.Guna2PictureBox3.Size = New System.Drawing.Size(100, 100)
+        Me.Guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Guna2PictureBox3.TabIndex = 30
+        Me.Guna2PictureBox3.TabStop = False
+        '
+        'lbl_cycle
+        '
+        Me.lbl_cycle.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lbl_cycle.AutoSize = True
+        Me.lbl_cycle.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_cycle.Font = New System.Drawing.Font("Segoe UI", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_cycle.ForeColor = System.Drawing.Color.DimGray
+        Me.lbl_cycle.Location = New System.Drawing.Point(77, -12)
+        Me.lbl_cycle.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbl_cycle.Name = "lbl_cycle"
+        Me.lbl_cycle.Size = New System.Drawing.Size(220, 128)
+        Me.lbl_cycle.TabIndex = 28
+        Me.lbl_cycle.Text = "000"
+        Me.lbl_cycle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label2.Location = New System.Drawing.Point(4, 3)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(445, 86)
+        Me.Label2.TabIndex = 24
+        Me.Label2.Text = "ACTUAL SCAN"
+        '
+        'lbl_actual
+        '
+        Me.lbl_actual.AutoSize = True
+        Me.lbl_actual.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_actual.Font = New System.Drawing.Font("Impact", 249.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_actual.ForeColor = System.Drawing.Color.Black
+        Me.lbl_actual.Location = New System.Drawing.Point(-58, 57)
+        Me.lbl_actual.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbl_actual.Name = "lbl_actual"
+        Me.lbl_actual.Padding = New System.Windows.Forms.Padding(0, 20, 0, 0)
+        Me.lbl_actual.Size = New System.Drawing.Size(890, 426)
+        Me.lbl_actual.TabIndex = 17
+        Me.lbl_actual.Text = "0000"
         '
         'lbl_target
         '
@@ -99,20 +164,6 @@ Partial Class liveoutput
         Me.lbl_output.TabIndex = 24
         Me.lbl_output.Text = "0000"
         '
-        'lbl_actual
-        '
-        Me.lbl_actual.AutoSize = True
-        Me.lbl_actual.BackColor = System.Drawing.Color.Transparent
-        Me.lbl_actual.Font = New System.Drawing.Font("Impact", 249.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_actual.ForeColor = System.Drawing.Color.Black
-        Me.lbl_actual.Location = New System.Drawing.Point(-58, 57)
-        Me.lbl_actual.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbl_actual.Name = "lbl_actual"
-        Me.lbl_actual.Padding = New System.Windows.Forms.Padding(0, 20, 0, 0)
-        Me.lbl_actual.Size = New System.Drawing.Size(890, 426)
-        Me.lbl_actual.TabIndex = 17
-        Me.lbl_actual.Text = "0000"
-        '
         'Guna2Panel3
         '
         Me.Guna2Panel3.BorderColor = System.Drawing.Color.Gray
@@ -129,6 +180,15 @@ Partial Class liveoutput
         Me.Guna2Panel3.Name = "Guna2Panel3"
         Me.Guna2Panel3.Size = New System.Drawing.Size(867, 194)
         Me.Guna2Panel3.TabIndex = 33
+        '
+        'Guna2VSeparator1
+        '
+        Me.Guna2VSeparator1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2VSeparator1.Location = New System.Drawing.Point(576, 9)
+        Me.Guna2VSeparator1.Name = "Guna2VSeparator1"
+        Me.Guna2VSeparator1.Size = New System.Drawing.Size(10, 166)
+        Me.Guna2VSeparator1.TabIndex = 26
+        Me.Guna2VSeparator1.UseTransparentBackground = True
         '
         'Label4
         '
@@ -201,21 +261,6 @@ Partial Class liveoutput
         Me.lbl_plan.Text = "000"
         Me.lbl_plan.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         '
-        'lbl_cycle
-        '
-        Me.lbl_cycle.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lbl_cycle.AutoSize = True
-        Me.lbl_cycle.BackColor = System.Drawing.Color.Transparent
-        Me.lbl_cycle.Font = New System.Drawing.Font("Segoe UI", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_cycle.ForeColor = System.Drawing.Color.DimGray
-        Me.lbl_cycle.Location = New System.Drawing.Point(77, -12)
-        Me.lbl_cycle.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbl_cycle.Name = "lbl_cycle"
-        Me.lbl_cycle.Size = New System.Drawing.Size(220, 128)
-        Me.lbl_cycle.TabIndex = 28
-        Me.lbl_cycle.Text = "000"
-        Me.lbl_cycle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'Timer1
         '
         Me.Timer1.Interval = 5000
@@ -234,67 +279,28 @@ Partial Class liveoutput
         Me.Guna2Panel1.Size = New System.Drawing.Size(867, 456)
         Me.Guna2Panel1.TabIndex = 37
         '
-        'Label2
+        'panel_CTtarget
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Label2.Location = New System.Drawing.Point(4, 3)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(445, 86)
-        Me.Label2.TabIndex = 24
-        Me.Label2.Text = "ACTUAL SCAN"
+        Me.panel_CTtarget.Controls.Add(Me.Guna2PictureBox1)
+        Me.panel_CTtarget.Controls.Add(Me.lbl_CTtarget)
+        Me.panel_CTtarget.FillColor = System.Drawing.Color.MistyRose
+        Me.panel_CTtarget.Location = New System.Drawing.Point(545, 6)
+        Me.panel_CTtarget.Name = "panel_CTtarget"
+        Me.panel_CTtarget.Size = New System.Drawing.Size(310, 100)
+        Me.panel_CTtarget.TabIndex = 31
         '
-        'Guna2Panel4
+        'Guna2PictureBox1
         '
-        Me.Guna2Panel4.BorderColor = System.Drawing.Color.Gray
-        Me.Guna2Panel4.BorderThickness = 2
-        Me.Guna2Panel4.Controls.Add(Me.radial)
-        Me.Guna2Panel4.Controls.Add(Me.Label1)
-        Me.Guna2Panel4.Controls.Add(Me.lbl_percent)
-        Me.Guna2Panel4.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2Panel4.FillColor = System.Drawing.Color.White
-        Me.Guna2Panel4.Location = New System.Drawing.Point(0, 1140)
-        Me.Guna2Panel4.Name = "Guna2Panel4"
-        Me.Guna2Panel4.Size = New System.Drawing.Size(867, 435)
-        Me.Guna2Panel4.TabIndex = 38
-        '
-        'lbl_percent
-        '
-        Me.lbl_percent.AutoSize = True
-        Me.lbl_percent.BackColor = System.Drawing.Color.Transparent
-        Me.lbl_percent.Font = New System.Drawing.Font("Segoe UI", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_percent.ForeColor = System.Drawing.Color.Black
-        Me.lbl_percent.Location = New System.Drawing.Point(13, 128)
-        Me.lbl_percent.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbl_percent.Name = "lbl_percent"
-        Me.lbl_percent.Size = New System.Drawing.Size(193, 128)
-        Me.lbl_percent.TabIndex = 24
-        Me.lbl_percent.Text = "0%"
-        '
-        'Guna2VSeparator1
-        '
-        Me.Guna2VSeparator1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2VSeparator1.Location = New System.Drawing.Point(576, 9)
-        Me.Guna2VSeparator1.Name = "Guna2VSeparator1"
-        Me.Guna2VSeparator1.Size = New System.Drawing.Size(10, 166)
-        Me.Guna2VSeparator1.TabIndex = 26
-        Me.Guna2VSeparator1.UseTransparentBackground = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Label1.Location = New System.Drawing.Point(15, 105)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(283, 50)
-        Me.Label1.TabIndex = 26
-        Me.Label1.Text = "LINE PROGRESS" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.Guna2PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Guna2PictureBox1.Image = CType(resources.GetObject("Guna2PictureBox1.Image"), System.Drawing.Image)
+        Me.Guna2PictureBox1.ImageRotate = 0!
+        Me.Guna2PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.Guna2PictureBox1.Name = "Guna2PictureBox1"
+        Me.Guna2PictureBox1.Size = New System.Drawing.Size(100, 100)
+        Me.Guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Guna2PictureBox1.TabIndex = 30
+        Me.Guna2PictureBox1.TabStop = False
         '
         'lbl_CTtarget
         '
@@ -311,51 +317,19 @@ Partial Class liveoutput
         Me.lbl_CTtarget.Text = "000"
         Me.lbl_CTtarget.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'Guna2PictureBox1
+        'Guna2Panel4
         '
-        Me.Guna2PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Guna2PictureBox1.Image = CType(resources.GetObject("Guna2PictureBox1.Image"), System.Drawing.Image)
-        Me.Guna2PictureBox1.ImageRotate = 0!
-        Me.Guna2PictureBox1.Location = New System.Drawing.Point(0, 0)
-        Me.Guna2PictureBox1.Name = "Guna2PictureBox1"
-        Me.Guna2PictureBox1.Size = New System.Drawing.Size(100, 100)
-        Me.Guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.Guna2PictureBox1.TabIndex = 30
-        Me.Guna2PictureBox1.TabStop = False
-        '
-        'panel_CTtarget
-        '
-        Me.panel_CTtarget.Controls.Add(Me.Guna2PictureBox1)
-        Me.panel_CTtarget.Controls.Add(Me.lbl_CTtarget)
-        Me.panel_CTtarget.FillColor = System.Drawing.Color.MistyRose
-        Me.panel_CTtarget.Location = New System.Drawing.Point(545, 6)
-        Me.panel_CTtarget.Name = "panel_CTtarget"
-        Me.panel_CTtarget.Size = New System.Drawing.Size(310, 100)
-        Me.panel_CTtarget.TabIndex = 31
-        '
-        'Guna2Panel2
-        '
-        Me.Guna2Panel2.Controls.Add(Me.Guna2PictureBox3)
-        Me.Guna2Panel2.Controls.Add(Me.lbl_cycle)
-        Me.Guna2Panel2.FillColor = System.Drawing.Color.MistyRose
-        Me.Guna2Panel2.Location = New System.Drawing.Point(545, 6)
-        Me.Guna2Panel2.Name = "Guna2Panel2"
-        Me.Guna2Panel2.Size = New System.Drawing.Size(310, 100)
-        Me.Guna2Panel2.TabIndex = 32
-        '
-        'Guna2PictureBox3
-        '
-        Me.Guna2PictureBox3.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2PictureBox3.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Guna2PictureBox3.Image = CType(resources.GetObject("Guna2PictureBox3.Image"), System.Drawing.Image)
-        Me.Guna2PictureBox3.ImageRotate = 0!
-        Me.Guna2PictureBox3.Location = New System.Drawing.Point(0, 0)
-        Me.Guna2PictureBox3.Name = "Guna2PictureBox3"
-        Me.Guna2PictureBox3.Size = New System.Drawing.Size(100, 100)
-        Me.Guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.Guna2PictureBox3.TabIndex = 30
-        Me.Guna2PictureBox3.TabStop = False
+        Me.Guna2Panel4.BorderColor = System.Drawing.Color.Gray
+        Me.Guna2Panel4.BorderThickness = 2
+        Me.Guna2Panel4.Controls.Add(Me.radial)
+        Me.Guna2Panel4.Controls.Add(Me.Label1)
+        Me.Guna2Panel4.Controls.Add(Me.lbl_percent)
+        Me.Guna2Panel4.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Guna2Panel4.FillColor = System.Drawing.Color.White
+        Me.Guna2Panel4.Location = New System.Drawing.Point(0, 1140)
+        Me.Guna2Panel4.Name = "Guna2Panel4"
+        Me.Guna2Panel4.Size = New System.Drawing.Size(867, 435)
+        Me.Guna2Panel4.TabIndex = 38
         '
         'radial
         '
@@ -374,6 +348,32 @@ Partial Class liveoutput
         Me.radial.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault
         Me.radial.Value = 10
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label1.Location = New System.Drawing.Point(15, 105)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(283, 50)
+        Me.Label1.TabIndex = 26
+        Me.Label1.Text = "LINE PROGRESS" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'lbl_percent
+        '
+        Me.lbl_percent.AutoSize = True
+        Me.lbl_percent.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_percent.Font = New System.Drawing.Font("Segoe UI", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_percent.ForeColor = System.Drawing.Color.Black
+        Me.lbl_percent.Location = New System.Drawing.Point(13, 128)
+        Me.lbl_percent.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbl_percent.Name = "lbl_percent"
+        Me.lbl_percent.Size = New System.Drawing.Size(193, 128)
+        Me.lbl_percent.TabIndex = 24
+        Me.lbl_percent.Text = "0%"
+        '
         'liveoutput
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -390,18 +390,18 @@ Partial Class liveoutput
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.panel_output.ResumeLayout(False)
         Me.panel_output.PerformLayout()
+        Me.Guna2Panel2.ResumeLayout(False)
+        Me.Guna2Panel2.PerformLayout()
+        CType(Me.Guna2PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2Panel3.ResumeLayout(False)
         Me.Guna2Panel3.PerformLayout()
         Me.Guna2Panel1.ResumeLayout(False)
         Me.Guna2Panel1.PerformLayout()
-        Me.Guna2Panel4.ResumeLayout(False)
-        Me.Guna2Panel4.PerformLayout()
-        CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panel_CTtarget.ResumeLayout(False)
         Me.panel_CTtarget.PerformLayout()
-        Me.Guna2Panel2.ResumeLayout(False)
-        Me.Guna2Panel2.PerformLayout()
-        CType(Me.Guna2PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Guna2Panel4.ResumeLayout(False)
+        Me.Guna2Panel4.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

@@ -4,7 +4,7 @@ Imports ClosedXML.Excel
 Module Module1
 
     Public Function connection() As MySqlConnection
-        ' Return New MySqlConnection("server=TRCF2D-060;user id=Inventory;password=inventory123@;database=trcsystem")
+        'Return New MySqlConnection("server=TRCF2D-060;user id=Inventory;password=inventory123@;database=trcsystem")
         Return New MySqlConnection("server=localhost;user id=root;password=;database=trcsystem")
     End Function
     Public con As MySqlConnection = connection()

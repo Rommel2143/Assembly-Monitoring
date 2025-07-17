@@ -1,90 +1,274 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports Guna.UI2.WinForms
-Public Class overview
-    Private Sub overview_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Loaddata()
-    End Sub
 
+Public Class overview
+
+    Private Sub overview_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        Timer1.Interval = 60000 ' 1 minute in milliseconds
+        Timer1.Start()
+        dtpicker1.Value = Date.Now
+        ' Set default shift radio button
+        rad_ds.Checked = If(selected_shift = 0, True, False)
+        rad_ns.Checked = If(selected_shift = 1, True, False)
+    End Sub
     Public Sub Loaddata()
         Try
+            ' Freeze controls (optional: disable or suspend layout)
+            Me.SuspendLayout()
+
+            Cursor = Cursors.WaitCursor
             flow_item.Controls.Clear()
             con.Close()
             con.Open()
-            Dim query As String = "SELECT COUNT(*) as total,am.model ,ab.partcode, ab.datein, ab.shift, ab.timein, SUM(clock)/COUNT(clock) as clockcycle, ab.line,al.plan,al.target_output,COUNT(ab.id)/am.qty as box
-                       FROM assy_barcodes ab
-                      JOIN assy_lineplan al ON al.partcode = ab.partcode
-                      JOIN assy_masterlist am on am.partcode=ab.partcode
-                      WHERE ab.datein = '" & datedb & "' AND ab.shift = '" & selected_shift & "'
-                     GROUP BY ab.line,ab.partcode"
 
-
+            Dim query As String = "
+SELECT 
+    ap.id, 
+    ap.line, 
+    am.partname, 
+    am.model, 
+    ap.partcode, 
+    ap.plan, 
+    ap.cycle, 
+    am.modelcode, 
+    ap.target_output,
+    (
+        SELECT COUNT(id) 
+        FROM assy_barcodes 
+        WHERE datein = @datein 
+          AND shift = @shift 
+          AND partcode = ap.partcode
+    ) AS actualtotal,
+    (
+        SELECT IFNULL(SUM(clock) / COUNT(clock), 0) 
+        FROM assy_barcodes 
+        WHERE partcode = ap.partcode 
+          AND datein = @datein 
+          AND shift = @shift
+    ) AS actual_cycletime
+FROM assy_lineplan ap
+JOIN assy_masterlist am ON am.partcode = ap.partcode
+WHERE ap.datein = @datein 
+  AND ap.shift = @shift ORDER BY ap.line"
 
             Dim cmd As New MySqlCommand(query, con)
+            cmd.Parameters.AddWithValue("@datein", dtpicker1.Value.ToString("yyyy-MM-dd"))
+            cmd.Parameters.AddWithValue("@shift", If(rad_ds.Checked = True, 0, 1))
+
             Dim reader As MySqlDataReader = cmd.ExecuteReader()
 
             While reader.Read()
-                ' Create a new Guna2Panel for each member
-                Dim memberPanel As New Guna2Panel()
-                memberPanel.Width = 370
-                memberPanel.Height = 230
-                memberPanel.BackColor = Color.FromArgb(250, 250, 250)
-                memberPanel.BorderRadius = 10
-                memberPanel.Margin = New Padding(10)
-                memberPanel.FillColor = Color.White
+                Dim actual As Integer = If(IsDBNull(reader("actualtotal")), 0, Convert.ToInt32(reader("actualtotal")))
+                Dim target As Integer = If(IsDBNull(reader("target_output")), 0, Convert.ToInt32(reader("target_output")))
+                Dim actualCycleTime As Decimal = If(IsDBNull(reader("actual_cycletime")), 0D, Convert.ToDecimal(reader("actual_cycletime")))
+                Dim cycleTime As Decimal = If(IsDBNull(reader("cycle")), 0D, Convert.ToDecimal(reader("cycle")))
+                Dim model As String = reader("model").ToString()
+                Dim line As String = reader("line").ToString()
+                Dim plan As String = reader("plan").ToString()
 
-                memberPanel.ShadowDecoration.Enabled = True
-                memberPanel.ShadowDecoration.Color = Color.Silver
-                memberPanel.ShadowDecoration.BorderRadius = 10
+                ' Panel container
+                Dim memberPanel As New Guna2Panel With {
+                .Width = 400,
+                .Height = 260,
+                .BorderRadius = 12,
+                .Margin = New Padding(10),
+                .BorderColor = Color.Gray,
+                .BorderThickness = 1,
+                .FillColor = Color.White
+            }
 
-                ' Label for member information
-                Dim memberLabel As New Label()
-                memberLabel.BackColor = Color.White
-                memberLabel.Font = New Font("Segoe UI", 15)
-                memberLabel.ForeColor = Color.FromArgb(50, 50, 50)
-                memberLabel.AutoSize = True
-                memberLabel.Text = $"Line: {reader("line")}                        Plan: {reader("plan")}" & Environment.NewLine &
-                                  $"Partcode: {reader("partcode")}" & Environment.NewLine &
-                                  $"Model: {reader("model")}  " & Environment.NewLine &
-                                   $"" & Environment.NewLine &
-                                  $" Actual: {reader("total")}          Target: {reader("target_output")}" & Environment.NewLine &
-                                  $" Box Total: " & Convert.ToInt32(reader("box")).ToString("N0") & Environment.NewLine &
-                                  $" Cycletime: {Convert.ToDecimal(reader("clockcycle")).ToString("F2")} sec/item"
+                ' Header (Line and Plan)
+                Dim headerPanel As New Guna2GradientPanel With {
+                .Height = 40,
+                .Dock = DockStyle.Top,
+                .FillColor = Color.FromArgb(72, 167, 255),
+                .FillColor2 = Color.FromArgb(30, 144, 255),
+                .BorderRadius = 8,
+                .Padding = New Padding(15, 0, 15, 0),
+                .BorderThickness = 1,
+                .BorderColor = Color.DimGray,
+                .BackColor = Color.Transparent
+            }
 
-                memberLabel.Location = New Point(10, 15)
+                Dim lblLine As New Label With {
+                .Text = $"LINE {line}",
+                .ForeColor = Color.White,
+                .Font = New Font("Segoe UI", 10, FontStyle.Bold),
+                .Dock = DockStyle.Left,
+                .TextAlign = ContentAlignment.MiddleLeft,
+                .BackColor = Color.Transparent
+            }
 
+                Dim lblPlan As New Label With {
+                .Text = $"Plan : {plan}",
+                .ForeColor = Color.White,
+                .Font = New Font("Segoe UI", 10, FontStyle.Bold),
+                .Dock = DockStyle.Right,
+                .TextAlign = ContentAlignment.MiddleRight,
+                .BackColor = Color.Transparent
+            }
 
+                headerPanel.Controls.Add(lblLine)
+                headerPanel.Controls.Add(lblPlan)
 
+                ' Model label
+                Dim lblModel As New Label With {
+                .Text = model.ToUpper(),
+                .Dock = DockStyle.Top,
+                .Height = 30,
+                .TextAlign = ContentAlignment.MiddleCenter,
+                .Font = New Font("Segoe UI Semibold", 11, FontStyle.Bold),
+                .ForeColor = Color.Black,
+                .BackColor = Color.Transparent
+            }
 
-                memberPanel.Controls.Add(memberLabel)
+                ' Redesigned Target vs Actual Section
+                Dim statPanel As New TableLayoutPanel With {
+                .Dock = DockStyle.Top,
+                .Height = 120,
+                .ColumnCount = 3,
+                .RowCount = 3,
+                .BackColor = Color.Transparent
+            }
+
+                statPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 45))
+                statPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 10))
+                statPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 45))
+                statPanel.RowStyles.Add(New RowStyle(SizeType.Percent, 30)) ' Headers
+                statPanel.RowStyles.Add(New RowStyle(SizeType.Percent, 40)) ' Big numbers
+                statPanel.RowStyles.Add(New RowStyle(SizeType.Percent, 30)) ' Cycle times
+
+                statPanel.Controls.Add(MakeCenterLabel("TARGET", FontStyle.Regular, 10), 0, 0)
+                statPanel.Controls.Add(MakeCenterLabel("ACTUAL", FontStyle.Regular, 10), 2, 0)
+                statPanel.Controls.Add(MakeCenterLabel(target.ToString(), FontStyle.Bold, 30), 0, 1)
+                statPanel.Controls.Add(MakeCenterLabel(actual.ToString(), FontStyle.Bold, 30), 2, 1)
+                statPanel.Controls.Add(MakeCenterLabel($"{cycleTime:F0} sec / item", FontStyle.Regular, 15), 0, 2)
+                statPanel.Controls.Add(MakeCenterLabel($"{actualCycleTime:F0} sec / item", FontStyle.Regular, 15), 2, 2)
+
+                ' Vertical separator
+                Dim verticalSeparator As New Panel With {
+                    .BackColor = Color.LightGray,
+                    .Width = 0.8,
+                    .Margin = New Padding(20, 4, 20, 4),
+                    .Dock = DockStyle.Fill
+                }
+
+                statPanel.Controls.Add(verticalSeparator, 1, 0)
+                statPanel.SetRowSpan(verticalSeparator, 3)
+
+                ' Progress Bar
+                Dim percentage As Integer = If(target > 0, Math.Min(CInt((actual / plan) * 100), 100), 0)
+
+                Dim progressPanel As New Panel With {
+                .Dock = DockStyle.Bottom,
+                .Height = 40,
+                .Padding = New Padding(10, 5, 10, 5),
+                .BackColor = Color.Transparent
+            }
+
+                Dim progressBar As New Guna2ProgressBar With {
+                .Dock = DockStyle.Fill,
+                .Value = percentage,
+                .FillColor = Color.LightGray,
+                .ProgressColor = Color.MediumSeaGreen,
+                .BorderRadius = 6
+            }
+
+                Dim percentageLabel As New Label With {
+                .Text = $"{percentage}%",
+                .Dock = DockStyle.Right,
+                .Width = 50,
+                .TextAlign = ContentAlignment.MiddleRight,
+                .ForeColor = Color.Black,
+                .Font = New Font("Segoe UI", 10, FontStyle.Bold),
+                .BackColor = Color.Transparent
+            }
+
+                progressPanel.Controls.Add(progressBar)
+                progressPanel.Controls.Add(percentageLabel)
+                If percentage = 100 Then
+                    memberPanel.FillColor = Color.LightGreen
+                End If
+
+                ' Assemble Final UI
+                memberPanel.Controls.Add(progressPanel)
+                memberPanel.Controls.Add(statPanel)
+                memberPanel.Controls.Add(lblModel)
+                memberPanel.Controls.Add(headerPanel)
                 flow_item.Controls.Add(memberPanel)
-
-
 
             End While
 
             reader.Close()
+
+            Cursor = Cursors.Default
+            Me.ResumeLayout()
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.Message)
         Finally
-
             con.Close()
-
         End Try
     End Sub
 
-    Private Sub flow_item_Paint(sender As Object, e As PaintEventArgs) Handles flow_item.Paint
+
+
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+
+
+        ' Load your data
+        Loaddata()
+
 
     End Sub
 
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs)
+        display_formsub(New assembly_reports)
+    End Sub
+    Private Function MakeInfoLabel(text As String) As Label
+        Return New Label With {
+        .Text = text,
+        .Font = New Font("Segoe UI", 11),
+        .ForeColor = Color.FromArgb(40, 40, 40),
+        .AutoSize = False,
+        .Dock = DockStyle.Fill,
+        .TextAlign = ContentAlignment.MiddleLeft
+    }
+    End Function
+    Private Function MakeValueLabel(text As String) As Label
+        Return New Label With {
+        .Text = text,
+        .Font = New Font("Segoe UI Semibold", 11),
+        .ForeColor = Color.Black,
+        .AutoSize = False,
+        .Dock = DockStyle.Fill,
+        .TextAlign = ContentAlignment.MiddleLeft
+    }
+    End Function
+    Private Function MakeCenterLabel(text As String, style As FontStyle, Optional size As Integer = 11) As Label
+        Return New Label With {
+        .Text = text,
+        .Font = New Font("Segoe UI", size, style),
+        .ForeColor = Color.Black,
+        .Dock = DockStyle.Fill,
+        .TextAlign = ContentAlignment.MiddleCenter,
+        .BackColor = Color.Transparent
+    }
+    End Function
+
+
+
+    Private Sub txt_search_TextChanged(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub dtpicker1_ValueChanged(sender As Object, e As EventArgs) Handles dtpicker1.ValueChanged
         Loaddata()
     End Sub
 
-    Private Sub Guna2Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Guna2Panel1.Paint
-        Timer1.Start()
-    End Sub
-
-    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
-        display_formsub(New assembly_reports)
+    Private Sub rad_ds_CheckedChanged(sender As Object, e As EventArgs) Handles rad_ds.CheckedChanged
+        Loaddata()
     End Sub
 End Class
