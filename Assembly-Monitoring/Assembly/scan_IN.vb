@@ -174,6 +174,7 @@ Public Class scan_IN
             Guna2Button2.Text = "Start"
             Guna2Button2.FillColor = Color.MidnightBlue
             Guna2Button2.Image = My.Resources.play
+            Guna2GroupBox1.Focus()
         Else
             ' Currently stopped, so start
             Timer1.Start()
