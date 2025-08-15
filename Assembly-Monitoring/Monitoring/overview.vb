@@ -22,35 +22,44 @@ Public Class overview
             con.Close()
             con.Open()
 
-            Dim query As String = "
-SELECT 
-    ap.id, 
-    ap.line, 
-    am.partname, 
-    am.model, 
-    ap.partcode, 
-    ap.plan, 
-    ap.cycle, 
-    am.modelcode, 
-    ap.target_output,
-    (
-        SELECT COUNT(id) 
-        FROM assy_barcodes 
-        WHERE datein = @datein 
-          AND shift = @shift 
-          AND partcode = ap.partcode
-    ) AS actualtotal,
-    (
-        SELECT IFNULL(SUM(clock) / COUNT(clock), 0) 
-        FROM assy_barcodes 
-        WHERE partcode = ap.partcode 
-          AND datein = @datein 
-          AND shift = @shift
-    ) AS actual_cycletime
-FROM assy_lineplan ap
-JOIN assy_masterlist am ON am.partcode = ap.partcode
-WHERE ap.datein = @datein 
-  AND ap.shift = @shift ORDER BY ap.line"
+
+
+            Dim query As String = "SELECT 
+    lp.line,
+    ml.partname,
+    ml.model,
+    lp.partcode,
+    lp.plan,
+    lp.cycle,
+    ml.modelcode,
+    lp.target_output,
+    COUNT(b.barcode) AS actualtotal,
+    ROUND(AVG(b.clock), 2) AS actual_cycletime -- in seconds
+FROM assy_lineplan lp
+JOIN assy_masterlist ml 
+    ON ml.partcode = lp.partcode
+LEFT JOIN assy_barcodes b 
+    ON b.partcode = lp.partcode
+    AND b.line = lp.line
+    AND b.datein = lp.datein
+    AND b.shift = lp.shift
+WHERE lp.datein = '" & dtpicker1.Value.ToString("yyyy-MM-dd") & "'  -- <-- filter date here
+  AND lp.shift ='" & If(rad_ds.Checked = True, 0, 1) & "'           -- <-- filter shift here
+GROUP BY 
+   lp.id
+ORDER BY 
+    lp.line,
+    lp.partcode;
+"
+
+            '        lp.line,
+            'ml.partname,
+            'ml.model,
+            'lp.partcode,
+            'lp.plan,
+            'lp.cycle,
+            'ml.modelcode,
+            'lp.target_output
 
             Dim cmd As New MySqlCommand(query, con)
             cmd.Parameters.AddWithValue("@datein", dtpicker1.Value.ToString("yyyy-MM-dd"))
@@ -67,123 +76,251 @@ WHERE ap.datein = @datein
                 Dim line As String = reader("line").ToString()
                 Dim plan As String = reader("plan").ToString()
 
-                ' Panel container
-                Dim memberPanel As New Guna2Panel With {
-                .Width = 400,
-                .Height = 260,
-                .BorderRadius = 12,
-                .Margin = New Padding(10),
-                .BorderColor = Color.Gray,
-                .BorderThickness = 1,
-                .FillColor = Color.White
-            }
+                '    ' Panel container
+                '    Dim memberPanel As New Guna2Panel With {
+                '    .Width = 400,
+                '    .Height = 260,
+                '    .BorderRadius = 12,
+                '    .Margin = New Padding(10),
+                '    .BorderColor = Color.Gray,
+                '    .BorderThickness = 1,
+                '    .FillColor = Color.White
+                '}
 
-                ' Header (Line and Plan)
+                '    ' Header (Line and Plan)
+                '    Dim headerPanel As New Guna2GradientPanel With {
+                '    .Height = 40,
+                '    .Dock = DockStyle.Top,
+                '    .FillColor = Color.FromArgb(72, 167, 255),
+                '    .FillColor2 = Color.FromArgb(30, 144, 255),
+                '    .BorderRadius = 8,
+                '    .Padding = New Padding(15, 0, 15, 0),
+                '    .BorderThickness = 1,
+                '    .BorderColor = Color.DimGray,
+                '    .BackColor = Color.Transparent
+                '}
+
+                '    Dim lblLine As New Label With {
+                '    .Text = $"LINE {line}",
+                '    .ForeColor = Color.White,
+                '    .Font = New Font("Segoe UI", 10, FontStyle.Bold),
+                '    .Dock = DockStyle.Left,
+                '    .TextAlign = ContentAlignment.MiddleLeft,
+                '    .BackColor = Color.Transparent
+                '}
+
+                '    Dim lblPlan As New Label With {
+                '    .Text = $"Plan : {plan}",
+                '    .ForeColor = Color.White,
+                '    .Font = New Font("Segoe UI", 10, FontStyle.Bold),
+                '    .Dock = DockStyle.Right,
+                '    .TextAlign = ContentAlignment.MiddleRight,
+                '    .BackColor = Color.Transparent
+                '}
+
+                '    headerPanel.Controls.Add(lblLine)
+                '    headerPanel.Controls.Add(lblPlan)
+
+                '    ' Model label
+                '    Dim lblModel As New Label With {
+                '    .Text = model.ToUpper(),
+                '    .Dock = DockStyle.Top,
+                '    .Height = 30,
+                '    .TextAlign = ContentAlignment.MiddleCenter,
+                '    .Font = New Font("Segoe UI Semibold", 11, FontStyle.Bold),
+                '    .ForeColor = Color.Black,
+                '    .BackColor = Color.Transparent
+                '}
+
+                '    ' Redesigned Target vs Actual Section
+                '    Dim statPanel As New TableLayoutPanel With {
+                '    .Dock = DockStyle.Top,
+                '    .Height = 120,
+                '    .ColumnCount = 3,
+                '    .RowCount = 3,
+                '    .BackColor = Color.Transparent
+                '}
+
+                '    statPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 45))
+                '    statPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 10))
+                '    statPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 45))
+                '    statPanel.RowStyles.Add(New RowStyle(SizeType.Percent, 30)) ' Headers
+                '    statPanel.RowStyles.Add(New RowStyle(SizeType.Percent, 40)) ' Big numbers
+                '    statPanel.RowStyles.Add(New RowStyle(SizeType.Percent, 30)) ' Cycle times
+
+                '    statPanel.Controls.Add(MakeCenterLabel("TARGET", FontStyle.Regular, 10), 0, 0)
+                '    statPanel.Controls.Add(MakeCenterLabel("ACTUAL", FontStyle.Regular, 10), 2, 0)
+                '    statPanel.Controls.Add(MakeCenterLabel(target.ToString(), FontStyle.Bold, 30), 0, 1)
+                '    statPanel.Controls.Add(MakeCenterLabel(actual.ToString(), FontStyle.Bold, 30), 2, 1)
+                '    statPanel.Controls.Add(MakeCenterLabel($"{cycleTime:F0} sec / item", FontStyle.Regular, 15), 0, 2)
+                '    statPanel.Controls.Add(MakeCenterLabel($"{actualCycleTime:F0} sec / item", FontStyle.Regular, 15), 2, 2)
+
+                '    ' Vertical separator
+                '    Dim verticalSeparator As New Panel With {
+                '        .BackColor = Color.LightGray,
+                '        .Width = 0.8,
+                '        .Margin = New Padding(20, 4, 20, 4),
+                '        .Dock = DockStyle.Fill
+                '    }
+
+                '    statPanel.Controls.Add(verticalSeparator, 1, 0)
+                '    statPanel.SetRowSpan(verticalSeparator, 3)
+
+                '    ' Progress Bar
+                '    Dim percentage As Integer = If(target > 0, Math.Min(CInt((actual / plan) * 100), 100), 0)
+
+                '    Dim progressPanel As New Panel With {
+                '    .Dock = DockStyle.Bottom,
+                '    .Height = 40,
+                '    .Padding = New Padding(10, 5, 10, 5),
+                '    .BackColor = Color.Transparent
+                '}
+
+                '    Dim progressBar As New Guna2ProgressBar With {
+                '    .Dock = DockStyle.Fill,
+                '    .Value = percentage,
+                '    .FillColor = Color.LightGray,
+                '    .ProgressColor = Color.MediumSeaGreen,
+                '    .BorderRadius = 6
+                '}
+
+                '    Dim percentageLabel As New Label With {
+                '    .Text = $"{percentage}%",
+                '    .Dock = DockStyle.Right,
+                '    .Width = 50,
+                '    .TextAlign = ContentAlignment.MiddleRight,
+                '    .ForeColor = Color.Black,
+                '    .Font = New Font("Segoe UI", 10, FontStyle.Bold),
+                '    .BackColor = Color.Transparent
+                '}
+
+                '    progressPanel.Controls.Add(progressBar)
+                '    progressPanel.Controls.Add(percentageLabel)
+                '    If percentage = 100 Then
+                '        memberPanel.FillColor = Color.LightGreen
+                '    End If
+
+                '    ' Assemble Final UI
+                '    memberPanel.Controls.Add(progressPanel)
+                '    memberPanel.Controls.Add(statPanel)
+                '    memberPanel.Controls.Add(lblModel)
+                '    memberPanel.Controls.Add(headerPanel)
+                '    flow_item.Controls.Add(memberPanel)
+                ' Panel container (extra compact)
+                Dim memberPanel As New Guna2Panel With {
+    .Width = 260,
+    .Height = 160,
+    .BorderRadius = 8,
+    .Margin = New Padding(4),
+    .BorderColor = Color.Gray,
+    .BorderThickness = 1,
+    .FillColor = Color.White
+}
+
+                ' Header
                 Dim headerPanel As New Guna2GradientPanel With {
-                .Height = 40,
-                .Dock = DockStyle.Top,
-                .FillColor = Color.FromArgb(72, 167, 255),
-                .FillColor2 = Color.FromArgb(30, 144, 255),
-                .BorderRadius = 8,
-                .Padding = New Padding(15, 0, 15, 0),
-                .BorderThickness = 1,
-                .BorderColor = Color.DimGray,
-                .BackColor = Color.Transparent
-            }
+    .Height = 24,
+    .Dock = DockStyle.Top,
+    .FillColor = Color.FromArgb(72, 167, 255),
+    .FillColor2 = Color.FromArgb(30, 144, 255),
+    .BorderRadius = 5,
+    .Padding = New Padding(6, 0, 6, 0),
+    .BorderThickness = 1,
+    .BorderColor = Color.DimGray,
+    .BackColor = Color.Transparent
+}
 
                 Dim lblLine As New Label With {
-                .Text = $"LINE {line}",
-                .ForeColor = Color.White,
-                .Font = New Font("Segoe UI", 10, FontStyle.Bold),
-                .Dock = DockStyle.Left,
-                .TextAlign = ContentAlignment.MiddleLeft,
-                .BackColor = Color.Transparent
-            }
+    .Text = $"LINE {line}",
+    .ForeColor = Color.White,
+    .Font = New Font("Segoe UI", 7, FontStyle.Bold),
+    .Dock = DockStyle.Left,
+    .TextAlign = ContentAlignment.MiddleLeft,
+    .BackColor = Color.Transparent
+}
 
                 Dim lblPlan As New Label With {
-                .Text = $"Plan : {plan}",
-                .ForeColor = Color.White,
-                .Font = New Font("Segoe UI", 10, FontStyle.Bold),
-                .Dock = DockStyle.Right,
-                .TextAlign = ContentAlignment.MiddleRight,
-                .BackColor = Color.Transparent
-            }
+    .Text = $"Plan : {plan}",
+    .ForeColor = Color.White,
+    .Font = New Font("Segoe UI", 7, FontStyle.Bold),
+    .Dock = DockStyle.Right,
+    .TextAlign = ContentAlignment.MiddleRight,
+    .BackColor = Color.Transparent
+}
 
                 headerPanel.Controls.Add(lblLine)
                 headerPanel.Controls.Add(lblPlan)
 
                 ' Model label
                 Dim lblModel As New Label With {
-                .Text = model.ToUpper(),
-                .Dock = DockStyle.Top,
-                .Height = 30,
-                .TextAlign = ContentAlignment.MiddleCenter,
-                .Font = New Font("Segoe UI Semibold", 11, FontStyle.Bold),
-                .ForeColor = Color.Black,
-                .BackColor = Color.Transparent
-            }
+    .Text = model.ToUpper(),
+    .Dock = DockStyle.Top,
+    .Height = 20,
+    .TextAlign = ContentAlignment.MiddleCenter,
+    .Font = New Font("Segoe UI Semibold", 8, FontStyle.Bold),
+    .ForeColor = Color.Black,
+    .BackColor = Color.Transparent
+}
 
-                ' Redesigned Target vs Actual Section
+                ' Target vs Actual Section
                 Dim statPanel As New TableLayoutPanel With {
-                .Dock = DockStyle.Top,
-                .Height = 120,
-                .ColumnCount = 3,
-                .RowCount = 3,
-                .BackColor = Color.Transparent
-            }
+    .Dock = DockStyle.Top,
+    .Height = 70,
+    .ColumnCount = 3,
+    .RowCount = 3,
+    .BackColor = Color.Transparent
+}
 
                 statPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 45))
                 statPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 10))
                 statPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 45))
-                statPanel.RowStyles.Add(New RowStyle(SizeType.Percent, 30)) ' Headers
-                statPanel.RowStyles.Add(New RowStyle(SizeType.Percent, 40)) ' Big numbers
-                statPanel.RowStyles.Add(New RowStyle(SizeType.Percent, 30)) ' Cycle times
+                statPanel.RowStyles.Add(New RowStyle(SizeType.Percent, 30))
+                statPanel.RowStyles.Add(New RowStyle(SizeType.Percent, 40))
+                statPanel.RowStyles.Add(New RowStyle(SizeType.Percent, 30))
 
-                statPanel.Controls.Add(MakeCenterLabel("TARGET", FontStyle.Regular, 10), 0, 0)
-                statPanel.Controls.Add(MakeCenterLabel("ACTUAL", FontStyle.Regular, 10), 2, 0)
-                statPanel.Controls.Add(MakeCenterLabel(target.ToString(), FontStyle.Bold, 30), 0, 1)
-                statPanel.Controls.Add(MakeCenterLabel(actual.ToString(), FontStyle.Bold, 30), 2, 1)
-                statPanel.Controls.Add(MakeCenterLabel($"{cycleTime:F0} sec / item", FontStyle.Regular, 15), 0, 2)
-                statPanel.Controls.Add(MakeCenterLabel($"{actualCycleTime:F0} sec / item", FontStyle.Regular, 15), 2, 2)
+                statPanel.Controls.Add(MakeCenterLabel("TARGET", FontStyle.Regular, 7), 0, 0)
+                statPanel.Controls.Add(MakeCenterLabel("ACTUAL", FontStyle.Regular, 7), 2, 0)
+                statPanel.Controls.Add(MakeCenterLabel(target.ToString(), FontStyle.Bold, 14), 0, 1)
+                statPanel.Controls.Add(MakeCenterLabel(actual.ToString(), FontStyle.Bold, 14), 2, 1)
+                statPanel.Controls.Add(MakeCenterLabel($"{cycleTime:F0}s/item", FontStyle.Regular, 8), 0, 2)
+                statPanel.Controls.Add(MakeCenterLabel($"{actualCycleTime:F0}s/item", FontStyle.Regular, 8), 2, 2)
 
                 ' Vertical separator
                 Dim verticalSeparator As New Panel With {
-                    .BackColor = Color.LightGray,
-                    .Width = 0.8,
-                    .Margin = New Padding(20, 4, 20, 4),
-                    .Dock = DockStyle.Fill
-                }
-
+    .BackColor = Color.LightGray,
+    .Width = 1,
+    .Margin = New Padding(6, 1, 6, 1),
+    .Dock = DockStyle.Fill
+}
                 statPanel.Controls.Add(verticalSeparator, 1, 0)
                 statPanel.SetRowSpan(verticalSeparator, 3)
 
                 ' Progress Bar
                 Dim percentage As Integer = If(target > 0, Math.Min(CInt((actual / plan) * 100), 100), 0)
-
                 Dim progressPanel As New Panel With {
-                .Dock = DockStyle.Bottom,
-                .Height = 40,
-                .Padding = New Padding(10, 5, 10, 5),
-                .BackColor = Color.Transparent
-            }
+    .Dock = DockStyle.Bottom,
+    .Height = 24,
+    .Padding = New Padding(4, 2, 4, 2),
+    .BackColor = Color.Transparent
+}
 
                 Dim progressBar As New Guna2ProgressBar With {
-                .Dock = DockStyle.Fill,
-                .Value = percentage,
-                .FillColor = Color.LightGray,
-                .ProgressColor = Color.MediumSeaGreen,
-                .BorderRadius = 6
-            }
+    .Dock = DockStyle.Fill,
+    .Value = percentage,
+    .FillColor = Color.LightGray,
+    .ProgressColor = Color.MediumSeaGreen,
+    .BorderRadius = 3
+}
 
                 Dim percentageLabel As New Label With {
-                .Text = $"{percentage}%",
-                .Dock = DockStyle.Right,
-                .Width = 50,
-                .TextAlign = ContentAlignment.MiddleRight,
-                .ForeColor = Color.Black,
-                .Font = New Font("Segoe UI", 10, FontStyle.Bold),
-                .BackColor = Color.Transparent
-            }
+    .Text = $"{percentage}%",
+    .Dock = DockStyle.Right,
+    .Width = 34,
+    .TextAlign = ContentAlignment.MiddleRight,
+    .ForeColor = Color.Black,
+    .Font = New Font("Segoe UI", 7, FontStyle.Bold),
+    .BackColor = Color.Transparent
+}
 
                 progressPanel.Controls.Add(progressBar)
                 progressPanel.Controls.Add(percentageLabel)
@@ -191,7 +328,7 @@ WHERE ap.datein = @datein
                     memberPanel.FillColor = Color.LightGreen
                 End If
 
-                ' Assemble Final UI
+                ' Assemble UI
                 memberPanel.Controls.Add(progressPanel)
                 memberPanel.Controls.Add(statPanel)
                 memberPanel.Controls.Add(lblModel)

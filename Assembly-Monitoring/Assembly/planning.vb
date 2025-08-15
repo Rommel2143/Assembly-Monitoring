@@ -18,6 +18,17 @@ Public Class planning
 
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles btn_start.Click
         If Val(txt_plan.Text) > 0 Then
+            'Dim selectquery As String = "SELECT `partcode`, `plan`, `datein`, `shift` FROM `assy_lineplan` WHERE line = '" & PCline & "' AND shift ='" & selected_shift & "' AND partcode = '" & cmb_partcode.Text.Trim & "'"
+            'con.Close()
+            'con.Open()
+            'Using cmd As New MySqlCommand(selectquery, con)
+            '    dr = cmd.ExecuteReader
+            '    If dr.HasRows Then
+            '        MessageBox.Show("You already set a plan for this Partcode.", "Duplicate")
+            '        Exit Sub
+            '    End If
+
+            'End Using
 
 
             Dim query As String = "INSERT INTO `assy_lineplan`(`partcode`, `plan`, `datein`, `shift`, `line`,cycle,target_output) VALUES ('" & cmb_partcode.Text.Trim & "','" & txt_plan.Text & "','" & datedb & "','" & selected_shift & "','" & PCline & "','" & txt_cycle.Text & "','0')"
@@ -36,7 +47,10 @@ Public Class planning
     Public Sub reloadgrid_plan()
         Try
             ' Load data into the DataGridView
-            reload("SELECT ap.id, ap.partcode, am.partname, `plan`, `line`, cycle FROM assy_lineplan ap
+            reload("SELECT ap.id, ap.partcode, am.partname, `plan`, `line`, cycle, CASE 
+        WHEN ap.shift = 0 THEN 'DS'
+        WHEN ap.shift = 1 THEN 'NS'
+    END AS shift FROM assy_lineplan ap
                 JOIN assy_masterlist am ON am.partcode = ap.partcode 
                 WHERE line = '" & PCline & "' AND datein = '" & datedb & "'", datagrid1)
 
