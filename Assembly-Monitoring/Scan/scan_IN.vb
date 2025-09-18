@@ -207,6 +207,7 @@ Public Class scan_IN
                     updateboxitem()
                     qctimer = 0
                 Else
+                    Guna2Button2.PerformClick()
                     Dim warn As New warning
                     warn.ShowDialog()
                     warn.BringToFront()
@@ -216,12 +217,14 @@ Public Class scan_IN
                 txt_barcode.Focus()
 
             Catch ex As MySqlException When ex.Number = 1062
+                Guna2Button2.PerformClick()
                 Dim warn As New warning
                 warn.display("Duplicate Barcode Detected!")
                 warn.ShowDialog()
                 warn.BringToFront()
             Catch ex As Exception
                 ' General error handling
+                Guna2Button2.PerformClick()
                 MessageBox.Show("An error occurred: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Finally
                 con.Close()
