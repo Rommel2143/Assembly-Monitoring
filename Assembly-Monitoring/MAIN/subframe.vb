@@ -21,4 +21,9 @@
         selectLive.ShowDialog()
         selectLive.BringToFront()
     End Sub
+
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+        search_barcode.ShowDialog()
+        search_barcode.BringToFront()
+    End Sub
 End Class

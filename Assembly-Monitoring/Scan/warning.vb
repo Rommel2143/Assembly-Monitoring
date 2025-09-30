@@ -1,9 +1,11 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class warning
-
+    Public errorText As String
     Public Sub display(text As String)
         lbl_error.Text = text
     End Sub
+
+
     Private Sub warning_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txt_id.Focus()
     End Sub
@@ -45,7 +47,7 @@ Public Class warning
     End Sub
 
     Sub insertlogs()
-        Dim query As String = "INSERT INTO `prod_logs`(line, `details`, `IDno`) VALUES (" & user_PCline & ",'" & lbl_error.Text & "','" & txt_id.Text.Trim & "')"
+        Dim query As String = "INSERT INTO `prod_logs`(line,error_text, `details`, `IDno`) VALUES (" & user_PCline & ",'" & errorText & "','" & lbl_error.Text & "','" & txt_id.Text.Trim & "')"
         con.Close()
         con.Open()
         Using cmd As New MySqlCommand(query, con)

@@ -209,6 +209,7 @@ Public Class scan_IN
                 Else
                     Guna2Button2.PerformClick()
                     Dim warn As New warning
+                    warn.errorText = txt_barcode.Text
                     warn.ShowDialog()
                     warn.BringToFront()
 
@@ -219,6 +220,7 @@ Public Class scan_IN
             Catch ex As MySqlException When ex.Number = 1062
                 Guna2Button2.PerformClick()
                 Dim warn As New warning
+                warn.errorText = txt_barcode.Text
                 warn.display("Duplicate Barcode Detected!")
                 warn.ShowDialog()
                 warn.BringToFront()

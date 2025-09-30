@@ -41,6 +41,7 @@ Partial Class subframe
         Me.Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.btn_administrator = New System.Windows.Forms.ToolStripMenuItem()
         Me.SetLineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         Me.btnmenu_strip.SuspendLayout()
         Me.profile_menu.SuspendLayout()
         Me.Guna2GradientPanel1.SuspendLayout()
@@ -115,6 +116,7 @@ Partial Class subframe
         Me.Guna2GradientPanel1.BorderColor = System.Drawing.Color.WhiteSmoke
         Me.Guna2GradientPanel1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom
         Me.Guna2GradientPanel1.BorderThickness = 1
+        Me.Guna2GradientPanel1.Controls.Add(Me.Guna2Button1)
         Me.Guna2GradientPanel1.Controls.Add(Me.Guna2ImageButton1)
         Me.Guna2GradientPanel1.Controls.Add(Me.lbl_FormName)
         Me.Guna2GradientPanel1.Controls.Add(Me.btn_profile)
@@ -156,12 +158,12 @@ Partial Class subframe
         Me.Guna2ImageButton1.ImageOffset = New System.Drawing.Point(0, 0)
         Me.Guna2ImageButton1.ImageRotate = 0!
         Me.Guna2ImageButton1.ImageSize = New System.Drawing.Size(32, 32)
-        Me.Guna2ImageButton1.Location = New System.Drawing.Point(1080, 10)
+        Me.Guna2ImageButton1.Location = New System.Drawing.Point(1018, 7)
         Me.Guna2ImageButton1.Name = "Guna2ImageButton1"
         Me.Guna2ImageButton1.PressedState.Image = CType(resources.GetObject("resource.Image1"), System.Drawing.Image)
         Me.Guna2ImageButton1.PressedState.ImageSize = New System.Drawing.Size(31, 31)
         Me.Guna2ImageButton1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Guna2ImageButton1.Size = New System.Drawing.Size(32, 32)
+        Me.Guna2ImageButton1.Size = New System.Drawing.Size(39, 37)
         Me.Guna2ImageButton1.TabIndex = 12
         Me.Guna2ImageButton1.UseTransparentBackground = True
         '
@@ -177,7 +179,7 @@ Partial Class subframe
         Me.btn_profile.ImageOffset = New System.Drawing.Point(0, 0)
         Me.btn_profile.ImageRotate = 0!
         Me.btn_profile.ImageSize = New System.Drawing.Size(32, 32)
-        Me.btn_profile.Location = New System.Drawing.Point(1121, 10)
+        Me.btn_profile.Location = New System.Drawing.Point(1121, 9)
         Me.btn_profile.Name = "btn_profile"
         Me.btn_profile.PressedState.Image = CType(resources.GetObject("resource.Image3"), System.Drawing.Image)
         Me.btn_profile.PressedState.ImageSize = New System.Drawing.Size(31, 31)
@@ -216,6 +218,25 @@ Partial Class subframe
         Me.SetLineToolStripMenuItem.Name = "SetLineToolStripMenuItem"
         Me.SetLineToolStripMenuItem.Size = New System.Drawing.Size(158, 26)
         Me.SetLineToolStripMenuItem.Text = "Set PC Line"
+        '
+        'Guna2Button1
+        '
+        Me.Guna2Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Guna2Button1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.Guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.Guna2Button1.FillColor = System.Drawing.Color.Transparent
+        Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.Guna2Button1.ForeColor = System.Drawing.Color.White
+        Me.Guna2Button1.Image = CType(resources.GetObject("Guna2Button1.Image"), System.Drawing.Image)
+        Me.Guna2Button1.ImageSize = New System.Drawing.Size(30, 30)
+        Me.Guna2Button1.Location = New System.Drawing.Point(1076, 7)
+        Me.Guna2Button1.Name = "Guna2Button1"
+        Me.Guna2Button1.Size = New System.Drawing.Size(39, 37)
+        Me.Guna2Button1.TabIndex = 13
+        Me.Guna2Button1.UseTransparentBackground = True
         '
         'subframe
         '
@@ -257,4 +278,5 @@ Partial Class subframe
     Friend WithEvents SetLineToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ScanBarcodeToolStripMenuItem As ToolStripMenuItem
     Private WithEvents Guna2ImageButton1 As Guna.UI2.WinForms.Guna2ImageButton
+    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
 End Class

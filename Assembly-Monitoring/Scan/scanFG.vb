@@ -20,8 +20,10 @@ Public Class scanFG
                 End Using
 
             Else
-                warning.ShowDialog()
-                warning.BringToFront()
+                Dim warn As New warning
+                warn.errorText = txt_barcode.Text
+                warn.ShowDialog()
+                warn.BringToFront()
                 txt_barcode.Clear()
                 txt_barcode.Focus()
             End If

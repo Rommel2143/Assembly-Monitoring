@@ -26,7 +26,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\pti-002\UpdateFolder\</UpdateUrl>
-    <ApplicationRevision>30</ApplicationRevision>
+    <ApplicationRevision>32</ApplicationRevision>
     <ApplicationVersion>1.0.2.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -294,6 +294,12 @@
     <Compile Include="VIEW\liveoutput.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="VIEW\search_barcode.Designer.vb">
+      <DependentUpon>search_barcode.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\search_barcode.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="VIEW\selectLive.Designer.vb">
       <DependentUpon>selectLive.vb</DependentUpon>
     </Compile>
@@ -346,6 +352,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\liveoutput.resx">
       <DependentUpon>liveoutput.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\search_barcode.resx">
+      <DependentUpon>search_barcode.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\selectLive.resx">
       <DependentUpon>selectLive.vb</DependentUpon>
