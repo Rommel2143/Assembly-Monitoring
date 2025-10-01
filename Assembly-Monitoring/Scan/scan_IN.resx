@@ -196,4 +196,15 @@
         SUVORK5CYII=
 </value>
   </data>
+  <data name="Label7.Text" xml:space="preserve">
+    <value>1. Please select the Date, Shift, and FG before starting.
+
+2. Review the displayed SPQ value and confirm that it is correct.
+
+3. Once confirmed, proceed to scan all item barcodes.
+
+4. When the required number of SPQ is reached, 
+    the FG Scanning Form will automatically appear,
+    allowing you to scan the LOT LABEL.</value>
+  </data>
 </root>
