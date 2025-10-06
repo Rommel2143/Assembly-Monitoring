@@ -23,13 +23,11 @@ Module ProcessQR
 
                 Return True ' Indicate success
             Else
-                ' Show an error if the QR code format is invalid
-                show_error("Invalid QR format!.", 1)
+
                 Return False ' Indicate failure
             End If
         Catch ex As Exception
-            ' Handle unexpected errors gracefully
-            show_error("Invalid QR format!", 1)
+
             Return False ' Indicate failure
         Finally
             ' Ensure the database connection is properly closed
@@ -61,7 +59,7 @@ Module ProcessQR
                         Return True
                     Else
 
-                        show_error("Partcode Not Registered!", 1)
+
                         Return False
                     End If
                 End Using

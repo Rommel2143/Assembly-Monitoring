@@ -48,13 +48,13 @@ Partial Class scanFG
         Me.txt_barcode.IconLeft = CType(resources.GetObject("txt_barcode.IconLeft"), System.Drawing.Image)
         Me.txt_barcode.IconLeftOffset = New System.Drawing.Point(5, 0)
         Me.txt_barcode.IconLeftSize = New System.Drawing.Size(24, 24)
-        Me.txt_barcode.Location = New System.Drawing.Point(80, 99)
+        Me.txt_barcode.Location = New System.Drawing.Point(71, 99)
         Me.txt_barcode.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txt_barcode.Name = "txt_barcode"
         Me.txt_barcode.PlaceholderForeColor = System.Drawing.Color.Silver
         Me.txt_barcode.PlaceholderText = "Scan BOX QR..."
         Me.txt_barcode.SelectedText = ""
-        Me.txt_barcode.Size = New System.Drawing.Size(386, 50)
+        Me.txt_barcode.Size = New System.Drawing.Size(892, 50)
         Me.txt_barcode.TabIndex = 10
         '
         'Guna2BorderlessForm1
@@ -68,7 +68,7 @@ Partial Class scanFG
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(85, 36)
+        Me.Label1.Location = New System.Drawing.Point(329, 29)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(376, 45)
         Me.Label1.TabIndex = 11
@@ -78,7 +78,7 @@ Partial Class scanFG
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(547, 218)
+        Me.ClientSize = New System.Drawing.Size(1035, 218)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txt_barcode)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None

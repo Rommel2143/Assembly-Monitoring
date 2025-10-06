@@ -1,12 +1,44 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class warning
     Public errorText As String
-    Public Sub display(text As String)
-        lbl_error.Text = text
+    Public Sub duplicate(text As String)
+        lbl_error.Text = "Duplicate Barcode Detected!"
+        Dim query As String = "SELECT datestamp FROM prod_scanner WHERE barcode = @barcode ORDER BY id DESC LIMIT 1"
+        Using cmd As New MySqlCommand(query, con)
+            cmd.Parameters.AddWithValue("@barcode", text)
+            If con.State = ConnectionState.Open Then con.Close()
+            con.Open()
+            Using dr As MySqlDataReader = cmd.ExecuteReader()
+                If dr.Read() Then
+                    Dim datestamp As DateTime = dr.GetDateTime("datestamp")
+                    lbl_barcode.Text = "Barcode : " & text & vbCrLf & "Last Scanned: " & datestamp.ToString("yyyy-MM-dd HH:mm:ss")
+                End If
+            End Using
+        End Using
+
+
+        errorText = text
     End Sub
 
 
+    Public Sub invalid(text As String, mcode As String)
+        lbl_error.Text = "Invalid Barcode Detected!"
+        lbl_barcode.Text = "Barcode Scanned: " & text & vbCrLf & "Expected Model Code: " & mcode & vbCrLf & "Expected Barcode Lenght: 12"
+        errorText = text
+    End Sub
+
+
+    Public Sub invalid(text As String)
+        lbl_error.Text = "Invalid Barcode Detected!"
+        lbl_barcode.Text = "Barcode Scanned: " & text & vbCrLf & "Expected Partcode: " & scan_IN.lbl_partcode.Text & vbCrLf & ""
+        errorText = text
+    End Sub
+
+
+
+
     Private Sub warning_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         txt_id.Focus()
     End Sub
 

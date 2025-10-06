@@ -196,7 +196,7 @@ Public Class scan_IN
         If e.KeyCode = Keys.Enter Then
             Try
 
-                If txt_barcode.Text.Length >= 3 AndAlso txt_barcode.Text.Substring(0, 3) = lbl_modelcode.Text Then
+                If txt_barcode.Text.Length = 12 AndAlso txt_barcode.Text.StartsWith(lbl_modelcode.Text) Then
 
                     Dim query As String = "INSERT INTO `prod_scanner`(planID,`barcode`, `partcode`, clock,pc) VALUES (" & setID & ",'" & txt_barcode.Text & "','" & lbl_partcode.Text & "'," & lbl_qctimer.Text & ",'" & user_PC & "')"
                     con.Close()
@@ -209,7 +209,7 @@ Public Class scan_IN
                 Else
                     Guna2Button2.PerformClick()
                     Dim warn As New warning
-                    warn.errorText = txt_barcode.Text
+                    warn.invalid(txt_barcode.Text, lbl_modelcode.Text)
                     warn.ShowDialog()
                     warn.BringToFront()
 
@@ -221,7 +221,8 @@ Public Class scan_IN
                 Guna2Button2.PerformClick()
                 Dim warn As New warning
                 warn.errorText = txt_barcode.Text
-                warn.display("Duplicate Barcode Detected!")
+                warn.duplicate(txt_barcode.Text)
+
                 warn.ShowDialog()
                 warn.BringToFront()
             Catch ex As Exception

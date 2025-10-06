@@ -21,13 +21,17 @@ Public Class scanFG
 
             Else
                 Dim warn As New warning
-                warn.errorText = txt_barcode.Text
+                warn.invalid(txt_barcode.Text)
+                txt_barcode.Clear()
                 warn.ShowDialog()
                 warn.BringToFront()
-                txt_barcode.Clear()
-                txt_barcode.Focus()
+
             End If
 
         End If
+    End Sub
+
+    Private Sub scanFG_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class
