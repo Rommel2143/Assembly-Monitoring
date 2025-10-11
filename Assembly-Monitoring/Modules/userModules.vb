@@ -10,13 +10,23 @@ Module userModules
     Public user_PC As String = Environment.MachineName
     Public user_PCline As String = getPCline()
     Public user_PClocation As String = getPClocation()
-
     Public userTable As String = "trc_users.prod_qc"
     'SELECT `id`(primary), `IDno`(vachar,unique), `Firstname`(varchar), `Lastname`(varchar), `password`(varchar), `admin`(boolean) FROM `app_user`
 
+    Public prodTable As String = GetProdTable(user_PClocation)
+
+    Private Function GetProdTable(location As String) As String
+        Select Case location
+            Case "ADF"
+                Return "prod_adf"
+            Case "SCANNER"
+                Return "" & prodTable & ""
+            Case Else
+                Return ""
+        End Select
+    End Function
+
     Public Function isLogin(IDno As String, pass As String) As Boolean
-
-
         Try
             Dim query As String = "SELECT `id`, `IDno`, `Firstname`, `Lastname`, `password` FROM " & userTable & " WHERE IDno = @IDno AND password = @password"
             Using cmd As New MySqlCommand(query, con)
@@ -42,16 +52,11 @@ Module userModules
         End Try
     End Function
 
-
     Public Function isAccess(column As String) As Boolean
         Try
-
             Dim query As String = "SELECT " & column & ",admin FROM " & userTable & " WHERE IDno = @IDno"
-
-
             Using cmd As New MySqlCommand(query, con)
                 cmd.Parameters.AddWithValue("@IDno", user_IDNumber)
-
                 con.Close()
                 con.Open()
                 dr = cmd.ExecuteReader
@@ -61,9 +66,8 @@ Module userModules
                     Else
                         Return dr.GetBoolean(0)
                     End If
-
                 Else
-                        Return 0
+                    Return 0
                 End If
             End Using
         Catch ex As Exception
@@ -106,6 +110,5 @@ Module userModules
         user_LastName = Nothing
         user_PC = Nothing
     End Sub
-
 
 End Module

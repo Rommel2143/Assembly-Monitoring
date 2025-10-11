@@ -21,7 +21,7 @@
                 WHEN pp.shift = 0 THEN 'NS'
                 ELSE 'Unknown'
             END AS shift 
-        FROM `prod_scanner` ps " &
+        FROM `"& prodtable &"` ps " &
         "JOIN `prod_plan` pp ON pp.id = ps.planID 
                    WHERE barcode REGEXP '" & Guna2TextBox1.Text & "' OR fgQR REGEXP '" & Guna2TextBox1.Text & "'", datagrid1)
 
@@ -43,7 +43,7 @@
     WHEN pp.shift = 0 THEN 'NS'
     ELSE 'Unknown'
 END AS shift " &
-        "FROM `prod_scanner` ps " &
+        "FROM `"& prodtable &"` ps " &
         "JOIN `prod_plan` pp ON pp.id = ps.planID " &
         "WHERE DATE(ps.`datestamp`) = '" & Guna2DateTimePicker1.Value.ToString("yyyy-MM-dd") & "' ORDER BY pp.line ASC"
 

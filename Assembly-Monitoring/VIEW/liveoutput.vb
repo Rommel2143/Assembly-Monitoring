@@ -21,7 +21,7 @@ Public Class liveoutput
                am.model,
                COALESCE(SUM(ps.clock) / NULLIF(COUNT(ps.id),0), 0) AS actualcycle
         FROM prod_plan pp
-        LEFT JOIN prod_scanner ps ON pp.ID = ps.planID
+        LEFT JOIN "& prodtable &" ps ON pp.ID = ps.planID
         LEFT JOIN assy_masterlist am ON am.partcode = pp.partcode
         WHERE pp.id = " & liveID & "
         GROUP BY pp.id, pp.plan, pp.line, pp.cycletime, pp.target_output, am.model

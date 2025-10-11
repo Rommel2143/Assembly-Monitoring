@@ -113,7 +113,7 @@ Public Class scan_IN
     Sub updateboxitem()
 
 
-        Dim query As String = "SELECT COUNT(id) AS count FROM prod_scanner
+        Dim query As String = "SELECT COUNT(id) AS count FROM " & prodTable & "
                   WHERE planID=" & setID & " AND fgQR=''"
 
         con.Close()
@@ -134,10 +134,10 @@ Public Class scan_IN
 
     Sub updateactual()
 
-        reload("SELECT barcode,clock,TIME_FORMAT(datestamp, '%H:%i:%s') AS Time FROM prod_scanner  WHERE planID=" & setID & " ORDER BY id DESC", datagrid1)
+        reload("SELECT barcode,clock,TIME_FORMAT(datestamp, '%H:%i:%s') AS Time FROM " & prodTable & "  WHERE planID=" & setID & " ORDER BY id DESC", datagrid1)
 
 
-        Dim query As String = "SELECT COUNT(id) AS count, SUM(clock)/(COUNT(id)) as total FROM prod_scanner
+        Dim query As String = "SELECT COUNT(id) AS count, SUM(clock)/(COUNT(id)) as total FROM " & prodTable & "
                   WHERE planID=" & setID & ""
 
         con.Close()
@@ -198,7 +198,7 @@ Public Class scan_IN
 
                 If txt_barcode.Text.Length = 12 AndAlso txt_barcode.Text.StartsWith(lbl_modelcode.Text) Then
 
-                    Dim query As String = "INSERT INTO `prod_scanner`(planID,`barcode`, `partcode`, clock,pc) VALUES (" & setID & ",'" & txt_barcode.Text & "','" & lbl_partcode.Text & "'," & lbl_qctimer.Text & ",'" & user_PC & "')"
+                    Dim query As String = "INSERT INTO `" & prodTable & "`(planID,`barcode`, `partcode`, clock,pc) VALUES (" & setID & ",'" & txt_barcode.Text & "','" & lbl_partcode.Text & "'," & lbl_qctimer.Text & ",'" & user_PC & "')"
                     con.Close()
                     con.Open()
                     Dim insertdata As New MySqlCommand(query, con)

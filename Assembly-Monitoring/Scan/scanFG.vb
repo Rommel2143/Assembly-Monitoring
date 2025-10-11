@@ -1,7 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class scanFG
     Private Sub txt_barcode_TextChanged(sender As Object, e As EventArgs) Handles txt_barcode.TextChanged
-        Dim query As String = "UPDATE `prod_scanner` SET fgQR='" & txt_barcode.Text & "' WHERE planID=" & scan_IN.setID & ""
+        Dim query As String = "UPDATE `" & prodTable & "` SET fgQR='" & txt_barcode.Text & "' WHERE planID=" & scan_IN.setID & ""
     End Sub
 
     Private Sub txt_barcode_KeyDown(sender As Object, e As KeyEventArgs) Handles txt_barcode.KeyDown
@@ -9,7 +9,7 @@ Public Class scanFG
 
             If checkQR(txt_barcode.Text.Trim) = scan_IN.lbl_partcode.Text Then
 
-                Dim query As String = "UPDATE `prod_scanner` SET fgQR='" & txt_barcode.Text & "' WHERE planID=" & scan_IN.setID & " AND fgQR=''"
+                Dim query As String = "UPDATE `" & prodTable & "` SET fgQR='" & txt_barcode.Text & "' WHERE planID=" & scan_IN.setID & " AND fgQR=''"
                 Using cmd As New MySqlCommand(query, con)
                     con.Close()
                     con.Open()
