@@ -20,7 +20,7 @@ Module userModules
             Case "ADF"
                 Return "prod_adf"
             Case "SCANNER"
-                Return "" & prodTable & ""
+                Return "prod_scanner"
             Case Else
                 Return ""
         End Select
@@ -96,7 +96,7 @@ Module userModules
         Dim selectpc As New MySqlCommand(query, con)
         dr = selectpc.ExecuteReader
         If dr.Read = True Then
-            Return dr("location")
+            Return dr("location").ToString.ToUpper
         Else
             Return ""
         End If

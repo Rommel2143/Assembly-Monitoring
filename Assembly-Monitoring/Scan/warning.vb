@@ -86,4 +86,12 @@ Public Class warning
             cmd.ExecuteNonQuery()
         End Using
     End Sub
+
+    Private Sub txt_id_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txt_id.KeyPress
+        ' Allow only letters, digits, and control characters (e.g., Backspace)
+        If Not Char.IsLetterOrDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+            e.Handled = True ' Disregard special characters
+        End If
+    End Sub
+
 End Class

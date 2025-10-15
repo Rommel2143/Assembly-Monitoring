@@ -10,8 +10,11 @@ Public Class scan_IN
     End Sub
 
     Private Sub scan_IN_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
         dtpicker1.Value = Date.Now
-        lbl_line.Text = user_PClocation.ToUpper & "-LINE " & user_PCline.ToUpper
+            lbl_line.Text = user_PClocation.ToUpper & "-LINE " & user_PCline.ToUpper
+
     End Sub
 
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles btn_select.Click
@@ -198,7 +201,7 @@ Public Class scan_IN
 
                 If txt_barcode.Text.Length = 12 AndAlso txt_barcode.Text.StartsWith(lbl_modelcode.Text) Then
 
-                    Dim query As String = "INSERT INTO `" & prodTable & "`(planID,`barcode`, `partcode`, clock,pc) VALUES (" & setID & ",'" & txt_barcode.Text & "','" & lbl_partcode.Text & "'," & lbl_qctimer.Text & ",'" & user_PC & "')"
+                    Dim query As String = "INSERT INTO " & prodTable & " (planID,`barcode`, `partcode`, clock,pc) VALUES (" & setID & ",'" & txt_barcode.Text & "','" & lbl_partcode.Text & "'," & lbl_qctimer.Text & ",'" & user_PC & "')"
                     con.Close()
                     con.Open()
                     Dim insertdata As New MySqlCommand(query, con)
