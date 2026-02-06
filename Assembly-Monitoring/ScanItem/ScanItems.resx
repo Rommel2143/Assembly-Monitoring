@@ -117,54 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="Timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="Guna2Button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
-  <data name="txt_barcode.IconLeft" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAB/SURBVDhP1ZOx
-        DYAwDASvowCJDWAARMselIyBBGwAEzAwchQicAqjpOIqX/LvKgE4gA1YgAobyUhWOrscyJCK665eOqAE
-        RqD/4KFbe5mABjj9bPmzm7zghQ5YHqEDlkfogOUROmB5oM1Y4Lr3Q5LLAhj8bHnoZr/EOeMvSPfvXCfb
-        Kou1eeHSAAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="btn_select.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
-        YQAAAWEB8p7xPgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAaNSURBVHhe7ZtP
+        XQAAAV0B8tVPFwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAaNSURBVHhe7ZtP
         bBRVHMebNPFAOJp48OBVQCCRqIlB48HERJG7BxNFYojxX6InEzAknjh48IIHKIhQkIJrCxpaSlsolH8W
         pJX+2aXtdndndnf+7W53ZnanKj/zm503zP7ezs5saYFkevhcXmff7/e+fe/9fu/3ZtoAoG1lkdZWDXl7
         1VS/tEx1n2UqRxdNbcAy1SlzQdL1Us5YKIrpoiaOq0p6RFHm+/L5uZgiJb/T9fwzfH/LC9ewHJim8uyi
@@ -195,16 +152,5 @@
         EO2XpR0i/bq8S5Q/mHCJ9CczjEh/NOUlsp/NEaL74WQ90f10liOiH0/78WR/Pv8/8NbeQvOhX6kAAAAA
         SUVORK5CYII=
 </value>
-  </data>
-  <data name="Label7.Text" xml:space="preserve">
-    <value>1. Please select the Date, Shift, and FG before starting.
-
-2. Review the displayed SPQ value and confirm that it is correct.
-
-3. Once confirmed, proceed to scan all item barcodes.
-
-4. When the required number of SPQ is reached, 
-    the FG Scanning Form will automatically appear,
-    allowing you to scan the LOT LABEL.</value>
   </data>
 </root>

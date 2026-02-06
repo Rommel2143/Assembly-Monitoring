@@ -240,6 +240,7 @@
     <Compile Include="MAIN\subframe.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Model\Partcode.vb" />
     <Compile Include="Modules\CryptoModule.vb" />
     <Compile Include="Modules\dbConnection.vb" />
     <Compile Include="Modules\excelModule.vb" />
@@ -264,6 +265,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ScanItem\ScanItems.Designer.vb">
+      <DependentUpon>ScanItems.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ScanItem\ScanItems.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScanItem\SelectPartcode.Designer.vb">
+      <DependentUpon>SelectPartcode.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ScanItem\SelectPartcode.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Scan\scanFG.designer.vb">
       <DependentUpon>scanFG.vb</DependentUpon>
     </Compile>
@@ -287,6 +300,12 @@
     </Compile>
     <Compile Include="Scan\warning.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControl\PartcodeCard.Designer.vb">
+      <DependentUpon>PartcodeCard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\PartcodeCard.vb">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="VIEW\liveoutput.designer.vb">
       <DependentUpon>liveoutput.vb</DependentUpon>
@@ -338,6 +357,12 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="ScanItem\ScanItems.resx">
+      <DependentUpon>ScanItems.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScanItem\SelectPartcode.resx">
+      <DependentUpon>SelectPartcode.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Scan\scanFG.resx">
       <DependentUpon>scanFG.vb</DependentUpon>
     </EmbeddedResource>
@@ -349,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Scan\warning.resx">
       <DependentUpon>warning.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\PartcodeCard.resx">
+      <DependentUpon>PartcodeCard.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\liveoutput.resx">
       <DependentUpon>liveoutput.vb</DependentUpon>
@@ -409,5 +437,6 @@
   <ItemGroup>
     <None Include="Resources\play-button.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
