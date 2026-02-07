@@ -14,7 +14,7 @@
     End Sub
 
     Private Sub subframe_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        display_inSub(ScanItems)
+        display_inSub(New ScanItems)
     End Sub
 
     Private Sub Guna2ImageButton1_Click(sender As Object, e As EventArgs) Handles Guna2ImageButton1.Click
@@ -27,22 +27,5 @@
         search_barcode.BringToFront()
     End Sub
 
-    Public Sub display_inSub(newForm As Form)
-        With newForm
-            .TopLevel = False
-            .AutoScroll = True
-            .AutoScrollMargin = New Size(50, 50)
 
-            ' Optional: clear previous content
-            subframe.Panel1.Controls.Clear()
-
-            ' Add if not already present
-            If Not subframe.Panel1.Controls.Contains(newForm) Then
-                subframe.Panel1.Controls.Add(newForm)
-            End If
-            subframe.lbl_FormName.Text = .Text
-            .BringToFront()
-            .Show()
-        End With
-    End Sub
 End Class

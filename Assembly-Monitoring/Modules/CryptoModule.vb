@@ -1,7 +1,7 @@
 ﻿
+Imports System.IO
 Imports System.Security.Cryptography
-    Imports System.Text
-    Imports System.IO
+Imports System.Text
 
 Module CryptoModule
 

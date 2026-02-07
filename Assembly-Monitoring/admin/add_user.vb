@@ -5,7 +5,7 @@ Public Class add_user
         Try
 
             con.Close()
-                    con.Open()
+            con.Open()
             Dim query As String = "INSERT INTO " & userTable & " (`id`, `IDno`, `Firstname`, `Lastname`, `password`, `admin`) VALUES (NULL,'" & txt_id.Text & "','" & txt_fname.Text & "','" & txt_lname.Text & "','8TUIs5Kns6c3+XEbV2pTFQ==','0')"
 
             Dim insert As New MySqlCommand(query, con)

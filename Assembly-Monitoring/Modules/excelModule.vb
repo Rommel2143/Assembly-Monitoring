@@ -1,6 +1,5 @@
-﻿Imports ClosedXML.Excel
-Imports System.IO
-Imports System.Windows.Forms
+﻿Imports System.IO
+Imports ClosedXML.Excel
 
 Module excelModule
 

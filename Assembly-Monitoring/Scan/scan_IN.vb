@@ -13,7 +13,7 @@ Public Class scan_IN
 
 
         dtpicker1.Value = Date.Now
-            lbl_line.Text = user_PClocation.ToUpper & "-LINE " & user_PCline.ToUpper
+        lbl_line.Text = user_PClocation.ToUpper & "-LINE " & user_PCline.ToUpper
 
     End Sub
 

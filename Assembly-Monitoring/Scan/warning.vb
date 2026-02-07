@@ -3,7 +3,7 @@ Public Class warning
     Public errorText As String
     Public Sub duplicate(text As String)
         lbl_error.Text = "Duplicate Barcode Detected!"
-        Dim query As String = "SELECT datestamp FROM "& prodtable &" WHERE barcode = @barcode ORDER BY id DESC LIMIT 1"
+        Dim query As String = "SELECT datestamp FROM " & prodtable & " WHERE barcode = @barcode ORDER BY id DESC LIMIT 1"
         Using cmd As New MySqlCommand(query, con)
             cmd.Parameters.AddWithValue("@barcode", text)
             If con.State = ConnectionState.Open Then con.Close()

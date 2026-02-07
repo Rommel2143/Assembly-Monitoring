@@ -240,7 +240,9 @@
     <Compile Include="MAIN\subframe.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Model\Partcode.vb" />
+    <Compile Include="Model\Box.vb" />
+    <Compile Include="Model\Parts.vb" />
+    <Compile Include="Model\Plan.vb" />
     <Compile Include="Modules\CryptoModule.vb" />
     <Compile Include="Modules\dbConnection.vb" />
     <Compile Include="Modules\excelModule.vb" />
@@ -271,10 +273,10 @@
     <Compile Include="ScanItem\ScanItems.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ScanItem\SelectPartcode.Designer.vb">
-      <DependentUpon>SelectPartcode.vb</DependentUpon>
+    <Compile Include="ScanItem\selectPlan.Designer.vb">
+      <DependentUpon>selectPlan.vb</DependentUpon>
     </Compile>
-    <Compile Include="ScanItem\SelectPartcode.vb">
+    <Compile Include="ScanItem\selectPlan.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Scan\scanFG.designer.vb">
@@ -301,10 +303,16 @@
     <Compile Include="Scan\warning.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserControl\PartcodeCard.Designer.vb">
-      <DependentUpon>PartcodeCard.vb</DependentUpon>
+    <Compile Include="UserControl\ItemsCard.Designer.vb">
+      <DependentUpon>ItemsCard.vb</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\PartcodeCard.vb">
+    <Compile Include="UserControl\ItemsCard.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\PlanCard.Designer.vb">
+      <DependentUpon>PlanCard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\PlanCard.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="VIEW\liveoutput.designer.vb">
@@ -360,8 +368,8 @@
     <EmbeddedResource Include="ScanItem\ScanItems.resx">
       <DependentUpon>ScanItems.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ScanItem\SelectPartcode.resx">
-      <DependentUpon>SelectPartcode.vb</DependentUpon>
+    <EmbeddedResource Include="ScanItem\selectPlan.resx">
+      <DependentUpon>selectPlan.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Scan\scanFG.resx">
       <DependentUpon>scanFG.vb</DependentUpon>
@@ -375,8 +383,11 @@
     <EmbeddedResource Include="Scan\warning.resx">
       <DependentUpon>warning.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControl\PartcodeCard.resx">
-      <DependentUpon>PartcodeCard.vb</DependentUpon>
+    <EmbeddedResource Include="UserControl\ItemsCard.resx">
+      <DependentUpon>ItemsCard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\PlanCard.resx">
+      <DependentUpon>PlanCard.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\liveoutput.resx">
       <DependentUpon>liveoutput.vb</DependentUpon>
