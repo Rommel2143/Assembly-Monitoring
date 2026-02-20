@@ -38,13 +38,17 @@ Partial Class ItemsCard
         Me.Guna2Panel1.BorderColor = System.Drawing.Color.Silver
         Me.Guna2Panel1.BorderRadius = 10
         Me.Guna2Panel1.BorderThickness = 1
-        Me.Guna2Panel1.Controls.Add(Me.Guna2PictureBox1)
         Me.Guna2Panel1.Controls.Add(Me.lblBarcode)
         Me.Guna2Panel1.Controls.Add(Me.lblTimeStamp)
         Me.Guna2Panel1.Controls.Add(Me.lblInterval)
         Me.Guna2Panel1.FillColor = System.Drawing.Color.White
-        Me.Guna2Panel1.Location = New System.Drawing.Point(14, 7)
+        Me.Guna2Panel1.Location = New System.Drawing.Point(10, 14)
+        Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guna2Panel1.MaximumSize = New System.Drawing.Size(217, 92)
         Me.Guna2Panel1.Name = "Guna2Panel1"
+        Me.Guna2Panel1.ShadowDecoration.BorderRadius = 12
+        Me.Guna2Panel1.ShadowDecoration.Color = System.Drawing.Color.Silver
+        Me.Guna2Panel1.ShadowDecoration.Enabled = True
         Me.Guna2Panel1.Size = New System.Drawing.Size(205, 87)
         Me.Guna2Panel1.TabIndex = 5
         '
@@ -52,12 +56,13 @@ Partial Class ItemsCard
         '
         Me.Guna2PictureBox1.Image = CType(resources.GetObject("Guna2PictureBox1.Image"), System.Drawing.Image)
         Me.Guna2PictureBox1.ImageRotate = 0!
-        Me.Guna2PictureBox1.Location = New System.Drawing.Point(166, 48)
+        Me.Guna2PictureBox1.Location = New System.Drawing.Point(190, 76)
         Me.Guna2PictureBox1.Name = "Guna2PictureBox1"
-        Me.Guna2PictureBox1.Size = New System.Drawing.Size(28, 28)
+        Me.Guna2PictureBox1.Size = New System.Drawing.Size(37, 38)
         Me.Guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.Guna2PictureBox1.TabIndex = 8
         Me.Guna2PictureBox1.TabStop = False
+        Me.Guna2PictureBox1.UseTransparentBackground = True
         '
         'lblBarcode
         '
@@ -97,9 +102,11 @@ Partial Class ItemsCard
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Transparent
+        Me.Controls.Add(Me.Guna2PictureBox1)
         Me.Controls.Add(Me.Guna2Panel1)
+        Me.MaximumSize = New System.Drawing.Size(230, 120)
         Me.Name = "ItemsCard"
-        Me.Size = New System.Drawing.Size(280, 127)
+        Me.Size = New System.Drawing.Size(230, 120)
         Me.Guna2Panel1.ResumeLayout(False)
         Me.Guna2Panel1.PerformLayout()
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

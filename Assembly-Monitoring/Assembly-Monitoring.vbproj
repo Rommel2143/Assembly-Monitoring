@@ -248,7 +248,7 @@
     <Compile Include="Modules\excelModule.vb" />
     <Compile Include="Modules\frameModules.vb" />
     <Compile Include="Modules\objects.vb" />
-    <Compile Include="Modules\ProcessQR.vb" />
+    <Compile Include="Modules\QRParser.vb" />
     <Compile Include="Modules\SnackbarModule.vb" />
     <Compile Include="Modules\userModules.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -448,6 +448,5 @@
   <ItemGroup>
     <None Include="Resources\play-button.png" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
