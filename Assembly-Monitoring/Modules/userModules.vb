@@ -77,16 +77,21 @@ Module userModules
     End Function
 
     Public Function getPCline() As String
-        Dim query As String = "SELECT line FROM prod_pcline WHERE pcname='" & Environment.MachineName & "'"
-        con.Close()
-        con.Open()
-        Dim selectpc As New MySqlCommand(query, con)
-        dr = selectpc.ExecuteReader
-        If dr.Read = True Then
-            Return dr("line")
-        Else
+        Try
+            Dim query As String = "SELECT line FROM prod_pcline WHERE pcname='" & Environment.MachineName & "'"
+            con.Close()
+            con.Open()
+            Dim selectpc As New MySqlCommand(query, con)
+            dr = selectpc.ExecuteReader
+            If dr.Read = True Then
+                Return dr("line")
+            Else
+                Return 0
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Unable to Get PC Details.")
             Return 0
-        End If
+        End Try
     End Function
 
     Public Function getPClocation() As String

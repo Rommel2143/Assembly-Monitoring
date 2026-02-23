@@ -3,10 +3,11 @@
     Property clock As Int32 = 0
     Property datestamp As DateTime
 
-    Public Sub loadData(scannedBarcode As String)
+    Public Sub loadData(scannedBarcode As String, _clock As Integer)
         barcode = scannedBarcode
         datestamp = Date.Now
         lblBarcode.Text = barcode
+        clock = _clock
         lblTimeStamp.Text = datestamp.ToString("HH:mm:ss tt")
         lblInterval.Text = "Interval: " & clock & "sec."
     End Sub

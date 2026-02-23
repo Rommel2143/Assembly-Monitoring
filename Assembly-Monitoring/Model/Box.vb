@@ -113,7 +113,7 @@ Public Class Box
 End Class
 Public Class Items
     Public Property barcode As String
-    Public Property clock As String
+    Public Property clock As Integer
     Public Property datestamp As DateTime
 End Class
 

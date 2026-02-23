@@ -72,6 +72,7 @@ Public Class scan_IN
     End Sub
 
     Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
+
         If Timer1.Enabled Then
             ' Currently running, so stop
             Timer1.Stop()

@@ -22,6 +22,7 @@ Partial Class ScanItems
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ScanItems))
         Me.panel_select = New Guna.UI2.WinForms.Guna2GroupBox()
         Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
@@ -31,16 +32,21 @@ Partial Class ScanItems
         Me.dtpicker1 = New Guna.UI2.WinForms.Guna2DateTimePicker()
         Me.btn_select = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2GroupBox1 = New Guna.UI2.WinForms.Guna2GroupBox()
+        Me.btnPlay = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2GroupBox4 = New Guna.UI2.WinForms.Guna2GroupBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lbl_qctimer = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.lbl_cycle = New System.Windows.Forms.Label()
         Me.lbl_actual = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Guna2GroupBox3 = New Guna.UI2.WinForms.Guna2GroupBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.lbl_targettime = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.lbl_cycleplan = New System.Windows.Forms.Label()
-        Me.lbl_output = New System.Windows.Forms.Label()
+        Me.lblExpectedCT = New System.Windows.Forms.Label()
+        Me.lblExpectedOutput = New System.Windows.Forms.Label()
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.lblPlan = New System.Windows.Forms.Label()
         Me.lblModel = New System.Windows.Forms.Label()
@@ -48,7 +54,7 @@ Partial Class ScanItems
         Me.lblPartname = New System.Windows.Forms.Label()
         Me.Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.lblPartcode = New System.Windows.Forms.Label()
-        Me.Guna2GroupBox2 = New Guna.UI2.WinForms.Guna2GroupBox()
+        Me.panelItems = New Guna.UI2.WinForms.Guna2GroupBox()
         Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         Me.txtItemBarcode = New Guna.UI2.WinForms.Guna2TextBox()
         Me.flowScanned = New System.Windows.Forms.FlowLayoutPanel()
@@ -56,16 +62,18 @@ Partial Class ScanItems
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Guna2PictureBox2 = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.lblBoxContent = New System.Windows.Forms.Label()
-        Me.Guna2Button2 = New Guna.UI2.WinForms.Guna2Button()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.panelScan = New Guna.UI2.WinForms.Guna2Panel()
         Me.panel_select.SuspendLayout()
         Me.Guna2Panel4.SuspendLayout()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.Guna2GroupBox4.SuspendLayout()
         Me.Guna2GroupBox3.SuspendLayout()
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Guna2GroupBox2.SuspendLayout()
+        Me.panelItems.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         CType(Me.Guna2PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.panelScan.SuspendLayout()
         Me.SuspendLayout()
         '
         'panel_select
@@ -84,7 +92,7 @@ Partial Class ScanItems
         Me.panel_select.ShadowDecoration.BorderRadius = 10
         Me.panel_select.ShadowDecoration.Color = System.Drawing.Color.Silver
         Me.panel_select.ShadowDecoration.Enabled = True
-        Me.panel_select.Size = New System.Drawing.Size(1042, 114)
+        Me.panel_select.Size = New System.Drawing.Size(972, 114)
         Me.panel_select.TabIndex = 36
         Me.panel_select.Text = "DATE & SHIFT"
         '
@@ -191,7 +199,7 @@ Partial Class ScanItems
         Me.btn_select.Image = CType(resources.GetObject("btn_select.Image"), System.Drawing.Image)
         Me.btn_select.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btn_select.ImageSize = New System.Drawing.Size(38, 38)
-        Me.btn_select.Location = New System.Drawing.Point(801, 49)
+        Me.btn_select.Location = New System.Drawing.Point(724, 50)
         Me.btn_select.Name = "btn_select"
         Me.btn_select.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.btn_select.Size = New System.Drawing.Size(220, 51)
@@ -204,7 +212,7 @@ Partial Class ScanItems
         Me.Guna2GroupBox1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2GroupBox1.BorderColor = System.Drawing.Color.Gray
         Me.Guna2GroupBox1.BorderRadius = 8
-        Me.Guna2GroupBox1.Controls.Add(Me.Guna2Button2)
+        Me.Guna2GroupBox1.Controls.Add(Me.btnPlay)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2GroupBox4)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2GroupBox3)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2Separator1)
@@ -217,7 +225,7 @@ Partial Class ScanItems
         Me.Guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.Guna2GroupBox1.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Guna2GroupBox1.ForeColor = System.Drawing.Color.White
-        Me.Guna2GroupBox1.Location = New System.Drawing.Point(12, 132)
+        Me.Guna2GroupBox1.Location = New System.Drawing.Point(12, 138)
         Me.Guna2GroupBox1.Name = "Guna2GroupBox1"
         Me.Guna2GroupBox1.ShadowDecoration.BorderRadius = 10
         Me.Guna2GroupBox1.ShadowDecoration.Color = System.Drawing.Color.Silver
@@ -226,11 +234,35 @@ Partial Class ScanItems
         Me.Guna2GroupBox1.TabIndex = 37
         Me.Guna2GroupBox1.Text = "Plan Details"
         '
+        'btnPlay
+        '
+        Me.btnPlay.BackColor = System.Drawing.Color.Transparent
+        Me.btnPlay.BorderRadius = 15
+        Me.btnPlay.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnPlay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnPlay.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnPlay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnPlay.FillColor = System.Drawing.Color.ForestGreen
+        Me.btnPlay.Font = New System.Drawing.Font("Segoe UI", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPlay.ForeColor = System.Drawing.Color.White
+        Me.btnPlay.Image = Global.Assembly_Monitoring.My.Resources.Resources.play
+        Me.btnPlay.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnPlay.ImageOffset = New System.Drawing.Point(10, 0)
+        Me.btnPlay.ImageSize = New System.Drawing.Size(55, 55)
+        Me.btnPlay.Location = New System.Drawing.Point(32, 495)
+        Me.btnPlay.Name = "btnPlay"
+        Me.btnPlay.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.btnPlay.Size = New System.Drawing.Size(345, 74)
+        Me.btnPlay.TabIndex = 41
+        Me.btnPlay.Text = "Start"
+        '
         'Guna2GroupBox4
         '
         Me.Guna2GroupBox4.BackColor = System.Drawing.Color.Transparent
         Me.Guna2GroupBox4.BorderColor = System.Drawing.Color.Gray
         Me.Guna2GroupBox4.BorderRadius = 8
+        Me.Guna2GroupBox4.Controls.Add(Me.Label1)
+        Me.Guna2GroupBox4.Controls.Add(Me.lbl_qctimer)
         Me.Guna2GroupBox4.Controls.Add(Me.Label13)
         Me.Guna2GroupBox4.Controls.Add(Me.lbl_cycle)
         Me.Guna2GroupBox4.Controls.Add(Me.lbl_actual)
@@ -243,9 +275,35 @@ Partial Class ScanItems
         Me.Guna2GroupBox4.ShadowDecoration.BorderRadius = 10
         Me.Guna2GroupBox4.ShadowDecoration.Color = System.Drawing.Color.Silver
         Me.Guna2GroupBox4.ShadowDecoration.Enabled = True
-        Me.Guna2GroupBox4.Size = New System.Drawing.Size(159, 200)
+        Me.Guna2GroupBox4.Size = New System.Drawing.Size(169, 276)
         Me.Guna2GroupBox4.TabIndex = 40
         Me.Guna2GroupBox4.Text = "ACTUAL"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label1.Location = New System.Drawing.Point(46, 202)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(76, 21)
+        Me.Label1.TabIndex = 27
+        Me.Label1.Text = "QC Timer"
+        '
+        'lbl_qctimer
+        '
+        Me.lbl_qctimer.AutoSize = True
+        Me.lbl_qctimer.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_qctimer.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_qctimer.ForeColor = System.Drawing.Color.Black
+        Me.lbl_qctimer.Location = New System.Drawing.Point(65, 227)
+        Me.lbl_qctimer.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbl_qctimer.Name = "lbl_qctimer"
+        Me.lbl_qctimer.Size = New System.Drawing.Size(23, 25)
+        Me.lbl_qctimer.TabIndex = 26
+        Me.lbl_qctimer.Text = "0"
         '
         'Label13
         '
@@ -253,7 +311,7 @@ Partial Class ScanItems
         Me.Label13.BackColor = System.Drawing.Color.Transparent
         Me.Label13.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Label13.Location = New System.Drawing.Point(13, 120)
+        Me.Label13.Location = New System.Drawing.Point(18, 120)
         Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(132, 21)
@@ -266,7 +324,7 @@ Partial Class ScanItems
         Me.lbl_cycle.BackColor = System.Drawing.Color.Transparent
         Me.lbl_cycle.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_cycle.ForeColor = System.Drawing.Color.Black
-        Me.lbl_cycle.Location = New System.Drawing.Point(60, 145)
+        Me.lbl_cycle.Location = New System.Drawing.Point(65, 145)
         Me.lbl_cycle.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbl_cycle.Name = "lbl_cycle"
         Me.lbl_cycle.Size = New System.Drawing.Size(39, 25)
@@ -279,7 +337,7 @@ Partial Class ScanItems
         Me.lbl_actual.BackColor = System.Drawing.Color.Transparent
         Me.lbl_actual.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_actual.ForeColor = System.Drawing.Color.Black
-        Me.lbl_actual.Location = New System.Drawing.Point(62, 79)
+        Me.lbl_actual.Location = New System.Drawing.Point(67, 79)
         Me.lbl_actual.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbl_actual.Name = "lbl_actual"
         Me.lbl_actual.Size = New System.Drawing.Size(34, 25)
@@ -292,7 +350,7 @@ Partial Class ScanItems
         Me.Label15.BackColor = System.Drawing.Color.Transparent
         Me.Label15.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Label15.Location = New System.Drawing.Point(26, 54)
+        Me.Label15.Location = New System.Drawing.Point(31, 54)
         Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(106, 21)
@@ -304,10 +362,12 @@ Partial Class ScanItems
         Me.Guna2GroupBox3.BackColor = System.Drawing.Color.Transparent
         Me.Guna2GroupBox3.BorderColor = System.Drawing.Color.Gray
         Me.Guna2GroupBox3.BorderRadius = 8
+        Me.Guna2GroupBox3.Controls.Add(Me.Label3)
+        Me.Guna2GroupBox3.Controls.Add(Me.lbl_targettime)
         Me.Guna2GroupBox3.Controls.Add(Me.Label4)
         Me.Guna2GroupBox3.Controls.Add(Me.Label10)
-        Me.Guna2GroupBox3.Controls.Add(Me.lbl_cycleplan)
-        Me.Guna2GroupBox3.Controls.Add(Me.lbl_output)
+        Me.Guna2GroupBox3.Controls.Add(Me.lblExpectedCT)
+        Me.Guna2GroupBox3.Controls.Add(Me.lblExpectedOutput)
         Me.Guna2GroupBox3.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.Guna2GroupBox3.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Guna2GroupBox3.ForeColor = System.Drawing.Color.White
@@ -316,9 +376,35 @@ Partial Class ScanItems
         Me.Guna2GroupBox3.ShadowDecoration.BorderRadius = 10
         Me.Guna2GroupBox3.ShadowDecoration.Color = System.Drawing.Color.Silver
         Me.Guna2GroupBox3.ShadowDecoration.Enabled = True
-        Me.Guna2GroupBox3.Size = New System.Drawing.Size(169, 200)
+        Me.Guna2GroupBox3.Size = New System.Drawing.Size(169, 276)
         Me.Guna2GroupBox3.TabIndex = 38
         Me.Guna2GroupBox3.Text = "TARGET"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label3.Location = New System.Drawing.Point(36, 202)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(96, 21)
+        Me.Label3.TabIndex = 27
+        Me.Label3.Text = "Target Timer"
+        '
+        'lbl_targettime
+        '
+        Me.lbl_targettime.AutoSize = True
+        Me.lbl_targettime.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_targettime.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_targettime.ForeColor = System.Drawing.Color.Black
+        Me.lbl_targettime.Location = New System.Drawing.Point(72, 230)
+        Me.lbl_targettime.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbl_targettime.Name = "lbl_targettime"
+        Me.lbl_targettime.Size = New System.Drawing.Size(25, 30)
+        Me.lbl_targettime.TabIndex = 26
+        Me.lbl_targettime.Text = "0"
         '
         'Label4
         '
@@ -346,35 +432,35 @@ Partial Class ScanItems
         Me.Label10.TabIndex = 23
         Me.Label10.Text = "Expected Output"
         '
-        'lbl_cycleplan
+        'lblExpectedCT
         '
-        Me.lbl_cycleplan.AutoSize = True
-        Me.lbl_cycleplan.BackColor = System.Drawing.Color.Transparent
-        Me.lbl_cycleplan.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_cycleplan.ForeColor = System.Drawing.Color.Black
-        Me.lbl_cycleplan.Location = New System.Drawing.Point(72, 146)
-        Me.lbl_cycleplan.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbl_cycleplan.Name = "lbl_cycleplan"
-        Me.lbl_cycleplan.Size = New System.Drawing.Size(25, 30)
-        Me.lbl_cycleplan.TabIndex = 24
-        Me.lbl_cycleplan.Text = "0"
+        Me.lblExpectedCT.AutoSize = True
+        Me.lblExpectedCT.BackColor = System.Drawing.Color.Transparent
+        Me.lblExpectedCT.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblExpectedCT.ForeColor = System.Drawing.Color.Black
+        Me.lblExpectedCT.Location = New System.Drawing.Point(72, 141)
+        Me.lblExpectedCT.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblExpectedCT.Name = "lblExpectedCT"
+        Me.lblExpectedCT.Size = New System.Drawing.Size(25, 30)
+        Me.lblExpectedCT.TabIndex = 24
+        Me.lblExpectedCT.Text = "0"
         '
-        'lbl_output
+        'lblExpectedOutput
         '
-        Me.lbl_output.AutoSize = True
-        Me.lbl_output.BackColor = System.Drawing.Color.Transparent
-        Me.lbl_output.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_output.ForeColor = System.Drawing.Color.Black
-        Me.lbl_output.Location = New System.Drawing.Point(72, 79)
-        Me.lbl_output.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbl_output.Name = "lbl_output"
-        Me.lbl_output.Size = New System.Drawing.Size(25, 30)
-        Me.lbl_output.TabIndex = 24
-        Me.lbl_output.Text = "0"
+        Me.lblExpectedOutput.AutoSize = True
+        Me.lblExpectedOutput.BackColor = System.Drawing.Color.Transparent
+        Me.lblExpectedOutput.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblExpectedOutput.ForeColor = System.Drawing.Color.Black
+        Me.lblExpectedOutput.Location = New System.Drawing.Point(72, 79)
+        Me.lblExpectedOutput.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblExpectedOutput.Name = "lblExpectedOutput"
+        Me.lblExpectedOutput.Size = New System.Drawing.Size(25, 30)
+        Me.lblExpectedOutput.TabIndex = 24
+        Me.lblExpectedOutput.Text = "0"
         '
         'Guna2Separator1
         '
-        Me.Guna2Separator1.Location = New System.Drawing.Point(23, 182)
+        Me.Guna2Separator1.Location = New System.Drawing.Point(32, 182)
         Me.Guna2Separator1.Name = "Guna2Separator1"
         Me.Guna2Separator1.Size = New System.Drawing.Size(335, 14)
         Me.Guna2Separator1.TabIndex = 15
@@ -446,24 +532,24 @@ Partial Class ScanItems
         Me.lblPartcode.TabIndex = 8
         Me.lblPartcode.Text = "Partcode"
         '
-        'Guna2GroupBox2
+        'panelItems
         '
-        Me.Guna2GroupBox2.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2GroupBox2.BorderColor = System.Drawing.Color.Gray
-        Me.Guna2GroupBox2.BorderRadius = 8
-        Me.Guna2GroupBox2.Controls.Add(Me.Guna2Button1)
-        Me.Guna2GroupBox2.Controls.Add(Me.txtItemBarcode)
-        Me.Guna2GroupBox2.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.Guna2GroupBox2.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2GroupBox2.ForeColor = System.Drawing.Color.White
-        Me.Guna2GroupBox2.Location = New System.Drawing.Point(416, 132)
-        Me.Guna2GroupBox2.Name = "Guna2GroupBox2"
-        Me.Guna2GroupBox2.ShadowDecoration.BorderRadius = 10
-        Me.Guna2GroupBox2.ShadowDecoration.Color = System.Drawing.Color.Silver
-        Me.Guna2GroupBox2.ShadowDecoration.Enabled = True
-        Me.Guna2GroupBox2.Size = New System.Drawing.Size(638, 133)
-        Me.Guna2GroupBox2.TabIndex = 38
-        Me.Guna2GroupBox2.Text = "Scan Items"
+        Me.panelItems.BackColor = System.Drawing.Color.Transparent
+        Me.panelItems.BorderColor = System.Drawing.Color.Gray
+        Me.panelItems.BorderRadius = 8
+        Me.panelItems.Controls.Add(Me.Guna2Button1)
+        Me.panelItems.Controls.Add(Me.txtItemBarcode)
+        Me.panelItems.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.panelItems.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.panelItems.ForeColor = System.Drawing.Color.White
+        Me.panelItems.Location = New System.Drawing.Point(3, 6)
+        Me.panelItems.Name = "panelItems"
+        Me.panelItems.ShadowDecoration.BorderRadius = 10
+        Me.panelItems.ShadowDecoration.Color = System.Drawing.Color.Silver
+        Me.panelItems.ShadowDecoration.Enabled = True
+        Me.panelItems.Size = New System.Drawing.Size(565, 133)
+        Me.panelItems.TabIndex = 38
+        Me.panelItems.Text = "Scan Items"
         '
         'Guna2Button1
         '
@@ -478,7 +564,7 @@ Partial Class ScanItems
         Me.Guna2Button1.ForeColor = System.Drawing.Color.White
         Me.Guna2Button1.ImageOffset = New System.Drawing.Point(-10, 0)
         Me.Guna2Button1.ImageSize = New System.Drawing.Size(38, 38)
-        Me.Guna2Button1.Location = New System.Drawing.Point(508, 54)
+        Me.Guna2Button1.Location = New System.Drawing.Point(435, 54)
         Me.Guna2Button1.Name = "Guna2Button1"
         Me.Guna2Button1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Guna2Button1.Size = New System.Drawing.Size(109, 50)
@@ -511,7 +597,7 @@ Partial Class ScanItems
         Me.txtItemBarcode.PlaceholderForeColor = System.Drawing.Color.Silver
         Me.txtItemBarcode.PlaceholderText = "Scan Item Barcode..."
         Me.txtItemBarcode.SelectedText = ""
-        Me.txtItemBarcode.Size = New System.Drawing.Size(478, 50)
+        Me.txtItemBarcode.Size = New System.Drawing.Size(405, 50)
         Me.txtItemBarcode.TabIndex = 18
         '
         'flowScanned
@@ -521,7 +607,7 @@ Partial Class ScanItems
         Me.flowScanned.Location = New System.Drawing.Point(20, 68)
         Me.flowScanned.Margin = New System.Windows.Forms.Padding(0)
         Me.flowScanned.Name = "flowScanned"
-        Me.flowScanned.Size = New System.Drawing.Size(593, 291)
+        Me.flowScanned.Size = New System.Drawing.Size(524, 291)
         Me.flowScanned.TabIndex = 19
         '
         'txtLotQR
@@ -550,7 +636,7 @@ Partial Class ScanItems
         Me.txtLotQR.PlaceholderForeColor = System.Drawing.Color.Silver
         Me.txtLotQR.PlaceholderText = "Scan Lot Box QR..."
         Me.txtLotQR.SelectedText = ""
-        Me.txtLotQR.Size = New System.Drawing.Size(593, 50)
+        Me.txtLotQR.Size = New System.Drawing.Size(524, 50)
         Me.txtLotQR.TabIndex = 10
         '
         'Guna2Panel1
@@ -563,9 +649,9 @@ Partial Class ScanItems
         Me.Guna2Panel1.Controls.Add(Me.flowScanned)
         Me.Guna2Panel1.Controls.Add(Me.txtLotQR)
         Me.Guna2Panel1.FillColor = System.Drawing.Color.White
-        Me.Guna2Panel1.Location = New System.Drawing.Point(420, 277)
+        Me.Guna2Panel1.Location = New System.Drawing.Point(3, 145)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(634, 437)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(565, 437)
         Me.Guna2Panel1.TabIndex = 39
         '
         'Guna2PictureBox2
@@ -593,37 +679,29 @@ Partial Class ScanItems
         Me.lblBoxContent.TabIndex = 20
         Me.lblBoxContent.Text = "Box Content : 0"
         '
-        'Guna2Button2
+        'Timer1
         '
-        Me.Guna2Button2.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Button2.BorderRadius = 10
-        Me.Guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.Guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Guna2Button2.FillColor = System.Drawing.Color.ForestGreen
-        Me.Guna2Button2.Font = New System.Drawing.Font("Segoe UI", 14.25!)
-        Me.Guna2Button2.ForeColor = System.Drawing.Color.White
-        Me.Guna2Button2.ImageOffset = New System.Drawing.Point(-10, 0)
-        Me.Guna2Button2.ImageSize = New System.Drawing.Size(38, 38)
-        Me.Guna2Button2.Location = New System.Drawing.Point(32, 453)
-        Me.Guna2Button2.Name = "Guna2Button2"
-        Me.Guna2Button2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Guna2Button2.Size = New System.Drawing.Size(335, 74)
-        Me.Guna2Button2.TabIndex = 41
-        Me.Guna2Button2.Text = "Start"
+        Me.Timer1.Interval = 1000
+        '
+        'panelScan
+        '
+        Me.panelScan.Controls.Add(Me.panelItems)
+        Me.panelScan.Controls.Add(Me.Guna2Panel1)
+        Me.panelScan.Location = New System.Drawing.Point(416, 132)
+        Me.panelScan.Name = "panelScan"
+        Me.panelScan.Size = New System.Drawing.Size(577, 593)
+        Me.panelScan.TabIndex = 40
         '
         'ScanItems
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1173, 761)
-        Me.Controls.Add(Me.Guna2Panel1)
-        Me.Controls.Add(Me.Guna2GroupBox2)
+        Me.ClientSize = New System.Drawing.Size(1427, 761)
+        Me.Controls.Add(Me.panelScan)
         Me.Controls.Add(Me.Guna2GroupBox1)
         Me.Controls.Add(Me.panel_select)
         Me.Name = "ScanItems"
-        Me.Text = "lll"
+        Me.Text = "Scan Items"
         Me.panel_select.ResumeLayout(False)
         Me.Guna2Panel4.ResumeLayout(False)
         Me.Guna2Panel4.PerformLayout()
@@ -634,10 +712,11 @@ Partial Class ScanItems
         Me.Guna2GroupBox3.ResumeLayout(False)
         Me.Guna2GroupBox3.PerformLayout()
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Guna2GroupBox2.ResumeLayout(False)
+        Me.panelItems.ResumeLayout(False)
         Me.Guna2Panel1.ResumeLayout(False)
         Me.Guna2Panel1.PerformLayout()
         CType(Me.Guna2PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.panelScan.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -657,7 +736,7 @@ Partial Class ScanItems
     Friend WithEvents lblPartname As Label
     Friend WithEvents Guna2PictureBox1 As Guna.UI2.WinForms.Guna2PictureBox
     Friend WithEvents lblPartcode As Label
-    Friend WithEvents Guna2GroupBox2 As Guna.UI2.WinForms.Guna2GroupBox
+    Friend WithEvents panelItems As Guna.UI2.WinForms.Guna2GroupBox
     Friend WithEvents txtLotQR As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents txtItemBarcode As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2GroupBox4 As Guna.UI2.WinForms.Guna2GroupBox
@@ -668,12 +747,18 @@ Partial Class ScanItems
     Friend WithEvents Guna2GroupBox3 As Guna.UI2.WinForms.Guna2GroupBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label10 As Label
-    Friend WithEvents lbl_cycleplan As Label
-    Friend WithEvents lbl_output As Label
+    Friend WithEvents lblExpectedCT As Label
+    Friend WithEvents lblExpectedOutput As Label
     Friend WithEvents flowScanned As FlowLayoutPanel
     Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents lblBoxContent As Label
     Friend WithEvents Guna2PictureBox2 As Guna.UI2.WinForms.Guna2PictureBox
-    Friend WithEvents Guna2Button2 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnPlay As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents Label1 As Label
+    Friend WithEvents lbl_qctimer As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents lbl_targettime As Label
+    Friend WithEvents panelScan As Guna.UI2.WinForms.Guna2Panel
 End Class
