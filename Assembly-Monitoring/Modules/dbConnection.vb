@@ -2,7 +2,7 @@
 Module dbConnection
 
 
-    'Public ConnectionString As String = "server=PTI-002;user id=Assy;password=assy123@;database=trcsystem"
+    ' Public ConnectionString As String = "server=PTI-002;user id=Assy;password=assy123@;database=trcsystem"
     Public ConnectionString As String = "server=localhost;user id=root;password=;database=trcsystem"
 
     Public con As New MySqlConnection(ConnectionString)

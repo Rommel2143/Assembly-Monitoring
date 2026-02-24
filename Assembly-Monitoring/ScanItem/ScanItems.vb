@@ -34,6 +34,7 @@ Public Class ScanItems
                 lblExpectedOutput.Text = SetPlan.ExpectedOutput.ToString("N0")
                 lbl_targettime.Text = SetPlan.cycletime.ToString("N0")
                 updateactual()
+                LoadItems()
 
             End If
 
@@ -41,7 +42,10 @@ Public Class ScanItems
 
     End Sub
 
+    Public Sub LoadItems()
+        reload("SELECT barcode,clock,TIME_FORMAT(datestamp, '%H:%i:%s') AS Time FROM " & prodTable & "  WHERE planID=" & SetPlan.planID & " ORDER BY id DESC", datagrid1)
 
+    End Sub
 
     Private Sub ScanItems_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dtpicker1.Value = Date.Now
@@ -149,6 +153,7 @@ Public Class ScanItems
                         txtItemBarcode.Focus()
                         BoxPlan = New Box
                         lblBoxContent.Text = "Box Content: " & BoxPlan.Items.Count & "/" & SetPlan.PartItem.spq
+                        LoadItems()
                     Else
                         txtLotQR.Clear()
                         txtLotQR.Focus()
@@ -255,5 +260,11 @@ Public Class ScanItems
 
     End Sub
 
+    Private Sub txtLotQR_TextChanged(sender As Object, e As EventArgs) Handles txtLotQR.TextChanged
 
+    End Sub
+
+    Private Sub flowItems_Paint(sender As Object, e As PaintEventArgs)
+
+    End Sub
 End Class

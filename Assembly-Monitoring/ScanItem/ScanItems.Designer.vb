@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ScanItems
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,10 +20,14 @@ Partial Class ScanItems
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ScanItems))
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.panel_select = New Guna.UI2.WinForms.Guna2GroupBox()
         Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Guna2VSeparator1 = New Guna.UI2.WinForms.Guna2VSeparator()
@@ -58,12 +62,14 @@ Partial Class ScanItems
         Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         Me.txtItemBarcode = New Guna.UI2.WinForms.Guna2TextBox()
         Me.flowScanned = New System.Windows.Forms.FlowLayoutPanel()
-        Me.txtLotQR = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Guna2PictureBox2 = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.lblBoxContent = New System.Windows.Forms.Label()
+        Me.txtLotQR = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.panelScan = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Guna2GroupBox2 = New Guna.UI2.WinForms.Guna2GroupBox()
+        Me.datagrid1 = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.panel_select.SuspendLayout()
         Me.Guna2Panel4.SuspendLayout()
         Me.Guna2GroupBox1.SuspendLayout()
@@ -74,6 +80,8 @@ Partial Class ScanItems
         Me.Guna2Panel1.SuspendLayout()
         CType(Me.Guna2PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelScan.SuspendLayout()
+        Me.Guna2GroupBox2.SuspendLayout()
+        CType(Me.datagrid1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'panel_select
@@ -610,35 +618,6 @@ Partial Class ScanItems
         Me.flowScanned.Size = New System.Drawing.Size(524, 291)
         Me.flowScanned.TabIndex = 19
         '
-        'txtLotQR
-        '
-        Me.txtLotQR.BackColor = System.Drawing.Color.Transparent
-        Me.txtLotQR.BorderColor = System.Drawing.Color.ForestGreen
-        Me.txtLotQR.BorderRadius = 10
-        Me.txtLotQR.BorderThickness = 3
-        Me.txtLotQR.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtLotQR.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtLotQR.DefaultText = ""
-        Me.txtLotQR.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtLotQR.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtLotQR.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtLotQR.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtLotQR.Enabled = False
-        Me.txtLotQR.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtLotQR.Font = New System.Drawing.Font("Segoe UI", 11.25!)
-        Me.txtLotQR.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtLotQR.IconLeft = CType(resources.GetObject("txtLotQR.IconLeft"), System.Drawing.Image)
-        Me.txtLotQR.IconLeftOffset = New System.Drawing.Point(5, 0)
-        Me.txtLotQR.IconLeftSize = New System.Drawing.Size(24, 24)
-        Me.txtLotQR.Location = New System.Drawing.Point(20, 363)
-        Me.txtLotQR.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtLotQR.Name = "txtLotQR"
-        Me.txtLotQR.PlaceholderForeColor = System.Drawing.Color.Silver
-        Me.txtLotQR.PlaceholderText = "Scan Lot Box QR..."
-        Me.txtLotQR.SelectedText = ""
-        Me.txtLotQR.Size = New System.Drawing.Size(524, 50)
-        Me.txtLotQR.TabIndex = 10
-        '
         'Guna2Panel1
         '
         Me.Guna2Panel1.BorderColor = System.Drawing.Color.DimGray
@@ -679,6 +658,35 @@ Partial Class ScanItems
         Me.lblBoxContent.TabIndex = 20
         Me.lblBoxContent.Text = "Box Content : 0"
         '
+        'txtLotQR
+        '
+        Me.txtLotQR.BackColor = System.Drawing.Color.Transparent
+        Me.txtLotQR.BorderColor = System.Drawing.Color.ForestGreen
+        Me.txtLotQR.BorderRadius = 10
+        Me.txtLotQR.BorderThickness = 3
+        Me.txtLotQR.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtLotQR.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtLotQR.DefaultText = ""
+        Me.txtLotQR.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtLotQR.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtLotQR.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtLotQR.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtLotQR.Enabled = False
+        Me.txtLotQR.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtLotQR.Font = New System.Drawing.Font("Segoe UI", 11.25!)
+        Me.txtLotQR.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtLotQR.IconLeft = CType(resources.GetObject("txtLotQR.IconLeft"), System.Drawing.Image)
+        Me.txtLotQR.IconLeftOffset = New System.Drawing.Point(5, 0)
+        Me.txtLotQR.IconLeftSize = New System.Drawing.Size(24, 24)
+        Me.txtLotQR.Location = New System.Drawing.Point(20, 363)
+        Me.txtLotQR.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtLotQR.Name = "txtLotQR"
+        Me.txtLotQR.PlaceholderForeColor = System.Drawing.Color.Silver
+        Me.txtLotQR.PlaceholderText = "Scan Lot Box QR..."
+        Me.txtLotQR.SelectedText = ""
+        Me.txtLotQR.Size = New System.Drawing.Size(524, 50)
+        Me.txtLotQR.TabIndex = 10
+        '
         'Timer1
         '
         Me.Timer1.Interval = 1000
@@ -692,11 +700,95 @@ Partial Class ScanItems
         Me.panelScan.Size = New System.Drawing.Size(577, 593)
         Me.panelScan.TabIndex = 40
         '
+        'Guna2GroupBox2
+        '
+        Me.Guna2GroupBox2.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2GroupBox2.BorderColor = System.Drawing.Color.Gray
+        Me.Guna2GroupBox2.BorderRadius = 8
+        Me.Guna2GroupBox2.Controls.Add(Me.datagrid1)
+        Me.Guna2GroupBox2.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Guna2GroupBox2.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2GroupBox2.ForeColor = System.Drawing.Color.White
+        Me.Guna2GroupBox2.Location = New System.Drawing.Point(999, 12)
+        Me.Guna2GroupBox2.Name = "Guna2GroupBox2"
+        Me.Guna2GroupBox2.ShadowDecoration.BorderRadius = 10
+        Me.Guna2GroupBox2.ShadowDecoration.Color = System.Drawing.Color.Silver
+        Me.Guna2GroupBox2.ShadowDecoration.Enabled = True
+        Me.Guna2GroupBox2.Size = New System.Drawing.Size(346, 702)
+        Me.Guna2GroupBox2.TabIndex = 41
+        Me.Guna2GroupBox2.Text = "Scanned Barcodes"
+        '
+        'datagrid1
+        '
+        Me.datagrid1.AllowUserToResizeRows = False
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(238, Byte), Integer), CType(CType(238, Byte), Integer), CType(CType(238, Byte), Integer))
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.datagrid1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
+        Me.datagrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(221, Byte), Integer))
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(221, Byte), Integer))
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.datagrid1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        Me.datagrid1.ColumnHeadersHeight = 28
+        Me.datagrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.datagrid1.DefaultCellStyle = DataGridViewCellStyle7
+        Me.datagrid1.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.datagrid1.Location = New System.Drawing.Point(17, 50)
+        Me.datagrid1.Name = "datagrid1"
+        Me.datagrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.datagrid1.RowHeadersDefaultCellStyle = DataGridViewCellStyle8
+        Me.datagrid1.RowHeadersVisible = False
+        Me.datagrid1.Size = New System.Drawing.Size(311, 628)
+        Me.datagrid1.TabIndex = 21
+        Me.datagrid1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
+        Me.datagrid1.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        Me.datagrid1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
+        Me.datagrid1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
+        Me.datagrid1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
+        Me.datagrid1.ThemeStyle.BackColor = System.Drawing.Color.White
+        Me.datagrid1.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.datagrid1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.datagrid1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.datagrid1.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.datagrid1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
+        Me.datagrid1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        Me.datagrid1.ThemeStyle.HeaderStyle.Height = 28
+        Me.datagrid1.ThemeStyle.ReadOnly = False
+        Me.datagrid1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White
+        Me.datagrid1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.datagrid1.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.datagrid1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.datagrid1.ThemeStyle.RowsStyle.Height = 22
+        Me.datagrid1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.datagrid1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        '
         'ScanItems
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1427, 761)
+        Me.Controls.Add(Me.Guna2GroupBox2)
         Me.Controls.Add(Me.panelScan)
         Me.Controls.Add(Me.Guna2GroupBox1)
         Me.Controls.Add(Me.panel_select)
@@ -717,6 +809,8 @@ Partial Class ScanItems
         Me.Guna2Panel1.PerformLayout()
         CType(Me.Guna2PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panelScan.ResumeLayout(False)
+        Me.Guna2GroupBox2.ResumeLayout(False)
+        CType(Me.datagrid1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -761,4 +855,6 @@ Partial Class ScanItems
     Friend WithEvents Label3 As Label
     Friend WithEvents lbl_targettime As Label
     Friend WithEvents panelScan As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents Guna2GroupBox2 As Guna.UI2.WinForms.Guna2GroupBox
+    Friend WithEvents datagrid1 As Guna.UI2.WinForms.Guna2DataGridView
 End Class
