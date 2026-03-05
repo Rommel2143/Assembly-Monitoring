@@ -26,7 +26,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\pti-002\UpdateFolder\</UpdateUrl>
-    <ApplicationRevision>39</ApplicationRevision>
+    <ApplicationRevision>42</ApplicationRevision>
     <ApplicationVersion>1.0.2.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -267,6 +267,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ScanItem\PasswordPrompt.Designer.vb">
+      <DependentUpon>PasswordPrompt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ScanItem\PasswordPrompt.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ScanItem\ScanItems.Designer.vb">
       <DependentUpon>ScanItems.vb</DependentUpon>
     </Compile>
@@ -364,6 +370,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScanItem\PasswordPrompt.resx">
+      <DependentUpon>PasswordPrompt.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScanItem\ScanItems.resx">
       <DependentUpon>ScanItems.vb</DependentUpon>

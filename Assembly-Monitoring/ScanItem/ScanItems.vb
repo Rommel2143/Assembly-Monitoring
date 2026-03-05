@@ -33,11 +33,9 @@ Public Class ScanItems
                 lblExpectedCT.Text = SetPlan.cycletime.ToString("N0")
                 lblExpectedOutput.Text = SetPlan.ExpectedOutput.ToString("N0")
                 lbl_targettime.Text = SetPlan.cycletime.ToString("N0")
+                lbl_qctimer.Text = "0"
                 updateactual()
-                LoadItems()
-
             End If
-
         End Using
 
     End Sub
@@ -51,6 +49,7 @@ Public Class ScanItems
         dtpicker1.Value = Date.Now
         panelScan.Enabled = False
         panel_select.Enabled = True
+        Guna2GroupBox1.Text = user_PClocation & " - LINE " & user_PCline
     End Sub
 
     Private Sub Guna2TextBox1_TextChanged(sender As Object, e As EventArgs) Handles txtItemBarcode.TextChanged
@@ -61,12 +60,20 @@ Public Class ScanItems
         If e.KeyCode = Keys.Enter Then
 
             If txtItemBarcode.Text.Length <> 12 Then
-                MessageBox.Show("Invalid Barcode!")
+                Using PasswordPrompt As New PasswordPrompt
+
+                    PasswordPrompt.ErrorText = "Invalid Barcode! | " & txtItemBarcode.Text
+                    PasswordPrompt.ShowDialog()
+                End Using
                 Return
             End If
 
             If Not txtItemBarcode.Text.StartsWith(SetPlan.PartItem.modelcode) Then
-                MessageBox.Show("Invalid Model Code!")
+                Using PasswordPrompt As New PasswordPrompt
+
+                    PasswordPrompt.ErrorText = "Invalid Model Code! | " & txtItemBarcode.Text
+                    PasswordPrompt.ShowDialog()
+                End Using
                 Return
             End If
 
@@ -82,7 +89,7 @@ Public Class ScanItems
                 Dim itemcard As New ItemsCard
                 itemcard.loadData(txtItemBarcode.Text, lbl_qctimer.Text)
                 flowScanned.Controls.Add(itemcard)
-                BoxPlan = New Box
+
                 lblBoxContent.Text = "Box Content: " & BoxPlan.Items.Count & "/" & SetPlan.PartItem.spq
                 lbl_qctimer.Text = "0"
             Else
@@ -111,13 +118,23 @@ Public Class ScanItems
             Return
         End If
 
-        txtItemBarcode.Enabled = True
-        txtLotQR.Clear()
-        txtItemBarcode.Clear()
-        flowScanned.Controls.Clear()
-        lblBoxContent.Text = "Box Content: " & BoxPlan.Items.Count & "/" & SetPlan.PartItem.spq
-        txtLotQR.Enabled = False
-        txtItemBarcode.Focus()
+        Using PasswordPrompt As New PasswordPrompt
+            PasswordPrompt.ErrorText = "Box reset for Plan ID: " & SetPlan.planID
+            If PasswordPrompt.ShowDialog() = DialogResult.OK Then
+                txtLotQR.Clear()
+                txtItemBarcode.Clear()
+                flowScanned.Controls.Clear()
+                txtLotQR.Enabled = False
+                txtItemBarcode.Enabled = True
+                txtItemBarcode.Focus()
+                BoxPlan = New Box
+                lblBoxContent.Text = "Box Content: " & BoxPlan.Items.Count & "/" & SetPlan.PartItem.spq
+                updateactual()
+            End If
+        End Using
+
+
+
     End Sub
 
     Private Sub txtLotQR_KeyDown(sender As Object, e As KeyEventArgs) Handles txtLotQR.KeyDown
@@ -131,7 +148,11 @@ Public Class ScanItems
                     Dim qr = result.Value
 
                     If qr.PartCode <> SetPlan.PartItem.partcode Then
-                        MessageBox.Show("QR Code part code does not match the selected plan!")
+                        Using PasswordPrompt As New PasswordPrompt
+
+                            PasswordPrompt.ErrorText = "QR Code part code does not match the selected plan! |" & txtLotQR.Text
+                            PasswordPrompt.ShowDialog()
+                        End Using
                         txtLotQR.Clear()
                         Return
                     End If
@@ -142,22 +163,31 @@ Public Class ScanItems
                     BoxPlan.planID = SetPlan.planID
                     BoxPlan.partcode = qr.PartCode
 
+                    Try
 
-                    If BoxPlan.SaveBox() = True Then
 
-                        txtLotQR.Clear()
-                        txtItemBarcode.Clear()
-                        flowScanned.Controls.Clear()
-                        txtLotQR.Enabled = False
-                        txtItemBarcode.Enabled = True
-                        txtItemBarcode.Focus()
-                        BoxPlan = New Box
-                        lblBoxContent.Text = "Box Content: " & BoxPlan.Items.Count & "/" & SetPlan.PartItem.spq
-                        LoadItems()
-                    Else
-                        txtLotQR.Clear()
-                        txtLotQR.Focus()
-                    End If
+                        If BoxPlan.SaveBox() = True Then
+
+                            txtLotQR.Clear()
+                            txtItemBarcode.Clear()
+                            flowScanned.Controls.Clear()
+                            txtLotQR.Enabled = False
+                            txtItemBarcode.Enabled = True
+                            txtItemBarcode.Focus()
+                            BoxPlan = New Box
+                            lblBoxContent.Text = "Box Content: " & BoxPlan.Items.Count & "/" & SetPlan.PartItem.spq
+                            updateactual()
+                        Else
+
+                            txtLotQR.Clear()
+                            txtLotQR.Focus()
+                        End If
+                    Catch ex As Exception
+                        Using PasswordPrompt As New PasswordPrompt
+                            PasswordPrompt.ErrorText = "Failure on QR: " & txtLotQR.Text & " Error: " & ex.Message
+                            PasswordPrompt.ShowDialog()
+                        End Using
+                    End Try
 
                 Else
                         MessageBox.Show("Invalid QR Code")
@@ -234,7 +264,7 @@ Public Class ScanItems
 
 
     Sub updateactual()
-
+        LoadItems()
         Dim query As String = "SELECT COUNT(id) AS count, SUM(clock)/(COUNT(id)) as total FROM " & prodTable & "
                   WHERE planID=" & SetPlan.planID & ""
 
@@ -259,6 +289,8 @@ Public Class ScanItems
 
 
     End Sub
+
+
 
     Private Sub txtLotQR_TextChanged(sender As Object, e As EventArgs) Handles txtLotQR.TextChanged
 

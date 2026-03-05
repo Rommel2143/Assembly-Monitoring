@@ -23,20 +23,18 @@ Partial Class ScanItems
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ScanItems))
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.panel_select = New Guna.UI2.WinForms.Guna2GroupBox()
         Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Guna2VSeparator1 = New Guna.UI2.WinForms.Guna2VSeparator()
         Me.Guna2RadioButton2 = New Guna.UI2.WinForms.Guna2RadioButton()
         Me.Guna2RadioButton1 = New Guna.UI2.WinForms.Guna2RadioButton()
         Me.dtpicker1 = New Guna.UI2.WinForms.Guna2DateTimePicker()
-        Me.btn_select = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2GroupBox1 = New Guna.UI2.WinForms.Guna2GroupBox()
-        Me.btnPlay = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2GroupBox4 = New Guna.UI2.WinForms.Guna2GroupBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lbl_qctimer = New System.Windows.Forms.Label()
@@ -56,32 +54,36 @@ Partial Class ScanItems
         Me.lblModel = New System.Windows.Forms.Label()
         Me.lblSPQ = New System.Windows.Forms.Label()
         Me.lblPartname = New System.Windows.Forms.Label()
-        Me.Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.lblPartcode = New System.Windows.Forms.Label()
         Me.panelItems = New Guna.UI2.WinForms.Guna2GroupBox()
         Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
-        Me.txtItemBarcode = New Guna.UI2.WinForms.Guna2TextBox()
         Me.flowScanned = New System.Windows.Forms.FlowLayoutPanel()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Guna2PictureBox2 = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.lblBoxContent = New System.Windows.Forms.Label()
-        Me.txtLotQR = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.panelScan = New Guna.UI2.WinForms.Guna2Panel()
         Me.Guna2GroupBox2 = New Guna.UI2.WinForms.Guna2GroupBox()
         Me.datagrid1 = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.txtItemBarcode = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Guna2PictureBox2 = New Guna.UI2.WinForms.Guna2PictureBox()
+        Me.txtLotQR = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.btnPlay = New Guna.UI2.WinForms.Guna2Button()
+        Me.Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
+        Me.btn_select = New Guna.UI2.WinForms.Guna2Button()
+        Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
         Me.panel_select.SuspendLayout()
         Me.Guna2Panel4.SuspendLayout()
         Me.Guna2GroupBox1.SuspendLayout()
         Me.Guna2GroupBox4.SuspendLayout()
         Me.Guna2GroupBox3.SuspendLayout()
-        CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelItems.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
-        CType(Me.Guna2PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelScan.SuspendLayout()
         Me.Guna2GroupBox2.SuspendLayout()
         CType(Me.datagrid1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Guna2PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Guna2Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'panel_select
@@ -193,28 +195,6 @@ Partial Class ScanItems
         Me.dtpicker1.TabIndex = 32
         Me.dtpicker1.Value = New Date(2025, 8, 13, 9, 22, 27, 105)
         '
-        'btn_select
-        '
-        Me.btn_select.BackColor = System.Drawing.Color.Transparent
-        Me.btn_select.BorderRadius = 5
-        Me.btn_select.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btn_select.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btn_select.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btn_select.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btn_select.FillColor = System.Drawing.Color.ForestGreen
-        Me.btn_select.Font = New System.Drawing.Font("Segoe UI Semibold", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_select.ForeColor = System.Drawing.Color.White
-        Me.btn_select.Image = CType(resources.GetObject("btn_select.Image"), System.Drawing.Image)
-        Me.btn_select.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.btn_select.ImageSize = New System.Drawing.Size(38, 38)
-        Me.btn_select.Location = New System.Drawing.Point(724, 50)
-        Me.btn_select.Name = "btn_select"
-        Me.btn_select.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.btn_select.Size = New System.Drawing.Size(220, 51)
-        Me.btn_select.TabIndex = 32
-        Me.btn_select.Text = "Select Plan"
-        Me.btn_select.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
         'Guna2GroupBox1
         '
         Me.Guna2GroupBox1.BackColor = System.Drawing.Color.Transparent
@@ -242,28 +222,6 @@ Partial Class ScanItems
         Me.Guna2GroupBox1.TabIndex = 37
         Me.Guna2GroupBox1.Text = "Plan Details"
         '
-        'btnPlay
-        '
-        Me.btnPlay.BackColor = System.Drawing.Color.Transparent
-        Me.btnPlay.BorderRadius = 15
-        Me.btnPlay.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.btnPlay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.btnPlay.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.btnPlay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.btnPlay.FillColor = System.Drawing.Color.ForestGreen
-        Me.btnPlay.Font = New System.Drawing.Font("Segoe UI", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPlay.ForeColor = System.Drawing.Color.White
-        Me.btnPlay.Image = Global.Assembly_Monitoring.My.Resources.Resources.play
-        Me.btnPlay.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.btnPlay.ImageOffset = New System.Drawing.Point(10, 0)
-        Me.btnPlay.ImageSize = New System.Drawing.Size(55, 55)
-        Me.btnPlay.Location = New System.Drawing.Point(32, 495)
-        Me.btnPlay.Name = "btnPlay"
-        Me.btnPlay.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.btnPlay.Size = New System.Drawing.Size(345, 74)
-        Me.btnPlay.TabIndex = 41
-        Me.btnPlay.Text = "Start"
-        '
         'Guna2GroupBox4
         '
         Me.Guna2GroupBox4.BackColor = System.Drawing.Color.Transparent
@@ -283,7 +241,7 @@ Partial Class ScanItems
         Me.Guna2GroupBox4.ShadowDecoration.BorderRadius = 10
         Me.Guna2GroupBox4.ShadowDecoration.Color = System.Drawing.Color.Silver
         Me.Guna2GroupBox4.ShadowDecoration.Enabled = True
-        Me.Guna2GroupBox4.Size = New System.Drawing.Size(169, 276)
+        Me.Guna2GroupBox4.Size = New System.Drawing.Size(169, 265)
         Me.Guna2GroupBox4.TabIndex = 40
         Me.Guna2GroupBox4.Text = "ACTUAL"
         '
@@ -293,7 +251,7 @@ Partial Class ScanItems
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Label1.Location = New System.Drawing.Point(46, 202)
+        Me.Label1.Location = New System.Drawing.Point(46, 192)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(76, 21)
@@ -306,7 +264,7 @@ Partial Class ScanItems
         Me.lbl_qctimer.BackColor = System.Drawing.Color.Transparent
         Me.lbl_qctimer.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_qctimer.ForeColor = System.Drawing.Color.Black
-        Me.lbl_qctimer.Location = New System.Drawing.Point(65, 227)
+        Me.lbl_qctimer.Location = New System.Drawing.Point(65, 221)
         Me.lbl_qctimer.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbl_qctimer.Name = "lbl_qctimer"
         Me.lbl_qctimer.Size = New System.Drawing.Size(23, 25)
@@ -319,7 +277,7 @@ Partial Class ScanItems
         Me.Label13.BackColor = System.Drawing.Color.Transparent
         Me.Label13.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Label13.Location = New System.Drawing.Point(18, 120)
+        Me.Label13.Location = New System.Drawing.Point(18, 123)
         Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(132, 21)
@@ -345,7 +303,7 @@ Partial Class ScanItems
         Me.lbl_actual.BackColor = System.Drawing.Color.Transparent
         Me.lbl_actual.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_actual.ForeColor = System.Drawing.Color.Black
-        Me.lbl_actual.Location = New System.Drawing.Point(67, 79)
+        Me.lbl_actual.Location = New System.Drawing.Point(67, 74)
         Me.lbl_actual.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbl_actual.Name = "lbl_actual"
         Me.lbl_actual.Size = New System.Drawing.Size(34, 25)
@@ -384,7 +342,7 @@ Partial Class ScanItems
         Me.Guna2GroupBox3.ShadowDecoration.BorderRadius = 10
         Me.Guna2GroupBox3.ShadowDecoration.Color = System.Drawing.Color.Silver
         Me.Guna2GroupBox3.ShadowDecoration.Enabled = True
-        Me.Guna2GroupBox3.Size = New System.Drawing.Size(169, 276)
+        Me.Guna2GroupBox3.Size = New System.Drawing.Size(169, 265)
         Me.Guna2GroupBox3.TabIndex = 38
         Me.Guna2GroupBox3.Text = "TARGET"
         '
@@ -394,7 +352,7 @@ Partial Class ScanItems
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Label3.Location = New System.Drawing.Point(36, 202)
+        Me.Label3.Location = New System.Drawing.Point(36, 192)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(96, 21)
@@ -407,7 +365,7 @@ Partial Class ScanItems
         Me.lbl_targettime.BackColor = System.Drawing.Color.Transparent
         Me.lbl_targettime.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_targettime.ForeColor = System.Drawing.Color.Black
-        Me.lbl_targettime.Location = New System.Drawing.Point(72, 230)
+        Me.lbl_targettime.Location = New System.Drawing.Point(72, 221)
         Me.lbl_targettime.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbl_targettime.Name = "lbl_targettime"
         Me.lbl_targettime.Size = New System.Drawing.Size(25, 30)
@@ -420,7 +378,7 @@ Partial Class ScanItems
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Label4.Location = New System.Drawing.Point(9, 113)
+        Me.Label4.Location = New System.Drawing.Point(9, 123)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(150, 21)
@@ -446,7 +404,7 @@ Partial Class ScanItems
         Me.lblExpectedCT.BackColor = System.Drawing.Color.Transparent
         Me.lblExpectedCT.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblExpectedCT.ForeColor = System.Drawing.Color.Black
-        Me.lblExpectedCT.Location = New System.Drawing.Point(72, 141)
+        Me.lblExpectedCT.Location = New System.Drawing.Point(72, 145)
         Me.lblExpectedCT.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblExpectedCT.Name = "lblExpectedCT"
         Me.lblExpectedCT.Size = New System.Drawing.Size(25, 30)
@@ -459,7 +417,7 @@ Partial Class ScanItems
         Me.lblExpectedOutput.BackColor = System.Drawing.Color.Transparent
         Me.lblExpectedOutput.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblExpectedOutput.ForeColor = System.Drawing.Color.Black
-        Me.lblExpectedOutput.Location = New System.Drawing.Point(72, 79)
+        Me.lblExpectedOutput.Location = New System.Drawing.Point(72, 74)
         Me.lblExpectedOutput.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblExpectedOutput.Name = "lblExpectedOutput"
         Me.lblExpectedOutput.Size = New System.Drawing.Size(25, 30)
@@ -468,7 +426,7 @@ Partial Class ScanItems
         '
         'Guna2Separator1
         '
-        Me.Guna2Separator1.Location = New System.Drawing.Point(32, 182)
+        Me.Guna2Separator1.Location = New System.Drawing.Point(32, 189)
         Me.Guna2Separator1.Name = "Guna2Separator1"
         Me.Guna2Separator1.Size = New System.Drawing.Size(335, 14)
         Me.Guna2Separator1.TabIndex = 15
@@ -517,17 +475,6 @@ Partial Class ScanItems
         Me.lblPartname.Size = New System.Drawing.Size(99, 25)
         Me.lblPartname.TabIndex = 10
         Me.lblPartname.Text = "Partname"
-        '
-        'Guna2PictureBox1
-        '
-        Me.Guna2PictureBox1.Image = CType(resources.GetObject("Guna2PictureBox1.Image"), System.Drawing.Image)
-        Me.Guna2PictureBox1.ImageRotate = 0!
-        Me.Guna2PictureBox1.Location = New System.Drawing.Point(13, 54)
-        Me.Guna2PictureBox1.Name = "Guna2PictureBox1"
-        Me.Guna2PictureBox1.Size = New System.Drawing.Size(44, 42)
-        Me.Guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.Guna2PictureBox1.TabIndex = 9
-        Me.Guna2PictureBox1.TabStop = False
         '
         'lblPartcode
         '
@@ -579,6 +526,140 @@ Partial Class ScanItems
         Me.Guna2Button1.TabIndex = 33
         Me.Guna2Button1.Text = "Reset"
         '
+        'flowScanned
+        '
+        Me.flowScanned.AutoScroll = True
+        Me.flowScanned.BackColor = System.Drawing.Color.Transparent
+        Me.flowScanned.Location = New System.Drawing.Point(20, 68)
+        Me.flowScanned.Margin = New System.Windows.Forms.Padding(0)
+        Me.flowScanned.Name = "flowScanned"
+        Me.flowScanned.Size = New System.Drawing.Size(524, 291)
+        Me.flowScanned.TabIndex = 19
+        '
+        'Guna2Panel1
+        '
+        Me.Guna2Panel1.BorderColor = System.Drawing.Color.DimGray
+        Me.Guna2Panel1.BorderRadius = 3
+        Me.Guna2Panel1.BorderThickness = 3
+        Me.Guna2Panel1.Controls.Add(Me.Guna2PictureBox2)
+        Me.Guna2Panel1.Controls.Add(Me.lblBoxContent)
+        Me.Guna2Panel1.Controls.Add(Me.flowScanned)
+        Me.Guna2Panel1.Controls.Add(Me.txtLotQR)
+        Me.Guna2Panel1.FillColor = System.Drawing.Color.White
+        Me.Guna2Panel1.Location = New System.Drawing.Point(3, 145)
+        Me.Guna2Panel1.Name = "Guna2Panel1"
+        Me.Guna2Panel1.Size = New System.Drawing.Size(565, 437)
+        Me.Guna2Panel1.TabIndex = 39
+        '
+        'lblBoxContent
+        '
+        Me.lblBoxContent.AutoSize = True
+        Me.lblBoxContent.BackColor = System.Drawing.Color.White
+        Me.lblBoxContent.Font = New System.Drawing.Font("Segoe UI Semibold", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBoxContent.ForeColor = System.Drawing.Color.Black
+        Me.lblBoxContent.Location = New System.Drawing.Point(56, 21)
+        Me.lblBoxContent.Name = "lblBoxContent"
+        Me.lblBoxContent.Size = New System.Drawing.Size(162, 30)
+        Me.lblBoxContent.TabIndex = 20
+        Me.lblBoxContent.Text = "Box Content : 0"
+        '
+        'Timer1
+        '
+        Me.Timer1.Interval = 1000
+        '
+        'panelScan
+        '
+        Me.panelScan.Controls.Add(Me.panelItems)
+        Me.panelScan.Controls.Add(Me.Guna2Panel1)
+        Me.panelScan.Location = New System.Drawing.Point(416, 132)
+        Me.panelScan.Name = "panelScan"
+        Me.panelScan.Size = New System.Drawing.Size(577, 593)
+        Me.panelScan.TabIndex = 40
+        '
+        'Guna2GroupBox2
+        '
+        Me.Guna2GroupBox2.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2GroupBox2.BorderColor = System.Drawing.Color.Gray
+        Me.Guna2GroupBox2.BorderRadius = 8
+        Me.Guna2GroupBox2.Controls.Add(Me.Guna2Panel2)
+        Me.Guna2GroupBox2.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.Guna2GroupBox2.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2GroupBox2.ForeColor = System.Drawing.Color.White
+        Me.Guna2GroupBox2.Location = New System.Drawing.Point(999, 12)
+        Me.Guna2GroupBox2.Name = "Guna2GroupBox2"
+        Me.Guna2GroupBox2.ShadowDecoration.BorderRadius = 10
+        Me.Guna2GroupBox2.ShadowDecoration.Color = System.Drawing.Color.Silver
+        Me.Guna2GroupBox2.ShadowDecoration.Enabled = True
+        Me.Guna2GroupBox2.Size = New System.Drawing.Size(323, 702)
+        Me.Guna2GroupBox2.TabIndex = 41
+        Me.Guna2GroupBox2.Text = "Scanned Barcodes"
+        '
+        'datagrid1
+        '
+        Me.datagrid1.AllowUserToResizeRows = False
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(238, Byte), Integer), CType(CType(238, Byte), Integer), CType(CType(238, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.datagrid1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.datagrid1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.datagrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(221, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(221, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.datagrid1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.datagrid1.ColumnHeadersHeight = 28
+        Me.datagrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.datagrid1.DefaultCellStyle = DataGridViewCellStyle3
+        Me.datagrid1.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.datagrid1.Location = New System.Drawing.Point(10, 10)
+        Me.datagrid1.Name = "datagrid1"
+        Me.datagrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.datagrid1.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        Me.datagrid1.RowHeadersVisible = False
+        Me.datagrid1.Size = New System.Drawing.Size(302, 628)
+        Me.datagrid1.TabIndex = 21
+        Me.datagrid1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
+        Me.datagrid1.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        Me.datagrid1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
+        Me.datagrid1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
+        Me.datagrid1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
+        Me.datagrid1.ThemeStyle.BackColor = System.Drawing.Color.White
+        Me.datagrid1.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.datagrid1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.datagrid1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.datagrid1.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.datagrid1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
+        Me.datagrid1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        Me.datagrid1.ThemeStyle.HeaderStyle.Height = 28
+        Me.datagrid1.ThemeStyle.ReadOnly = False
+        Me.datagrid1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White
+        Me.datagrid1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.datagrid1.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.datagrid1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.datagrid1.ThemeStyle.RowsStyle.Height = 22
+        Me.datagrid1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.datagrid1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        '
         'txtItemBarcode
         '
         Me.txtItemBarcode.BackColor = System.Drawing.Color.White
@@ -608,31 +689,6 @@ Partial Class ScanItems
         Me.txtItemBarcode.Size = New System.Drawing.Size(405, 50)
         Me.txtItemBarcode.TabIndex = 18
         '
-        'flowScanned
-        '
-        Me.flowScanned.AutoScroll = True
-        Me.flowScanned.BackColor = System.Drawing.Color.Transparent
-        Me.flowScanned.Location = New System.Drawing.Point(20, 68)
-        Me.flowScanned.Margin = New System.Windows.Forms.Padding(0)
-        Me.flowScanned.Name = "flowScanned"
-        Me.flowScanned.Size = New System.Drawing.Size(524, 291)
-        Me.flowScanned.TabIndex = 19
-        '
-        'Guna2Panel1
-        '
-        Me.Guna2Panel1.BorderColor = System.Drawing.Color.DimGray
-        Me.Guna2Panel1.BorderRadius = 3
-        Me.Guna2Panel1.BorderThickness = 3
-        Me.Guna2Panel1.Controls.Add(Me.Guna2PictureBox2)
-        Me.Guna2Panel1.Controls.Add(Me.lblBoxContent)
-        Me.Guna2Panel1.Controls.Add(Me.flowScanned)
-        Me.Guna2Panel1.Controls.Add(Me.txtLotQR)
-        Me.Guna2Panel1.FillColor = System.Drawing.Color.White
-        Me.Guna2Panel1.Location = New System.Drawing.Point(3, 145)
-        Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(565, 437)
-        Me.Guna2Panel1.TabIndex = 39
-        '
         'Guna2PictureBox2
         '
         Me.Guna2PictureBox2.BackColor = System.Drawing.Color.Transparent
@@ -645,18 +701,6 @@ Partial Class ScanItems
         Me.Guna2PictureBox2.TabIndex = 41
         Me.Guna2PictureBox2.TabStop = False
         Me.Guna2PictureBox2.UseTransparentBackground = True
-        '
-        'lblBoxContent
-        '
-        Me.lblBoxContent.AutoSize = True
-        Me.lblBoxContent.BackColor = System.Drawing.Color.White
-        Me.lblBoxContent.Font = New System.Drawing.Font("Segoe UI Semibold", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBoxContent.ForeColor = System.Drawing.Color.Black
-        Me.lblBoxContent.Location = New System.Drawing.Point(56, 21)
-        Me.lblBoxContent.Name = "lblBoxContent"
-        Me.lblBoxContent.Size = New System.Drawing.Size(162, 30)
-        Me.lblBoxContent.TabIndex = 20
-        Me.lblBoxContent.Text = "Box Content : 0"
         '
         'txtLotQR
         '
@@ -687,101 +731,70 @@ Partial Class ScanItems
         Me.txtLotQR.Size = New System.Drawing.Size(524, 50)
         Me.txtLotQR.TabIndex = 10
         '
-        'Timer1
+        'btnPlay
         '
-        Me.Timer1.Interval = 1000
+        Me.btnPlay.BackColor = System.Drawing.Color.Transparent
+        Me.btnPlay.BorderRadius = 15
+        Me.btnPlay.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnPlay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btnPlay.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btnPlay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btnPlay.FillColor = System.Drawing.Color.ForestGreen
+        Me.btnPlay.Font = New System.Drawing.Font("Segoe UI", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPlay.ForeColor = System.Drawing.Color.White
+        Me.btnPlay.Image = Global.Assembly_Monitoring.My.Resources.Resources.play
+        Me.btnPlay.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btnPlay.ImageOffset = New System.Drawing.Point(10, 0)
+        Me.btnPlay.ImageSize = New System.Drawing.Size(55, 55)
+        Me.btnPlay.Location = New System.Drawing.Point(32, 488)
+        Me.btnPlay.Name = "btnPlay"
+        Me.btnPlay.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.btnPlay.Size = New System.Drawing.Size(345, 74)
+        Me.btnPlay.TabIndex = 41
+        Me.btnPlay.Text = "Start"
         '
-        'panelScan
+        'Guna2PictureBox1
         '
-        Me.panelScan.Controls.Add(Me.panelItems)
-        Me.panelScan.Controls.Add(Me.Guna2Panel1)
-        Me.panelScan.Location = New System.Drawing.Point(416, 132)
-        Me.panelScan.Name = "panelScan"
-        Me.panelScan.Size = New System.Drawing.Size(577, 593)
-        Me.panelScan.TabIndex = 40
+        Me.Guna2PictureBox1.Image = CType(resources.GetObject("Guna2PictureBox1.Image"), System.Drawing.Image)
+        Me.Guna2PictureBox1.ImageRotate = 0!
+        Me.Guna2PictureBox1.Location = New System.Drawing.Point(13, 54)
+        Me.Guna2PictureBox1.Name = "Guna2PictureBox1"
+        Me.Guna2PictureBox1.Size = New System.Drawing.Size(44, 42)
+        Me.Guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.Guna2PictureBox1.TabIndex = 9
+        Me.Guna2PictureBox1.TabStop = False
         '
-        'Guna2GroupBox2
+        'btn_select
         '
-        Me.Guna2GroupBox2.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2GroupBox2.BorderColor = System.Drawing.Color.Gray
-        Me.Guna2GroupBox2.BorderRadius = 8
-        Me.Guna2GroupBox2.Controls.Add(Me.datagrid1)
-        Me.Guna2GroupBox2.CustomBorderColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.Guna2GroupBox2.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2GroupBox2.ForeColor = System.Drawing.Color.White
-        Me.Guna2GroupBox2.Location = New System.Drawing.Point(999, 12)
-        Me.Guna2GroupBox2.Name = "Guna2GroupBox2"
-        Me.Guna2GroupBox2.ShadowDecoration.BorderRadius = 10
-        Me.Guna2GroupBox2.ShadowDecoration.Color = System.Drawing.Color.Silver
-        Me.Guna2GroupBox2.ShadowDecoration.Enabled = True
-        Me.Guna2GroupBox2.Size = New System.Drawing.Size(346, 702)
-        Me.Guna2GroupBox2.TabIndex = 41
-        Me.Guna2GroupBox2.Text = "Scanned Barcodes"
+        Me.btn_select.BackColor = System.Drawing.Color.Transparent
+        Me.btn_select.BorderRadius = 5
+        Me.btn_select.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btn_select.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btn_select.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btn_select.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btn_select.FillColor = System.Drawing.Color.ForestGreen
+        Me.btn_select.Font = New System.Drawing.Font("Segoe UI Semibold", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_select.ForeColor = System.Drawing.Color.White
+        Me.btn_select.Image = CType(resources.GetObject("btn_select.Image"), System.Drawing.Image)
+        Me.btn_select.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btn_select.ImageSize = New System.Drawing.Size(38, 38)
+        Me.btn_select.Location = New System.Drawing.Point(724, 50)
+        Me.btn_select.Name = "btn_select"
+        Me.btn_select.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.btn_select.Size = New System.Drawing.Size(220, 51)
+        Me.btn_select.TabIndex = 32
+        Me.btn_select.Text = "Select Plan"
+        Me.btn_select.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'datagrid1
+        'Guna2Panel2
         '
-        Me.datagrid1.AllowUserToResizeRows = False
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(238, Byte), Integer), CType(CType(238, Byte), Integer), CType(CType(238, Byte), Integer))
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.datagrid1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
-        Me.datagrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(221, Byte), Integer))
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(221, Byte), Integer))
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.datagrid1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
-        Me.datagrid1.ColumnHeadersHeight = 28
-        Me.datagrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.datagrid1.DefaultCellStyle = DataGridViewCellStyle7
-        Me.datagrid1.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.datagrid1.Location = New System.Drawing.Point(17, 50)
-        Me.datagrid1.Name = "datagrid1"
-        Me.datagrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.datagrid1.RowHeadersDefaultCellStyle = DataGridViewCellStyle8
-        Me.datagrid1.RowHeadersVisible = False
-        Me.datagrid1.Size = New System.Drawing.Size(311, 628)
-        Me.datagrid1.TabIndex = 21
-        Me.datagrid1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
-        Me.datagrid1.ThemeStyle.AlternatingRowsStyle.Font = Nothing
-        Me.datagrid1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
-        Me.datagrid1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
-        Me.datagrid1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
-        Me.datagrid1.ThemeStyle.BackColor = System.Drawing.Color.White
-        Me.datagrid1.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.datagrid1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.datagrid1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.datagrid1.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.datagrid1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
-        Me.datagrid1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        Me.datagrid1.ThemeStyle.HeaderStyle.Height = 28
-        Me.datagrid1.ThemeStyle.ReadOnly = False
-        Me.datagrid1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White
-        Me.datagrid1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.datagrid1.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.datagrid1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.datagrid1.ThemeStyle.RowsStyle.Height = 22
-        Me.datagrid1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.datagrid1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.Guna2Panel2.Controls.Add(Me.datagrid1)
+        Me.Guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2Panel2.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2Panel2.Location = New System.Drawing.Point(0, 40)
+        Me.Guna2Panel2.Name = "Guna2Panel2"
+        Me.Guna2Panel2.Size = New System.Drawing.Size(323, 662)
+        Me.Guna2Panel2.TabIndex = 22
         '
         'ScanItems
         '
@@ -803,14 +816,15 @@ Partial Class ScanItems
         Me.Guna2GroupBox4.PerformLayout()
         Me.Guna2GroupBox3.ResumeLayout(False)
         Me.Guna2GroupBox3.PerformLayout()
-        CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panelItems.ResumeLayout(False)
         Me.Guna2Panel1.ResumeLayout(False)
         Me.Guna2Panel1.PerformLayout()
-        CType(Me.Guna2PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panelScan.ResumeLayout(False)
         Me.Guna2GroupBox2.ResumeLayout(False)
         CType(Me.datagrid1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Guna2PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Guna2Panel2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -857,4 +871,5 @@ Partial Class ScanItems
     Friend WithEvents panelScan As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Guna2GroupBox2 As Guna.UI2.WinForms.Guna2GroupBox
     Friend WithEvents datagrid1 As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
 End Class

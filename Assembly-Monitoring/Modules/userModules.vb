@@ -22,13 +22,14 @@ Module userModules
             Case "SCANNER"
                 Return "prod_scanner"
             Case Else
+                MessageBox.Show("PC location not recognized. Please contact IT support.")
                 Return ""
         End Select
     End Function
 
     Public Function isLogin(IDno As String, pass As String) As Boolean
         Try
-            Dim query As String = "SELECT `id`, `IDno`, `Firstname`, `Lastname`, `password` FROM " & userTable & " WHERE IDno = @IDno AND password = @password"
+            Dim query As String = "Select `id`, `IDno`, `Firstname`, `Lastname`, `password` FROM " & userTable & " WHERE IDno = @IDno And password = @password"
             Using cmd As New MySqlCommand(query, con)
                 cmd.Parameters.AddWithValue("@IDno", IDno)
                 cmd.Parameters.AddWithValue("@password", pass)
@@ -54,7 +55,7 @@ Module userModules
 
     Public Function isAccess(column As String) As Boolean
         Try
-            Dim query As String = "SELECT " & column & ",admin FROM " & userTable & " WHERE IDno = @IDno"
+            Dim query As String = "Select " & column & ",admin FROM " & userTable & " WHERE IDno = @IDno"
             Using cmd As New MySqlCommand(query, con)
                 cmd.Parameters.AddWithValue("@IDno", user_IDNumber)
                 con.Close()
@@ -71,14 +72,14 @@ Module userModules
                 End If
             End Using
         Catch ex As Exception
-            MessageBox.Show("Something went wrong. Please try again later.")
+            MessageBox.Show("Something went wrong. Please Try again later.")
             Return 0
         End Try
     End Function
 
     Public Function getPCline() As String
         Try
-            Dim query As String = "SELECT line FROM prod_pcline WHERE pcname='" & Environment.MachineName & "'"
+            Dim query As String = "Select line FROM prod_pcline WHERE pcname='" & Environment.MachineName & "'"
             con.Close()
             con.Open()
             Dim selectpc As New MySqlCommand(query, con)
