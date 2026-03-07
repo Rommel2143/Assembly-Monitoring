@@ -158,6 +158,21 @@ Public Class ScanItems
                     End If
 
 
+
+                    If qr.Qty <> SetPlan.PartItem.spq Then
+                        Using PasswordPrompt As New PasswordPrompt
+
+                            PasswordPrompt.ErrorText = "QR code SPQ not match the selected plan! |" & txtLotQR.Text
+                            PasswordPrompt.ShowDialog()
+                        End Using
+                        txtLotQR.Clear()
+                        Return
+                    End If
+
+
+
+
+
                     BoxPlan.Qrcode = txtLotQR.Text
                     BoxPlan.Lotnumber = qr.LotNumber
                     BoxPlan.planID = SetPlan.planID
