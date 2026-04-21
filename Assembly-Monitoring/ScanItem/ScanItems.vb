@@ -35,6 +35,11 @@ Public Class ScanItems
                 lbl_targettime.Text = SetPlan.cycletime.ToString("N0")
                 lbl_qctimer.Text = "0"
                 updateactual()
+                Using viewValidation As New DataValidations(SetPlan, BoxPlan)
+                    viewValidation.ShowDialog()
+                End Using
+
+
             End If
         End Using
 
@@ -157,6 +162,19 @@ Public Class ScanItems
                         Return
                     End If
 
+
+                    Dim exists As Boolean = SetPlan.PartItem.RemarksList.
+                    Any(Function(x) x.Equals(qr.Remarks, StringComparison.OrdinalIgnoreCase))
+
+                    If Not exists Then
+                        Using PasswordPrompt As New PasswordPrompt
+                            PasswordPrompt.ErrorText = "Remarks not found in selected plan! | " & txtLotQR.Text
+                            PasswordPrompt.ShowDialog()
+                        End Using
+
+                        txtLotQR.Clear()
+                        Return
+                    End If
 
 
                     If qr.Qty <> SetPlan.PartItem.spq Then
@@ -313,5 +331,15 @@ Public Class ScanItems
 
     Private Sub flowItems_Paint(sender As Object, e As PaintEventArgs)
 
+    End Sub
+
+    Private Sub Guna2Button2_Click_1(sender As Object, e As EventArgs) Handles Guna2Button2.Click
+        If SetPlan Is Nothing OrElse SetPlan.planID = 0 Then
+            MessageBox.Show("Please select a plan first!")
+            Return
+        End If
+        Using viewValidation As New DataValidations(SetPlan, BoxPlan)
+            viewValidation.ShowDialog()
+        End Using
     End Sub
 End Class

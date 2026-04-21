@@ -70,10 +70,10 @@
     </ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>BB0FEF6DCBE4B086918CB250ADF4AE3489793729</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>E6C1BD17A4A216B515E96955FED9E3329C0CFADA</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>Assembly-Monitoring_2_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>Assembly-Monitoring_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -267,6 +267,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ScanItem\DataValidations.Designer.vb">
+      <DependentUpon>DataValidations.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ScanItem\DataValidations.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ScanItem\PasswordPrompt.Designer.vb">
       <DependentUpon>PasswordPrompt.vb</DependentUpon>
     </Compile>
@@ -371,6 +377,9 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="ScanItem\DataValidations.resx">
+      <DependentUpon>DataValidations.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ScanItem\PasswordPrompt.resx">
       <DependentUpon>PasswordPrompt.vb</DependentUpon>
     </EmbeddedResource>
@@ -409,6 +418,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assembly-Monitoring_TemporaryKey.pfx" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

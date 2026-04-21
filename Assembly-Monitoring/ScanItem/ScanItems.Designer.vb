@@ -63,14 +63,16 @@ Partial Class ScanItems
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.panelScan = New Guna.UI2.WinForms.Guna2Panel()
         Me.Guna2GroupBox2 = New Guna.UI2.WinForms.Guna2GroupBox()
+        Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
         Me.datagrid1 = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.txtItemBarcode = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Guna2Button2 = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2PictureBox2 = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.txtLotQR = New Guna.UI2.WinForms.Guna2TextBox()
         Me.btnPlay = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.btn_select = New Guna.UI2.WinForms.Guna2Button()
-        Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
         Me.panel_select.SuspendLayout()
         Me.Guna2Panel4.SuspendLayout()
         Me.Guna2GroupBox1.SuspendLayout()
@@ -80,10 +82,10 @@ Partial Class ScanItems
         Me.Guna2Panel1.SuspendLayout()
         Me.panelScan.SuspendLayout()
         Me.Guna2GroupBox2.SuspendLayout()
+        Me.Guna2Panel2.SuspendLayout()
         CType(Me.datagrid1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Guna2PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Guna2Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'panel_select
@@ -200,6 +202,7 @@ Partial Class ScanItems
         Me.Guna2GroupBox1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2GroupBox1.BorderColor = System.Drawing.Color.Gray
         Me.Guna2GroupBox1.BorderRadius = 8
+        Me.Guna2GroupBox1.Controls.Add(Me.Guna2Button2)
         Me.Guna2GroupBox1.Controls.Add(Me.btnPlay)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2GroupBox4)
         Me.Guna2GroupBox1.Controls.Add(Me.Guna2GroupBox3)
@@ -533,7 +536,7 @@ Partial Class ScanItems
         Me.flowScanned.Location = New System.Drawing.Point(20, 68)
         Me.flowScanned.Margin = New System.Windows.Forms.Padding(0)
         Me.flowScanned.Name = "flowScanned"
-        Me.flowScanned.Size = New System.Drawing.Size(524, 291)
+        Me.flowScanned.Size = New System.Drawing.Size(524, 301)
         Me.flowScanned.TabIndex = 19
         '
         'Guna2Panel1
@@ -594,6 +597,16 @@ Partial Class ScanItems
         Me.Guna2GroupBox2.TabIndex = 41
         Me.Guna2GroupBox2.Text = "Scanned Barcodes"
         '
+        'Guna2Panel2
+        '
+        Me.Guna2Panel2.Controls.Add(Me.datagrid1)
+        Me.Guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2Panel2.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2Panel2.Location = New System.Drawing.Point(0, 40)
+        Me.Guna2Panel2.Name = "Guna2Panel2"
+        Me.Guna2Panel2.Size = New System.Drawing.Size(323, 662)
+        Me.Guna2Panel2.TabIndex = 22
+        '
         'datagrid1
         '
         Me.datagrid1.AllowUserToResizeRows = False
@@ -603,7 +616,6 @@ Partial Class ScanItems
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         Me.datagrid1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.datagrid1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.datagrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(221, Byte), Integer), CType(CType(221, Byte), Integer))
@@ -689,6 +701,28 @@ Partial Class ScanItems
         Me.txtItemBarcode.Size = New System.Drawing.Size(405, 50)
         Me.txtItemBarcode.TabIndex = 18
         '
+        'Guna2Button2
+        '
+        Me.Guna2Button2.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Button2.BorderRadius = 10
+        Me.Guna2Button2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.Guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.Guna2Button2.FillColor = System.Drawing.Color.Transparent
+        Me.Guna2Button2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2Button2.ForeColor = System.Drawing.Color.White
+        Me.Guna2Button2.Image = CType(resources.GetObject("Guna2Button2.Image"), System.Drawing.Image)
+        Me.Guna2Button2.ImageSize = New System.Drawing.Size(24, 24)
+        Me.Guna2Button2.Location = New System.Drawing.Point(363, 5)
+        Me.Guna2Button2.Name = "Guna2Button2"
+        Me.Guna2Button2.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Guna2Button2.Size = New System.Drawing.Size(28, 28)
+        Me.Guna2Button2.TabIndex = 34
+        Me.Guna2Button2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.ToolTip1.SetToolTip(Me.Guna2Button2, "View Data Validations")
+        '
         'Guna2PictureBox2
         '
         Me.Guna2PictureBox2.BackColor = System.Drawing.Color.Transparent
@@ -722,7 +756,7 @@ Partial Class ScanItems
         Me.txtLotQR.IconLeft = CType(resources.GetObject("txtLotQR.IconLeft"), System.Drawing.Image)
         Me.txtLotQR.IconLeftOffset = New System.Drawing.Point(5, 0)
         Me.txtLotQR.IconLeftSize = New System.Drawing.Size(24, 24)
-        Me.txtLotQR.Location = New System.Drawing.Point(20, 363)
+        Me.txtLotQR.Location = New System.Drawing.Point(20, 373)
         Me.txtLotQR.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtLotQR.Name = "txtLotQR"
         Me.txtLotQR.PlaceholderForeColor = System.Drawing.Color.Silver
@@ -786,16 +820,6 @@ Partial Class ScanItems
         Me.btn_select.Text = "Select Plan"
         Me.btn_select.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'Guna2Panel2
-        '
-        Me.Guna2Panel2.Controls.Add(Me.datagrid1)
-        Me.Guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2Panel2.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2Panel2.Location = New System.Drawing.Point(0, 40)
-        Me.Guna2Panel2.Name = "Guna2Panel2"
-        Me.Guna2Panel2.Size = New System.Drawing.Size(323, 662)
-        Me.Guna2Panel2.TabIndex = 22
-        '
         'ScanItems
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -821,10 +845,10 @@ Partial Class ScanItems
         Me.Guna2Panel1.PerformLayout()
         Me.panelScan.ResumeLayout(False)
         Me.Guna2GroupBox2.ResumeLayout(False)
+        Me.Guna2Panel2.ResumeLayout(False)
         CType(Me.datagrid1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Guna2PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Guna2Panel2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -872,4 +896,6 @@ Partial Class ScanItems
     Friend WithEvents Guna2GroupBox2 As Guna.UI2.WinForms.Guna2GroupBox
     Friend WithEvents datagrid1 As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents Guna2Button2 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents ToolTip1 As ToolTip
 End Class

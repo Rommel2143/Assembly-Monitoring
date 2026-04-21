@@ -8,11 +8,12 @@ Public Class Parts
     Public Property modelcode As String
     Public Property spq As Integer
     Public Property location As String
-
+    Public Property Remarks As String
+    Public Property RemarksList As List(Of String)
     Public Sub getPartData(partcodeVal As String)
 
         Dim query As String =
-            "SELECT id, partcode, partname, model, modelcode, qty, location
+            "SELECT id, partcode, partname, model, modelcode, qty, location,remarks
              FROM assy_masterlist
              WHERE partcode = @partcode"
 
@@ -32,6 +33,11 @@ Public Class Parts
                         modelcode = reader("modelcode").ToString()
                         spq = Convert.ToInt32(reader("qty"))
                         location = reader("location").ToString()
+                        Remarks = reader("remarks").ToString()
+                        RemarksList = Remarks.Split("|"c).
+                        Where(Function(x) Not String.IsNullOrWhiteSpace(x)).
+                        Select(Function(x) x.Trim()).
+                        ToList()
                     End If
                 End Using
 
