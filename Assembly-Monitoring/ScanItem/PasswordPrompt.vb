@@ -13,7 +13,7 @@ Public Class PasswordPrompt
             con.Open()
             Using cmd As New MySqlCommand(query, con)
                 cmd.Parameters.AddWithValue("@idno", txtUser.Text.Trim)
-                cmd.Parameters.AddWithValue("@password", CryptoModule.EncryptPassword(txtPassword.Text.Trim))
+                cmd.Parameters.AddWithValue("@password", txtPassword.Text)
 
                 Using dr As MySqlDataReader = cmd.ExecuteReader()
                     If dr.HasRows Then
@@ -52,5 +52,16 @@ Public Class PasswordPrompt
 
     Private Sub PasswordPrompt_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lblErrorText.Text = "Error: " & ErrorText
+    End Sub
+
+    Private Sub txtUser_TextChanged(sender As Object, e As EventArgs) Handles txtUser.TextChanged
+
+    End Sub
+
+    Private Sub txtUser_KeyDown(sender As Object, e As KeyEventArgs) Handles txtUser.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            txtPassword.Clear()
+            txtPassword.Focus()
+        End If
     End Sub
 End Class
