@@ -31,6 +31,10 @@ Partial Class search_barcode
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.datagrid1 = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
@@ -40,11 +44,18 @@ Partial Class search_barcode
         Me.Guna2DateTimePicker1 = New Guna.UI2.WinForms.Guna2DateTimePicker()
         Me.Guna2Button2 = New Guna.UI2.WinForms.Guna2Button()
         Me.datagrid2 = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.cmbShift = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.dtHourly = New Guna.UI2.WinForms.Guna2DateTimePicker()
+        Me.Guna2Button3 = New Guna.UI2.WinForms.Guna2Button()
+        Me.datagridHourly = New Guna.UI2.WinForms.Guna2DataGridView()
         CType(Me.datagrid1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         CType(Me.datagrid2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage3.SuspendLayout()
+        CType(Me.datagridHourly, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'datagrid1
@@ -159,6 +170,7 @@ Partial Class search_barcode
         Me.Guna2TabControl1.Alignment = System.Windows.Forms.TabAlignment.Left
         Me.Guna2TabControl1.Controls.Add(Me.TabPage1)
         Me.Guna2TabControl1.Controls.Add(Me.TabPage2)
+        Me.Guna2TabControl1.Controls.Add(Me.TabPage3)
         Me.Guna2TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Guna2TabControl1.ItemSize = New System.Drawing.Size(180, 40)
         Me.Guna2TabControl1.Location = New System.Drawing.Point(0, 0)
@@ -314,6 +326,149 @@ Partial Class search_barcode
         Me.datagrid2.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.datagrid2.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
+        'TabPage3
+        '
+        Me.TabPage3.Controls.Add(Me.cmbShift)
+        Me.TabPage3.Controls.Add(Me.dtHourly)
+        Me.TabPage3.Controls.Add(Me.Guna2Button3)
+        Me.TabPage3.Controls.Add(Me.datagridHourly)
+        Me.TabPage3.Location = New System.Drawing.Point(184, 4)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Size = New System.Drawing.Size(815, 650)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Hourly Report"
+        Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'cmbShift
+        '
+        Me.cmbShift.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbShift.BackColor = System.Drawing.Color.Transparent
+        Me.cmbShift.BorderColor = System.Drawing.Color.Silver
+        Me.cmbShift.BorderRadius = 8
+        Me.cmbShift.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cmbShift.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbShift.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cmbShift.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.cmbShift.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.cmbShift.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.cmbShift.ItemHeight = 30
+        Me.cmbShift.Items.AddRange(New Object() {"DayShift", "NightShift"})
+        Me.cmbShift.Location = New System.Drawing.Point(488, 29)
+        Me.cmbShift.Name = "cmbShift"
+        Me.cmbShift.Size = New System.Drawing.Size(175, 36)
+        Me.cmbShift.StartIndex = 0
+        Me.cmbShift.TabIndex = 44
+        '
+        'dtHourly
+        '
+        Me.dtHourly.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dtHourly.BorderColor = System.Drawing.Color.Silver
+        Me.dtHourly.BorderRadius = 8
+        Me.dtHourly.BorderThickness = 1
+        Me.dtHourly.Checked = True
+        Me.dtHourly.FillColor = System.Drawing.Color.White
+        Me.dtHourly.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.dtHourly.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
+        Me.dtHourly.Location = New System.Drawing.Point(23, 29)
+        Me.dtHourly.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.dtHourly.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.dtHourly.Name = "dtHourly"
+        Me.dtHourly.Size = New System.Drawing.Size(459, 36)
+        Me.dtHourly.TabIndex = 43
+        Me.dtHourly.Value = New Date(2025, 9, 29, 11, 35, 27, 970)
+        '
+        'Guna2Button3
+        '
+        Me.Guna2Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Guna2Button3.BorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button3.BorderRadius = 10
+        Me.Guna2Button3.BorderThickness = 1
+        Me.Guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.Guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.Guna2Button3.FillColor = System.Drawing.Color.DarkSeaGreen
+        Me.Guna2Button3.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.Guna2Button3.ForeColor = System.Drawing.Color.White
+        Me.Guna2Button3.Location = New System.Drawing.Point(669, 31)
+        Me.Guna2Button3.Name = "Guna2Button3"
+        Me.Guna2Button3.Size = New System.Drawing.Size(120, 34)
+        Me.Guna2Button3.TabIndex = 42
+        Me.Guna2Button3.Text = "Export"
+        '
+        'datagridHourly
+        '
+        Me.datagridHourly.AllowUserToAddRows = False
+        Me.datagridHourly.AllowUserToDeleteRows = False
+        Me.datagridHourly.AllowUserToResizeRows = False
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.datagridHourly.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle9
+        Me.datagridHourly.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.datagridHourly.BackgroundColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle10.BackColor = System.Drawing.Color.LightGray
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.LightGray
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.datagridHourly.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
+        Me.datagridHourly.ColumnHeadersHeight = 26
+        Me.datagridHourly.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle11.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.datagridHourly.DefaultCellStyle = DataGridViewCellStyle11
+        Me.datagridHourly.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.datagridHourly.Location = New System.Drawing.Point(23, 71)
+        Me.datagridHourly.Name = "datagridHourly"
+        Me.datagridHourly.ReadOnly = True
+        Me.datagridHourly.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle12.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.datagridHourly.RowHeadersDefaultCellStyle = DataGridViewCellStyle12
+        Me.datagridHourly.RowHeadersVisible = False
+        Me.datagridHourly.RowTemplate.Height = 50
+        Me.datagridHourly.Size = New System.Drawing.Size(766, 550)
+        Me.datagridHourly.TabIndex = 39
+        Me.datagridHourly.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
+        Me.datagridHourly.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        Me.datagridHourly.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
+        Me.datagridHourly.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
+        Me.datagridHourly.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
+        Me.datagridHourly.ThemeStyle.BackColor = System.Drawing.SystemColors.Control
+        Me.datagridHourly.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.datagridHourly.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.datagridHourly.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.datagridHourly.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.datagridHourly.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
+        Me.datagridHourly.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        Me.datagridHourly.ThemeStyle.HeaderStyle.Height = 26
+        Me.datagridHourly.ThemeStyle.ReadOnly = True
+        Me.datagridHourly.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White
+        Me.datagridHourly.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.datagridHourly.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.datagridHourly.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.datagridHourly.ThemeStyle.RowsStyle.Height = 50
+        Me.datagridHourly.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.datagridHourly.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        '
         'search_barcode
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -329,6 +484,8 @@ Partial Class search_barcode
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
         CType(Me.datagrid2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage3.ResumeLayout(False)
+        CType(Me.datagridHourly, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -342,4 +499,9 @@ Partial Class search_barcode
     Friend WithEvents Guna2DateTimePicker1 As Guna.UI2.WinForms.Guna2DateTimePicker
     Friend WithEvents Guna2Button2 As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents datagrid2 As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents TabPage3 As TabPage
+    Friend WithEvents datagridHourly As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents cmbShift As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents dtHourly As Guna.UI2.WinForms.Guna2DateTimePicker
+    Friend WithEvents Guna2Button3 As Guna.UI2.WinForms.Guna2Button
 End Class
