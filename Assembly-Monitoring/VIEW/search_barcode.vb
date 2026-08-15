@@ -145,4 +145,29 @@ ORDER BY Total DESC, prod_scanner.partcode;"
     Private Sub Guna2Button3_Click(sender As Object, e As EventArgs) Handles Guna2Button3.Click
         exportExcel(datagridHourly, "Hourly Report " & cmbShift.Text & "", Guna2DateTimePicker1.Value.ToString("MMMM dd yyyy"))
     End Sub
+
+    Private Sub Guna2TextBox2_TextChanged(sender As Object, e As EventArgs) Handles Guna2TextBox2.TextChanged
+        If Guna2TextBox2.Text = "" Then
+            datagridLotnumber.DataSource = Nothing
+        End If
+    End Sub
+
+    Private Sub Guna2TextBox2_KeyDown(sender As Object, e As KeyEventArgs) Handles Guna2TextBox2.KeyDown
+        If e.KeyCode = Keys.Enter Then
+
+            Dim sql As String =
+            "SELECT ps.`barcode`, ps.`partcode`, ps.`fgQR`,ps.lotnumber, ps.`datestamp` " &
+            "FROM `" & prodTable & "` ps " &
+            "WHERE ps.`lotnumber` = '" & Guna2TextBox2.Text.Trim() & "'"
+
+            reload(sql, datagridLotnumber)
+
+            e.SuppressKeyPress = True
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub Guna2Button4_Click(sender As Object, e As EventArgs) Handles Guna2Button4.Click
+        exportExcel(datagridLotnumber, "Lotnumber Records")
+    End Sub
 End Class
