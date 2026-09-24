@@ -333,6 +333,12 @@
     <Compile Include="VIEW\liveoutput.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="VIEW\LiveView.Designer.vb">
+      <DependentUpon>LiveView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\LiveView.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="VIEW\search_barcode.Designer.vb">
       <DependentUpon>search_barcode.vb</DependentUpon>
     </Compile>
@@ -409,6 +415,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\liveoutput.resx">
       <DependentUpon>liveoutput.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\LiveView.resx">
+      <DependentUpon>LiveView.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\search_barcode.resx">
       <DependentUpon>search_barcode.vb</DependentUpon>

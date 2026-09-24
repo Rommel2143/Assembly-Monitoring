@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class selectLive
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,150 +20,16 @@ Partial Class selectLive
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.datagrid1 = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Guna2RadioButton2 = New Guna.UI2.WinForms.Guna2RadioButton()
-        Me.Guna2RadioButton1 = New Guna.UI2.WinForms.Guna2RadioButton()
         Me.Guna2DateTimePicker1 = New Guna.UI2.WinForms.Guna2DateTimePicker()
-        Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
-        CType(Me.datagrid1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Guna2Panel1.SuspendLayout()
-        Me.Guna2Panel2.SuspendLayout()
+        Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Guna2VSeparator1 = New Guna.UI2.WinForms.Guna2VSeparator()
+        Me.radNS = New Guna.UI2.WinForms.Guna2RadioButton()
+        Me.radDS = New Guna.UI2.WinForms.Guna2RadioButton()
+        Me.btn_select = New Guna.UI2.WinForms.Guna2Button()
+        Me.Guna2Panel4.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'datagrid1
-        '
-        Me.datagrid1.AllowUserToAddRows = False
-        Me.datagrid1.AllowUserToDeleteRows = False
-        Me.datagrid1.AllowUserToResizeRows = False
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.datagrid1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
-        Me.datagrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.LightGray
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LightGray
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.datagrid1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
-        Me.datagrid1.ColumnHeadersHeight = 26
-        Me.datagrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.datagrid1.DefaultCellStyle = DataGridViewCellStyle7
-        Me.datagrid1.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.datagrid1.Location = New System.Drawing.Point(12, 71)
-        Me.datagrid1.Name = "datagrid1"
-        Me.datagrid1.ReadOnly = True
-        Me.datagrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.datagrid1.RowHeadersDefaultCellStyle = DataGridViewCellStyle8
-        Me.datagrid1.RowHeadersVisible = False
-        Me.datagrid1.RowTemplate.Height = 50
-        Me.datagrid1.Size = New System.Drawing.Size(842, 448)
-        Me.datagrid1.TabIndex = 33
-        Me.datagrid1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
-        Me.datagrid1.ThemeStyle.AlternatingRowsStyle.Font = Nothing
-        Me.datagrid1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
-        Me.datagrid1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
-        Me.datagrid1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
-        Me.datagrid1.ThemeStyle.BackColor = System.Drawing.Color.White
-        Me.datagrid1.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.datagrid1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.datagrid1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.datagrid1.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.datagrid1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
-        Me.datagrid1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        Me.datagrid1.ThemeStyle.HeaderStyle.Height = 26
-        Me.datagrid1.ThemeStyle.ReadOnly = True
-        Me.datagrid1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White
-        Me.datagrid1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.datagrid1.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.datagrid1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.datagrid1.ThemeStyle.RowsStyle.Height = 50
-        Me.datagrid1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.datagrid1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        '
-        'Guna2Panel1
-        '
-        Me.Guna2Panel1.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.Guna2Panel1.BorderColor = System.Drawing.Color.Silver
-        Me.Guna2Panel1.BorderRadius = 8
-        Me.Guna2Panel1.BorderThickness = 1
-        Me.Guna2Panel1.Controls.Add(Me.Guna2RadioButton2)
-        Me.Guna2Panel1.Controls.Add(Me.Guna2RadioButton1)
-        Me.Guna2Panel1.Location = New System.Drawing.Point(312, 9)
-        Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(158, 36)
-        Me.Guna2Panel1.TabIndex = 31
-        '
-        'Guna2RadioButton2
-        '
-        Me.Guna2RadioButton2.AutoSize = True
-        Me.Guna2RadioButton2.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2RadioButton2.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2RadioButton2.CheckedState.BorderThickness = 0
-        Me.Guna2RadioButton2.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2RadioButton2.CheckedState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2RadioButton2.CheckedState.InnerOffset = -4
-        Me.Guna2RadioButton2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2RadioButton2.ForeColor = System.Drawing.Color.Black
-        Me.Guna2RadioButton2.Location = New System.Drawing.Point(92, 6)
-        Me.Guna2RadioButton2.Name = "Guna2RadioButton2"
-        Me.Guna2RadioButton2.Size = New System.Drawing.Size(49, 25)
-        Me.Guna2RadioButton2.TabIndex = 28
-        Me.Guna2RadioButton2.Text = "NS"
-        Me.Guna2RadioButton2.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
-        Me.Guna2RadioButton2.UncheckedState.BorderThickness = 2
-        Me.Guna2RadioButton2.UncheckedState.FillColor = System.Drawing.Color.Transparent
-        Me.Guna2RadioButton2.UncheckedState.InnerColor = System.Drawing.Color.Transparent
-        Me.Guna2RadioButton2.UseVisualStyleBackColor = False
-        '
-        'Guna2RadioButton1
-        '
-        Me.Guna2RadioButton1.AutoSize = True
-        Me.Guna2RadioButton1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2RadioButton1.Checked = True
-        Me.Guna2RadioButton1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2RadioButton1.CheckedState.BorderThickness = 0
-        Me.Guna2RadioButton1.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2RadioButton1.CheckedState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2RadioButton1.CheckedState.InnerOffset = -4
-        Me.Guna2RadioButton1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2RadioButton1.ForeColor = System.Drawing.Color.Black
-        Me.Guna2RadioButton1.Location = New System.Drawing.Point(17, 6)
-        Me.Guna2RadioButton1.Name = "Guna2RadioButton1"
-        Me.Guna2RadioButton1.Size = New System.Drawing.Size(48, 25)
-        Me.Guna2RadioButton1.TabIndex = 27
-        Me.Guna2RadioButton1.TabStop = True
-        Me.Guna2RadioButton1.Text = "DS"
-        Me.Guna2RadioButton1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
-        Me.Guna2RadioButton1.UncheckedState.BorderThickness = 2
-        Me.Guna2RadioButton1.UncheckedState.FillColor = System.Drawing.Color.Transparent
-        Me.Guna2RadioButton1.UncheckedState.InnerColor = System.Drawing.Color.Transparent
-        Me.Guna2RadioButton1.UseVisualStyleBackColor = False
         '
         'Guna2DateTimePicker1
         '
@@ -177,47 +43,123 @@ Partial Class selectLive
         Me.Guna2DateTimePicker1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.Guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
         Me.Guna2DateTimePicker1.HoverState.FillColor = System.Drawing.Color.WhiteSmoke
-        Me.Guna2DateTimePicker1.Location = New System.Drawing.Point(20, 9)
+        Me.Guna2DateTimePicker1.Location = New System.Drawing.Point(28, 53)
         Me.Guna2DateTimePicker1.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
         Me.Guna2DateTimePicker1.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
         Me.Guna2DateTimePicker1.Name = "Guna2DateTimePicker1"
-        Me.Guna2DateTimePicker1.Size = New System.Drawing.Size(273, 36)
+        Me.Guna2DateTimePicker1.Size = New System.Drawing.Size(273, 50)
         Me.Guna2DateTimePicker1.TabIndex = 30
         Me.Guna2DateTimePicker1.Value = New Date(2025, 8, 13, 9, 22, 27, 105)
         '
-        'Guna2Panel2
+        'Guna2Panel4
         '
-        Me.Guna2Panel2.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Guna2Panel2.BorderRadius = 8
-        Me.Guna2Panel2.BorderThickness = 1
-        Me.Guna2Panel2.Controls.Add(Me.Guna2Panel1)
-        Me.Guna2Panel2.Controls.Add(Me.Guna2DateTimePicker1)
-        Me.Guna2Panel2.Location = New System.Drawing.Point(12, 10)
-        Me.Guna2Panel2.Name = "Guna2Panel2"
-        Me.Guna2Panel2.Size = New System.Drawing.Size(842, 55)
-        Me.Guna2Panel2.TabIndex = 34
+        Me.Guna2Panel4.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Guna2Panel4.BorderColor = System.Drawing.Color.Silver
+        Me.Guna2Panel4.BorderRadius = 8
+        Me.Guna2Panel4.BorderThickness = 1
+        Me.Guna2Panel4.Controls.Add(Me.Guna2VSeparator1)
+        Me.Guna2Panel4.Controls.Add(Me.radNS)
+        Me.Guna2Panel4.Controls.Add(Me.radDS)
+        Me.Guna2Panel4.Location = New System.Drawing.Point(328, 53)
+        Me.Guna2Panel4.Name = "Guna2Panel4"
+        Me.Guna2Panel4.Size = New System.Drawing.Size(239, 51)
+        Me.Guna2Panel4.TabIndex = 34
+        '
+        'Guna2VSeparator1
+        '
+        Me.Guna2VSeparator1.Location = New System.Drawing.Point(114, 5)
+        Me.Guna2VSeparator1.Name = "Guna2VSeparator1"
+        Me.Guna2VSeparator1.Size = New System.Drawing.Size(10, 41)
+        Me.Guna2VSeparator1.TabIndex = 29
+        '
+        'radNS
+        '
+        Me.radNS.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.radNS.AutoSize = True
+        Me.radNS.BackColor = System.Drawing.Color.Transparent
+        Me.radNS.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.radNS.CheckedState.BorderThickness = 0
+        Me.radNS.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.radNS.CheckedState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.radNS.CheckedState.InnerOffset = -4
+        Me.radNS.Font = New System.Drawing.Font("Segoe UI Semibold", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.radNS.ForeColor = System.Drawing.Color.Black
+        Me.radNS.Location = New System.Drawing.Point(144, 3)
+        Me.radNS.Name = "radNS"
+        Me.radNS.Size = New System.Drawing.Size(71, 41)
+        Me.radNS.TabIndex = 28
+        Me.radNS.Text = "NS"
+        Me.radNS.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.radNS.UncheckedState.BorderThickness = 2
+        Me.radNS.UncheckedState.FillColor = System.Drawing.Color.Transparent
+        Me.radNS.UncheckedState.InnerColor = System.Drawing.Color.Transparent
+        Me.radNS.UseVisualStyleBackColor = False
+        '
+        'radDS
+        '
+        Me.radDS.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.radDS.AutoSize = True
+        Me.radDS.BackColor = System.Drawing.Color.Transparent
+        Me.radDS.Checked = True
+        Me.radDS.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.radDS.CheckedState.BorderThickness = 3
+        Me.radDS.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.radDS.CheckedState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.radDS.CheckedState.InnerOffset = -4
+        Me.radDS.Font = New System.Drawing.Font("Segoe UI", 24.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.radDS.ForeColor = System.Drawing.Color.Black
+        Me.radDS.Location = New System.Drawing.Point(21, 1)
+        Me.radDS.Name = "radDS"
+        Me.radDS.Size = New System.Drawing.Size(81, 49)
+        Me.radDS.TabIndex = 27
+        Me.radDS.TabStop = True
+        Me.radDS.Text = "DS"
+        Me.radDS.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.radDS.UncheckedState.BorderThickness = 2
+        Me.radDS.UncheckedState.FillColor = System.Drawing.Color.Transparent
+        Me.radDS.UncheckedState.InnerColor = System.Drawing.Color.Transparent
+        Me.radDS.UseVisualStyleBackColor = False
+        '
+        'btn_select
+        '
+        Me.btn_select.BackColor = System.Drawing.Color.Transparent
+        Me.btn_select.BorderRadius = 5
+        Me.btn_select.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btn_select.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btn_select.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btn_select.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btn_select.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.btn_select.FillColor = System.Drawing.Color.Crimson
+        Me.btn_select.Font = New System.Drawing.Font("Segoe UI Semibold", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_select.ForeColor = System.Drawing.Color.White
+        Me.btn_select.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.btn_select.ImageSize = New System.Drawing.Size(38, 38)
+        Me.btn_select.Location = New System.Drawing.Point(0, 624)
+        Me.btn_select.Name = "btn_select"
+        Me.btn_select.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.btn_select.Size = New System.Drawing.Size(609, 51)
+        Me.btn_select.TabIndex = 35
+        Me.btn_select.Text = "Select Live"
         '
         'selectLive
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(887, 535)
-        Me.Controls.Add(Me.datagrid1)
-        Me.Controls.Add(Me.Guna2Panel2)
+        Me.ClientSize = New System.Drawing.Size(609, 675)
+        Me.Controls.Add(Me.btn_select)
+        Me.Controls.Add(Me.Guna2Panel4)
+        Me.Controls.Add(Me.Guna2DateTimePicker1)
         Me.Name = "selectLive"
         Me.Text = "selectLive"
-        CType(Me.datagrid1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Guna2Panel1.ResumeLayout(False)
-        Me.Guna2Panel1.PerformLayout()
-        Me.Guna2Panel2.ResumeLayout(False)
+        Me.Guna2Panel4.ResumeLayout(False)
+        Me.Guna2Panel4.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents datagrid1 As Guna.UI2.WinForms.Guna2DataGridView
-    Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents Guna2RadioButton2 As Guna.UI2.WinForms.Guna2RadioButton
-    Friend WithEvents Guna2RadioButton1 As Guna.UI2.WinForms.Guna2RadioButton
     Friend WithEvents Guna2DateTimePicker1 As Guna.UI2.WinForms.Guna2DateTimePicker
-    Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents Guna2Panel4 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents Guna2VSeparator1 As Guna.UI2.WinForms.Guna2VSeparator
+    Friend WithEvents radNS As Guna.UI2.WinForms.Guna2RadioButton
+    Friend WithEvents radDS As Guna.UI2.WinForms.Guna2RadioButton
+    Friend WithEvents btn_select As Guna.UI2.WinForms.Guna2Button
 End Class

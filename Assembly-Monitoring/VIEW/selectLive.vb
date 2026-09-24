@@ -1,45 +1,120 @@
 ﻿Public Class selectLive
-    Private Sub selectLive_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Guna2DateTimePicker1.Value = Date.Now
-        Dim columnExists As Boolean = False
-        For Each column As DataGridViewColumn In datagrid1.Columns
-            If column.Name = "ActionImage" Then
-                columnExists = True
-                Exit For
-            End If
-        Next
-        If Not columnExists Then
-            Dim imgColumn As New DataGridViewImageColumn()
-            imgColumn.Name = "ActionImage"
-            imgColumn.HeaderText = "Action"
-            imgColumn.Image = My.Resources.play_button ' Replace with your actual resource
 
-            datagrid1.Columns.Insert(0, imgColumn) ' Insert at the first column
-            datagrid1.Columns(0).Width = 50
+    Private Sub selectLive_Load(
+        sender As Object,
+        e As EventArgs
+    ) Handles MyBase.Load
+
+        'Default date
+        Guna2DateTimePicker1.Value = Date.Today
+
+        'Default shift
+        radDS.Checked = True
+
+    End Sub
+
+
+    Private Sub btn_select_Click(
+    sender As Object,
+    e As EventArgs
+) Handles btn_select.Click
+
+        '========================================================
+        ' DETERMINE SHIFT
+        '========================================================
+
+        Dim shiftPlan As String
+
+        If radDS.Checked Then
+
+            shiftPlan = "DS"
+
+        ElseIf radNS.Checked Then
+
+            shiftPlan = "NS"
+
+        Else
+
+            MessageBox.Show(
+            "Please select a shift.",
+            "Select Shift",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Warning
+        )
+
+            Return
+
         End If
-    End Sub
-    Private Sub datagrid1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles datagrid1.CellContentClick
-        ' Make sure click is inside a valid row and the ActionImage column
-        If e.RowIndex >= 0 AndAlso e.ColumnIndex = datagrid1.Columns("ActionImage").Index Then
-            ' Get the id of the selected row
-            Dim selectedID As String = datagrid1.Rows(e.RowIndex).Cells("id").Value.ToString()
-            liveoutput.liveID = selectedID
-            liveoutput.loadLIVE()
-            liveoutput.Show()
-            liveoutput.BringToFront()
 
-            ' Example: Call another sub or form
-            ' playPlan(selectedID)
+
+        '========================================================
+        ' GET PC LINE
+        '========================================================
+
+        Dim linePlan As Integer
+
+        If Not Integer.TryParse(user_PCline, linePlan) Then
+
+            MessageBox.Show(
+            "Invalid PC line configuration.",
+            "Configuration Error",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Warning
+        )
+
+            Return
+
         End If
+
+
+        '========================================================
+        ' CREATE LIVE VIEW
+        '========================================================
+
+        Dim frmLiveView As New LiveView(
+        Guna2DateTimePicker1.Value.Date,
+        user_PClocation,
+        linePlan,
+        shiftPlan
+    )
+
+
+        '========================================================
+        ' SHOW LIVE VIEW
+        '========================================================
+
+        frmLiveView.Show()
+
+        frmLiveView.BringToFront()
+        '========================================================
+        ' CLOSE SELECTION
+        '========================================================
+
+        Me.Close()
+
     End Sub
 
-    Private Sub Guna2DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles Guna2DateTimePicker1.ValueChanged, Guna2RadioButton1.CheckedChanged, Guna2RadioButton2.CheckedChanged
-        reloadplan()
+    Private Sub radDS_CheckedChanged(
+        sender As Object,
+        e As EventArgs
+    ) Handles radDS.CheckedChanged
+
+        If radDS.Checked Then
+            radNS.Checked = False
+        End If
+
     End Sub
 
-    Public Sub reloadplan()
-        reload("SELECT pp.id,pp.partcode,model,plan,duration AS 'Duration(Hrs)',cycletime FROM prod_plan pp
-JOIN assy_masterlist am ON am.partcode=pp.partcode
-WHERE datein='" & Guna2DateTimePicker1.Value.ToString("yyy-MM-dd") & "' AND shift='" & If(Guna2RadioButton1.Checked = True, 1, 0) & "' AND pp.location ='" & user_PClocation & "' AND line ='" & user_PCline & "'", datagrid1)
+
+    Private Sub radNS_CheckedChanged(
+        sender As Object,
+        e As EventArgs
+    ) Handles radNS.CheckedChanged
+
+        If radNS.Checked Then
+            radDS.Checked = False
+        End If
+
     End Sub
+
 End Class
