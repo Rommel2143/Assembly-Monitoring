@@ -13,7 +13,7 @@ Public Class LiveView
     Private WithEvents RefreshTimer As New Timer()
     Private WithEvents CountdownTimer As New Timer()
 
-    Private ReadOnly RefreshInterval As Integer = 5
+    Private ReadOnly RefreshInterval As Integer = 11
     Private CountdownSeconds As Integer = RefreshInterval
 
     Private IsLoading As Boolean = False
@@ -107,13 +107,13 @@ Public Class LiveView
     '----------------------------------------
     Private Sub UpdateCountdownLabel()
 
-        'If lblCountdown Is Nothing Then Return
+        If lblCountdown Is Nothing Then Return
 
-        'lblCountdown.Text =
-        '    "Next refresh in: " &
-        '    CountdownSeconds.ToString() &
-        '    " second" &
-        '    If(CountdownSeconds = 1, "", "s")
+        lblCountdown.Text =
+            "Next refresh in: " &
+            CountdownSeconds.ToString() &
+            " second" &
+            If(CountdownSeconds = 1, "", "s")
 
     End Sub
 
