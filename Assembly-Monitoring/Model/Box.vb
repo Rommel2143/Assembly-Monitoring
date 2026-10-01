@@ -70,14 +70,16 @@ Public Class Box
                     For Each item In Items
                         Dim insertQuery As String = $"
                         INSERT INTO {prodTable} 
-                        (planID, barcode, partcode, clock, pc, fgQR, lotnumber, datestamp)
+                        (planID, barcode,barcode2, partcode, clock, pc, fgQR, lotnumber, datestamp)
                         VALUES
-                        (@planID, @barcode, @partcode, @clock, @pc, @fgQR, @lotnumber, @datestamp)"
+                        (@planID, @barcode,@barcode2, @partcode, @clock, @pc, @fgQR, @lotnumber, @datestamp)"
 
                         Using cmd As New MySqlCommand(insertQuery, conn, transaction)
                             cmd.Parameters.Add("@planID", MySqlDbType.VarChar).Value = planID
                             cmd.Parameters.Add("@barcode", MySqlDbType.VarChar).Value = item.barcode
+                            cmd.Parameters.Add("@barcode2", MySqlDbType.VarChar).Value = item.barcode2
                             cmd.Parameters.Add("@partcode", MySqlDbType.VarChar).Value = partcode
+
                             cmd.Parameters.Add("@clock", MySqlDbType.Int32).Value = item.clock
                             cmd.Parameters.Add("@pc", MySqlDbType.VarChar).Value = user_PC
                             cmd.Parameters.Add("@fgQR", MySqlDbType.VarChar).Value = Qrcode
@@ -104,6 +106,7 @@ End Class
 
 Public Class Items
     Public Property barcode As String
+    Public Property barcode2 As String
     Public Property clock As Integer
     Public Property datestamp As DateTime
 End Class

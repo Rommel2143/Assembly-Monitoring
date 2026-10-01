@@ -1,19 +1,26 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class Parts
+
     Public Property partID As Integer
     Public Property partcode As String
     Public Property partname As String
     Public Property model As String
     Public Property modelcode As String
+
+    ' Nullable
+    Public Property modelcode2 As String = Nothing
+
     Public Property spq As Integer
     Public Property location As String
     Public Property Remarks As String
     Public Property RemarksList As List(Of String)
+
     Public Sub getPartData(partcodeVal As String)
 
         Dim query As String =
-            "SELECT id, partcode, partname, model, modelcode, qty, location,remarks
+            "SELECT id, partcode, partname, model, modelcode, modelcode2,
+                    qty, location, remarks
              FROM assy_masterlist
              WHERE partcode = @partcode"
 
@@ -25,23 +32,39 @@ Public Class Parts
                 conn.Open()
 
                 Using reader As MySqlDataReader = cmd.ExecuteReader()
+
                     If reader.Read() Then
-                        partID = reader("id")
+
+                        partID = Convert.ToInt32(reader("id"))
                         partcode = reader("partcode").ToString()
                         partname = reader("partname").ToString()
                         model = reader("model").ToString()
                         modelcode = reader("modelcode").ToString()
+
+                        ' modelcode2 can be NULL
+                        If reader.IsDBNull(reader.GetOrdinal("modelcode2")) Then
+                            modelcode2 = Nothing
+                        Else
+                            modelcode2 = reader("modelcode2").ToString()
+                        End If
+
                         spq = Convert.ToInt32(reader("qty"))
                         location = reader("location").ToString()
                         Remarks = reader("remarks").ToString()
-                        RemarksList = Remarks.Split("|"c).
-                        Where(Function(x) Not String.IsNullOrWhiteSpace(x)).
-                        Select(Function(x) x.Trim()).
-                        ToList()
+
+                        RemarksList =
+                            Remarks.Split("|"c).
+                            Where(Function(x) Not String.IsNullOrWhiteSpace(x)).
+                            Select(Function(x) x.Trim()).
+                            ToList()
+
                     End If
+
                 End Using
 
             End Using
         End Using
+
     End Sub
+
 End Class

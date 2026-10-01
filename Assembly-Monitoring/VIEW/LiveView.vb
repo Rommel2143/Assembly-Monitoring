@@ -220,15 +220,13 @@ Public Class LiveView
                         lblTargetOutput.Text =
                             targetOutput.ToString("N0")
 
-                        lblTargetCycle.Text =
-                            "TARGET CYCLE (" &
-                            targetCycleTime.ToString("N0") &
-                            " seconds/item)"
+                        lblTargetCycle.Text = "Planned : " & targetCycleTime.ToString("N0") &
+                            " seconds/item "
 
                         lblActualCycle.Text =
-                            "ACTUAL CYCLE (" &
+                            "QC Scanning Speed :" &
                             averageActualTime.ToString("N0") &
-                            " seconds/item)"
+                            " seconds/item"
 
                         '----------------------------------------
                         ' Progress

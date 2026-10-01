@@ -38,16 +38,17 @@ Partial Class selectLive
         Me.Guna2DateTimePicker1.BorderRadius = 8
         Me.Guna2DateTimePicker1.BorderThickness = 1
         Me.Guna2DateTimePicker1.Checked = True
+        Me.Guna2DateTimePicker1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Guna2DateTimePicker1.FillColor = System.Drawing.Color.WhiteSmoke
-        Me.Guna2DateTimePicker1.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2DateTimePicker1.Font = New System.Drawing.Font("Segoe UI Semibold", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Guna2DateTimePicker1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
         Me.Guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
         Me.Guna2DateTimePicker1.HoverState.FillColor = System.Drawing.Color.WhiteSmoke
-        Me.Guna2DateTimePicker1.Location = New System.Drawing.Point(28, 53)
+        Me.Guna2DateTimePicker1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2DateTimePicker1.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
         Me.Guna2DateTimePicker1.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
         Me.Guna2DateTimePicker1.Name = "Guna2DateTimePicker1"
-        Me.Guna2DateTimePicker1.Size = New System.Drawing.Size(273, 50)
+        Me.Guna2DateTimePicker1.Size = New System.Drawing.Size(609, 69)
         Me.Guna2DateTimePicker1.TabIndex = 30
         Me.Guna2DateTimePicker1.Value = New Date(2025, 8, 13, 9, 22, 27, 105)
         '
@@ -60,14 +61,15 @@ Partial Class selectLive
         Me.Guna2Panel4.Controls.Add(Me.Guna2VSeparator1)
         Me.Guna2Panel4.Controls.Add(Me.radNS)
         Me.Guna2Panel4.Controls.Add(Me.radDS)
-        Me.Guna2Panel4.Location = New System.Drawing.Point(328, 53)
+        Me.Guna2Panel4.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Guna2Panel4.Location = New System.Drawing.Point(0, 69)
         Me.Guna2Panel4.Name = "Guna2Panel4"
-        Me.Guna2Panel4.Size = New System.Drawing.Size(239, 51)
+        Me.Guna2Panel4.Size = New System.Drawing.Size(609, 51)
         Me.Guna2Panel4.TabIndex = 34
         '
         'Guna2VSeparator1
         '
-        Me.Guna2VSeparator1.Location = New System.Drawing.Point(114, 5)
+        Me.Guna2VSeparator1.Location = New System.Drawing.Point(299, 3)
         Me.Guna2VSeparator1.Name = "Guna2VSeparator1"
         Me.Guna2VSeparator1.Size = New System.Drawing.Size(10, 41)
         Me.Guna2VSeparator1.TabIndex = 29
@@ -84,7 +86,7 @@ Partial Class selectLive
         Me.radNS.CheckedState.InnerOffset = -4
         Me.radNS.Font = New System.Drawing.Font("Segoe UI Semibold", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.radNS.ForeColor = System.Drawing.Color.Black
-        Me.radNS.Location = New System.Drawing.Point(144, 3)
+        Me.radNS.Location = New System.Drawing.Point(426, 6)
         Me.radNS.Name = "radNS"
         Me.radNS.Size = New System.Drawing.Size(71, 41)
         Me.radNS.TabIndex = 28
@@ -108,7 +110,7 @@ Partial Class selectLive
         Me.radDS.CheckedState.InnerOffset = -4
         Me.radDS.Font = New System.Drawing.Font("Segoe UI", 24.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.radDS.ForeColor = System.Drawing.Color.Black
-        Me.radDS.Location = New System.Drawing.Point(21, 1)
+        Me.radDS.Location = New System.Drawing.Point(115, 0)
         Me.radDS.Name = "radDS"
         Me.radDS.Size = New System.Drawing.Size(81, 49)
         Me.radDS.TabIndex = 27
@@ -134,10 +136,10 @@ Partial Class selectLive
         Me.btn_select.ForeColor = System.Drawing.Color.White
         Me.btn_select.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.btn_select.ImageSize = New System.Drawing.Size(38, 38)
-        Me.btn_select.Location = New System.Drawing.Point(0, 624)
+        Me.btn_select.Location = New System.Drawing.Point(0, 132)
         Me.btn_select.Name = "btn_select"
         Me.btn_select.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.btn_select.Size = New System.Drawing.Size(609, 51)
+        Me.btn_select.Size = New System.Drawing.Size(609, 83)
         Me.btn_select.TabIndex = 35
         Me.btn_select.Text = "Select Live"
         '
@@ -145,7 +147,7 @@ Partial Class selectLive
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(609, 675)
+        Me.ClientSize = New System.Drawing.Size(609, 215)
         Me.Controls.Add(Me.btn_select)
         Me.Controls.Add(Me.Guna2Panel4)
         Me.Controls.Add(Me.Guna2DateTimePicker1)
