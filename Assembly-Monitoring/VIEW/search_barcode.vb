@@ -26,7 +26,7 @@ Public Class search_barcode
             END AS shift 
         FROM `" & prodTable & "` ps " &
         "JOIN `prod_plan` pp ON pp.id = ps.planID 
-                   WHERE barcode REGEXP '" & Guna2TextBox1.Text & "' OR fgQR REGEXP '" & Guna2TextBox1.Text & "'", datagrid1)
+                   WHERE barcode like '" & Guna2TextBox1.Text & "' OR fgQR like '" & Guna2TextBox1.Text & "'", datagrid1)
 
         End If
     End Sub
